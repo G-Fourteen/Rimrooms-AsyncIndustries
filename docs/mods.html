@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mods and expansions — Rimrooms — Async Industries</title>
-<meta name="description" content="Nothing is required but RimWorld. What the 294-mod profile actually means for you.">
+<meta name="description" content="Nothing is required but RimWorld. What the load-order profile actually means for you.">
 <link rel="stylesheet" href="assets/css/rimrooms.css">
 </head>
 <body>
@@ -29,10 +29,10 @@
   <nav class="sidebar" aria-label="Pages">
 <h2>Start</h2>
 <ul>
-  <li><a href="index.html" title="What this mod is, and the four pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
+  <li><a href="index.html" title="What this mod is, and the three pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
   <li><a href="install.html" title="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.">Install</a></li>
   <li><a href="first-hour.html" title="The gate start-up chain end to end: eleven goals, in the order they unlock.">Your first hour</a></li>
-  <li><a href="scenarios.html" title="The three shipped starts and what each one is actually like to play.">The three starts</a></li>
+  <li><a href="scenarios.html" title="The three starts and what each one is actually like to play.">The three starts</a></li>
 </ul>
 <h2>Playing</h2>
 <ul>
@@ -43,7 +43,7 @@
 </ul>
 <h2>Running it</h2>
 <ul>
-  <li><a href="mods.html" title="Nothing is required but RimWorld. What the 294-mod profile actually means for you." aria-current="page">Mods and expansions</a></li>
+  <li><a href="mods.html" title="Nothing is required but RimWorld. What the load-order profile actually means for you." aria-current="page">Mods and expansions</a></li>
   <li><a href="multiplayer.html" title="RimWorld Together is the mod that does it. What it is, and what we have not tested.">Multiplayer</a></li>
   <li><a href="troubleshooting.html" title="Symptoms, what each one usually means, and what to send if it is ours.">Troubleshooting</a></li>
 </ul>
@@ -55,7 +55,11 @@
   </nav>
 
   <main id="content" class="prose">
-    <p class="summary">Nothing is required but RimWorld. What the 294-mod profile actually means for you.</p>
+    <div class="banner" role="presentation">
+      <img src="../1.6/Textures/UI/Menu/RR_Menu_FamiliarStranger.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
+           width="1672" height="941">
+    </div>
+    <p class="summary">Nothing is required but RimWorld. What the load-order profile actually means for you.</p>
 <h1>Mods and expansions</h1>
 <h2>What is required</h2>
 <p><strong>RimWorld 1.6, and nothing else.</strong> No other mod. No expansion.</p>
@@ -68,7 +72,7 @@
 <p>This build declares <strong>no dependencies at all</strong>. Your mod manager will not ask you for anything, because nothing is being asked for.</p>
 <h2>Load order</h2>
 <p><strong>It loads last.</strong> A patch cannot see content from a mod that loads after it.</p>
-<p>It lists 294 mods as load-order advice, which is a different thing from a requirement: a sorting manager reads that list and places this mod correctly on its own. Every mod on it is optional, and the list is advice about <em>order</em>, never about what you need to own.</p>
+<p>It publishes a long list of mods as load-order advice, which is a different thing from a requirement: a sorting manager reads that list and places this mod correctly on its own. Every mod on it is optional, and the list is advice about <em>order</em>, never about what you need to own.</p>
 <hr>
 <h2>How it treats other mods</h2>
 <table>
@@ -80,6 +84,8 @@
 <tr><td><strong>No Harmony</strong></td><td>Nothing is patched at runtime</td></tr>
 </tbody></table>
 <p>The company panel lists the optional mods this one has a stated position on, whether each is loaded, and in plain words what will and will not happen with it.</p>
+<h2>No start depends on another mod</h2>
+<p>Every opening reaches its first objective on RimWorld's own content. Where a mod or expansion would have supplied something, its absence degrades that thing with a stated reason rather than refusing to continue.</p>
 <h2>Doors from other mods</h2>
 <p>Wider doors work as wider gates — that is the one place another mod's content changes what you can do. A 2-cell door passes pack animals; 3 cells or more passes anything.</p>
 <p>Core alone gives you a 1-cell gate from a door or autodoor, and a 2-cell gate from an ornate door, with no other mod installed.</p>
@@ -88,7 +94,7 @@
 <p>If you hit a conflict, it is worth reporting — see <a href="links.html">Links</a>.</p>
 <hr>
 <h2>Running a smaller list</h2>
-<p>Run whatever list you like. Nothing is declared as a requirement, so no manager will warn you, and the mod is written so that <strong>missing content degrades rather than crashes</strong>.</p>
+<p>Run whatever list you like. Nothing is declared as a requirement, so no manager will warn you, and the mod is written so that missing content degrades rather than crashes.</p>
 <p>A reduced list is untested rather than unsupported — the same as every other list, including the full one.</p>
   </main>
 

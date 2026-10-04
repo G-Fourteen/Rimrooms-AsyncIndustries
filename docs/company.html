@@ -29,10 +29,10 @@
   <nav class="sidebar" aria-label="Pages">
 <h2>Start</h2>
 <ul>
-  <li><a href="index.html" title="What this mod is, and the four pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
+  <li><a href="index.html" title="What this mod is, and the three pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
   <li><a href="install.html" title="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.">Install</a></li>
   <li><a href="first-hour.html" title="The gate start-up chain end to end: eleven goals, in the order they unlock.">Your first hour</a></li>
-  <li><a href="scenarios.html" title="The three shipped starts and what each one is actually like to play.">The three starts</a></li>
+  <li><a href="scenarios.html" title="The three starts and what each one is actually like to play.">The three starts</a></li>
 </ul>
 <h2>Playing</h2>
 <ul>
@@ -43,7 +43,7 @@
 </ul>
 <h2>Running it</h2>
 <ul>
-  <li><a href="mods.html" title="Nothing is required but RimWorld. What the 294-mod profile actually means for you.">Mods and expansions</a></li>
+  <li><a href="mods.html" title="Nothing is required but RimWorld. What the load-order profile actually means for you.">Mods and expansions</a></li>
   <li><a href="multiplayer.html" title="RimWorld Together is the mod that does it. What it is, and what we have not tested.">Multiplayer</a></li>
   <li><a href="troubleshooting.html" title="Symptoms, what each one usually means, and what to send if it is ours.">Troubleshooting</a></li>
 </ul>
@@ -55,14 +55,37 @@
   </nav>
 
   <main id="content" class="prose">
+    <div class="banner" role="presentation">
+      <img src="../1.6/Textures/UI/Menu/RR_Menu_BreachedVault.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
+           width="1672" height="941">
+    </div>
     <p class="summary">Your employer: contracts, credits, staff, evidence and what the corporation wants.</p>
 <h1>The company</h1>
-<p><strong>The company is not a faction you befriend.</strong> It is an account, a queue of requests, and a bill.</p>
+<p>The company is not a faction you befriend. It is an account, a queue of requests, and a bill.</p>
+<hr>
+<h2>Nothing the company asks for has a deadline</h2>
+<p><strong>There are no deadlines in this mod.</strong> No request, contract, offer, quote or trade ever expires. There is no penalty for taking a long time, no cancellation for slowness, and nothing that asks you to respond within a set period.</p>
+<p>You may cancel a job. The corporation may not.</p>
+<p>The only thing in this mod with a duration is <strong>a gate's open connection</strong>, and that duration is a consequence of power, technology, maintenance and staffing — all things you control. See <a href="gates.html">Gates and connections</a>.</p>
+<h2>Every job has more than one way to finish</h2>
+<p>Every request and contract offers <strong>at least two routes to success, of at least two different kinds</strong>. The kinds are:</p>
+<table>
+<thead><tr><th>Route</th><th>What it means</th></tr></thead>
+<tbody>
+<tr><td><strong>Deliver</strong></td><td>Bring the thing back</td></tr>
+<tr><td><strong>Document</strong></td><td>Bring the <em>record</em> back instead of the thing</td></tr>
+<tr><td><strong>Substitute</strong></td><td>Satisfy it with a different item of the same capability</td></tr>
+<tr><td><strong>Purchase</strong></td><td>Buy the shortfall through procurement</td></tr>
+<tr><td><strong>Testify</strong></td><td>A staff member's account, where a crew saw what a record would show</td></tr>
+<tr><td><strong>Decline and redirect</strong></td><td>Refuse the stated task and complete a related one</td></tr>
+<tr><td><strong>Research</strong></td><td>Complete a named company project</td></tr>
+</tbody></table>
+<p>The corporation does not care how a branch succeeds.</p>
 <hr>
 <h2>Two kinds of money</h2>
 <table>
 <tbody>
-<tr><td><strong>The account</strong></td><td>A ledger in dollars. Pays staff, site fees, procurement, obligations. <strong>Never spawned as silver.</strong></td></tr>
+<tr><td><strong>The account</strong></td><td>A ledger in dollars. Pays staff, site fees, procurement, obligations. Never spawned as silver.</td></tr>
 <tr><td><strong>Physical stock</strong></td><td>Silver, steel, food, gear, salvage. Ordinary RimWorld goods, behaving exactly as always.</td></tr>
 </tbody></table>
 <p>The Ledger pane lists recent movements with a reason for each. Unpaid obligations do not quietly vanish — pay them from Overview.</p>
@@ -71,12 +94,13 @@
 <table>
 <tbody>
 <tr><td><strong>Named for their value</strong></td><td>A bond says what it is worth</td></tr>
-<tr><td><strong>Deposit</strong></td><td>Put one back in, from the paper itself</td></tr>
+<tr><td><strong>Deposit</strong></td><td>Put one back in, from the paper itself, at full value</td></tr>
 <tr><td><strong>Combine</strong></td><td>Fold several into the fewest</td></tr>
-<tr><td><strong>A beacon</strong></td><td>Banks a whole radius at once</td></tr>
+<tr><td><strong>A beacon</strong></td><td>Banks every bond in a radius at once, also at full value</td></tr>
 </tbody></table>
-<p>Selling a bond through the company fetches <strong>85%</strong> of face. Depositing or banking returns <strong>100%</strong>.</p>
-<p><strong>Paper raises colony wealth where the ledger does not.</strong> Liquidity costs risk — and paper burns.</p>
+<p>A bond is not sold. It is already credits, so banking it is what happens to it — the company declines to buy one, because selling a bond at a discount would lose you money by accident.</p>
+<p><strong>Ordinary valuables are a separate trade.</strong> Sell those to the company and you receive <strong>85%</strong> of their worth: instant, with no trader, caravan or travel, and the company takes a cut for that.</p>
+<p>Paper raises colony wealth where the ledger does not. Liquidity costs risk, and paper burns.</p>
 <hr>
 <h2>Requests and contracts</h2>
 <table>
@@ -84,18 +108,70 @@
 <tr><td><strong>Request</strong></td><td>What the corporation asks for next. Finish one and the next opens.</td></tr>
 <tr><td><strong>Contract</strong></td><td>A priced job with terms, a base payment and a bonus.</td></tr>
 </tbody></table>
-<p>The corporation asks for six things and then stops asking. That is the hinge of the opening arc, not the end of the game.</p>
-<p>The Contracts pane shows both, <strong>requests first</strong> — because somebody on that pane is looking for what to do next.</p>
+<p><strong>The opening is a tutorial that becomes a campaign.</strong> Six requests teach the systems in dependency order — power the gate, assemble and calibrate it, bring back one record, mark a route home, report a disagreement, hold a connection open.</p>
+<p>The seventh is <strong>the hinge</strong>: the corporation asks you to choose a direction. You may declare one, or go and do the work in one without announcing anything. Every choice succeeds.</p>
+<p><strong>After the hinge the corporation keeps asking, and stops teaching.</strong> Later requests are generated from your branch's state, your coordinate history and what you can do.</p>
+<p>The Contracts pane shows both, requests first.</p>
+<h2>The arcs</h2>
+<p>The campaign is laid out in eight arcs. Each adds a kind of work rather than a difficulty step.</p>
+<table>
+<tbody>
+<tr><td><strong>1. Keep the doors open</strong></td><td>Power the site, assign an operator, bring home a record</td></tr>
+<tr><td><strong>2. Measure before trusting</strong></td><td>Familiar spaces reveal patterns; reports disagree</td></tr>
+<tr><td><strong>3. Return with control</strong></td><td>Known destinations become working routes</td></tr>
+<tr><td><strong>4. Make a business of it</strong></td><td>Clients request surveys, samples, instruments, rescue, access</td></tr>
+<tr><td><strong>5. Build beyond headquarters</strong></td><td>Remote sites need people, supplies, signals, protection, an exit</td></tr>
+<tr><td><strong>6. Respond to the outside world</strong></td><td>Openings appear in towns; witnesses and missing residents</td></tr>
+<tr><td><strong>7. Expand industrial reach</strong></td><td>Heavy cargo and staff across the wider world</td></tr>
+<tr><td><strong>8. Enter deeper systems</strong></td><td>Known families combine, then one unfamiliar rule at a time</td></tr>
+</tbody></table>
 <hr>
 <h2>Staff</h2>
 <p>Hire, pay, and assign company roles. Pawn autonomy and ordinary RimWorld skills and traits are untouched.</p>
-<p><strong>Field history is kept per person.</strong> The crew planner shows who is a novice, who is a veteran, and who has walked the address you are dialling.</p>
-<p><strong>Staff report in.</strong> Anybody back from a crossing is not dispatched again until debriefed. Quarantine and debrief are one thing: <em>you do not go back out until you have reported in.</em></p>
+<h3>Certification</h3>
+<p>Some jobs need a certificate, and you train people into them. A gate operator, a field analyst and a reserve technician each have a <strong>train</strong> bill:</p>
+<table>
+<thead><tr><th>Certificate</th><th>Needs</th></tr></thead>
+<tbody>
+<tr><td><strong>Gate operator</strong></td><td>Intellectual 4</td></tr>
+<tr><td><strong>Field analyst</strong></td><td>Intellectual 3</td></tr>
+<tr><td><strong>Reserve technician</strong></td><td>Crafting 5</td></tr>
+</tbody></table>
+<p>The first two run on a machining table or a crafting spot; the third needs the table. Training is work over time, and it completes by making that person certified.</p>
+<p>A branch with no certified gate operator cannot open a connection. The remedy is a bill, not a recruitment drive.</p>
+<h3>Field history and reporting in</h3>
+<p>Field history is kept per person. The crew planner shows who is a novice, who is a veteran, and who has walked the address you are dialling.</p>
+<p>Anybody back from a crossing is not dispatched again until debriefed. Quarantine and debrief are one thing: you do not go back out until you have reported in.</p>
 <p>Walking a single colonist through a door by hand is not a company dispatch and is not held to it.</p>
 <hr>
 <h2>Research</h2>
-<p>Seven branches, four tiers. Insight from analysed records buys unlocks.</p>
-<p>Every unlock grants a capability that real behaviour honours — there are no numbers on the ladder that quietly do nothing.</p>
+<p>Insight from analysed records buys unlocks across <strong>nine branches</strong>:</p>
+<table>
+<thead><tr><th>Branch</th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>Gate engineering and stability</strong></td><td>The window ladder, telemetry, standing connections</td></tr>
+<tr><td><strong>Facilities and power</strong></td><td>Reserve capacity, protected rooms, repair practice</td></tr>
+<tr><td><strong>Fieldcraft and medicine</strong></td><td>Kits, triage, recovery, training, rescue teams</td></tr>
+<tr><td><strong>Measurement and evidence</strong></td><td>Sensors, comparison, confidence, client reports</td></tr>
+<tr><td><strong>Spatial mapping and topology</strong></td><td>Atlases, alternate exits, deeper surveys</td></tr>
+<tr><td><strong>Entities and containment</strong></td><td>Detection, quarantine, scoped study</td></tr>
+<tr><td><strong>Communications and logistics</strong></td><td>Link range, delivery planning, caches, relays</td></tr>
+<tr><td><strong>Commerce and organisation</strong></td><td>Better offers, specialist recruitment, leases</td></tr>
+<tr><td><strong>Transport and orbital support</strong></td><td>Expansion content only, and never required</td></tr>
+</tbody></table>
+<p>Branches run through <strong>five progression bands</strong>:</p>
+<table>
+<thead><tr><th>Band</th><th>What it is for</th></tr></thead>
+<tbody>
+<tr><td><strong>0 — Facility foundations</strong></td><td>Make the company safe enough to work</td></tr>
+<tr><td><strong>1 — First entry</strong></td><td>Prepare a measured short expedition and read a first return</td></tr>
+<tr><td><strong>2 — Repeatable operations</strong></td><td>Revisit known coordinates; reduce preventable failures</td></tr>
+<tr><td><strong>3 — Remote operations</strong></td><td>Support more than one site; work beyond headquarters</td></tr>
+<tr><td><strong>4 — Deep operations</strong></td><td>Combine known techniques; extend reach</td></tr>
+</tbody></table>
+<p><strong>A band is a progression band, not a single chain.</strong> Every band above the first is reachable by more than one path, so a branch is never locked behind one project you have not happened to unlock.</p>
+<p>A project's prerequisites are only ever completed logs, a named project below it, and the insight price. <strong>Nothing requires time to have passed.</strong></p>
+<p>Every unlock grants a capability that real behaviour honours.</p>
 <hr>
 <h2>Facilities, equipment and sites</h2>
 <table>
@@ -108,16 +184,34 @@
 <hr>
 <h2>Work across a connection</h2>
 <p>Colonists travel through an open connection to do work on the other side: hauling, construction, bills, research, medical, cooking, cleaning, mining, hunting, farming, animals.</p>
-<p>Two things worth knowing:</p>
 <ul><li><strong>Work you started keeps going.</strong> A pawn who crossed to finish a job finishes it.</li><li><strong>Work you have not started waits.</strong> A far-side job sits below every local job of the same type, so nobody walks through a gate while the same work exists at home.</li></ul>
 <p>The Activity and Connected Work panes report what crossed, and why.</p>
 <hr>
+<h2>Places held open, and giving one back</h2>
+<p>Every place you hold open costs a loaded map, as a colony does. The <strong>Places</strong> pane shows the count against your allowance and lets you hand one back.</p>
+<p><strong>Releasing a place is permanent</strong>, and the confirmation says so: the gate will not open again.</p>
+<table>
+<thead><tr><th>Before you release</th><th></th></tr></thead>
+<tbody>
+<tr><td><strong>Anything left there is lost</strong></td><td>The pane counts the items and tells you how many</td></tr>
+<tr><td><strong>Not with people inside</strong></td><td>Refused while anybody is there, or part-way through crossing</td></tr>
+<tr><td><strong>Not your headquarters</strong></td><td>Refused outright</td></tr>
+</tbody></table>
+<p>A place you found rather than built is a gentler case. Releasing one moves it to a second list, and selecting the door that led there offers it back.</p>
+<hr>
+<h2>When a crew does not come home</h2>
+<p>A return window can expire with people still on the far side. They are not dead and they are not removed.</p>
+<p>The crew and their cargo stay at the saved address. There are two ways to recover them:</p>
+<ol><li><strong>Restore the gate and reopen that route.</strong> Fix whatever failed — power, calibration, the operator — and dial the same address.</li><li><strong>Send a relief trip.</strong> One extra person per run, and the same relief member is reused for further attempts. The original crew is unchanged.</li></ol>
+<p>A closed gate does not take your people with it.</p>
+<hr>
 <h2>Containment</h2>
 <p>Holding platforms and what they can hold are the base game's.</p>
-<p>What this adds is <strong>warnings about the maps you are not looking at</strong> — RimWorld's own containment alerts read the map on screen, and here several maps are live at once.</p>
+<p>What this adds is warnings about the maps you are not looking at — RimWorld's own containment alerts read the map on screen, and here several maps are live at once.</p>
 <p><strong>On a breach the branch cuts every open connection.</strong> Armed by default, using each gate's own emergency cutoff.</p>
 <hr>
 <h2>A branch never dies</h2>
+<p>Once a branch is in contact with the corporation, it is not written off.</p>
 <p>If everyone at the laboratory goes <strong>down</strong> — not dead, down — the company arrives.</p>
 <table>
 <tbody>
@@ -125,12 +219,12 @@
 <tr><td>The dead are buried on the property, or burned where no ground will take a grave</td><td></td></tr>
 <tr><td>Damage is repaired, every connection is shut at the gate</td><td></td></tr>
 <tr><td>Three replacement staff land with supplies</td><td></td></tr>
-<tr><td><strong>Every bond anywhere on your maps is taken</strong></td><td></td></tr>
-<tr><td><strong>Up to 25,000,000 is drawn from the account</strong> — whatever is there, never below zero</td><td></td></tr>
+<tr><td>Every bond anywhere on your maps is taken</td><td></td></tr>
+<tr><td>Up to 25,000,000 is drawn from the account — whatever is there, never below zero</td><td></td></tr>
 </tbody></table>
-<p><strong>You never lose the game.</strong> The gate is left commissioned, so the new crew can bring it back up.</p>
-<p>The letter gives you the figures.</p>
-<blockquote><p>This happens at the laboratory start. The other two openings keep a gentler version: a clean-up team that arrives only once everyone is actually dead, and leaves five.</p></blockquote>
+<p>You never lose the game. The gate is left commissioned, so the new crew can bring it back up.</p>
+<p>The letter gives you the figures. There is no limit on how many times this happens and no escalating penalty: an investor protecting an investment does not withdraw it for slowness.</p>
+<blockquote><p>The other two openings keep a gentler version, and <strong>only once the branch has earned contact</strong>: a clean-up team that arrives after everyone is actually dead, and leaves five.</p></blockquote>
   </main>
 
 </div>

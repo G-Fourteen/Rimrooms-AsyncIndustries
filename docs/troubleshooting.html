@@ -29,10 +29,10 @@
   <nav class="sidebar" aria-label="Pages">
 <h2>Start</h2>
 <ul>
-  <li><a href="index.html" title="What this mod is, and the four pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
+  <li><a href="index.html" title="What this mod is, and the three pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
   <li><a href="install.html" title="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.">Install</a></li>
   <li><a href="first-hour.html" title="The gate start-up chain end to end: eleven goals, in the order they unlock.">Your first hour</a></li>
-  <li><a href="scenarios.html" title="The three shipped starts and what each one is actually like to play.">The three starts</a></li>
+  <li><a href="scenarios.html" title="The three starts and what each one is actually like to play.">The three starts</a></li>
 </ul>
 <h2>Playing</h2>
 <ul>
@@ -43,7 +43,7 @@
 </ul>
 <h2>Running it</h2>
 <ul>
-  <li><a href="mods.html" title="Nothing is required but RimWorld. What the 294-mod profile actually means for you.">Mods and expansions</a></li>
+  <li><a href="mods.html" title="Nothing is required but RimWorld. What the load-order profile actually means for you.">Mods and expansions</a></li>
   <li><a href="multiplayer.html" title="RimWorld Together is the mod that does it. What it is, and what we have not tested.">Multiplayer</a></li>
   <li><a href="troubleshooting.html" title="Symptoms, what each one usually means, and what to send if it is ours." aria-current="page">Troubleshooting</a></li>
 </ul>
@@ -55,6 +55,10 @@
   </nav>
 
   <main id="content" class="prose">
+    <div class="banner" role="presentation">
+      <img src="../1.6/Textures/UI/Menu/RR_Menu_PanicJunction.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
+           width="1672" height="941">
+    </div>
     <p class="summary">Symptoms, what each one usually means, and what to send if it is ours.</p>
 <h1>Troubleshooting</h1>
 <p><strong>Every refusal in the game names its own cause.</strong> Read it — the cause is the instruction.</p>
@@ -64,17 +68,36 @@
 <table>
 <thead><tr><th>It says</th><th>Do this</th></tr></thead>
 <tbody>
+<tr><td>Not set to gate control</td><td><strong>Check both</strong> — the machining table and the comms console each need it, separately</td></tr>
 <tr><td>Assembly unfinished</td><td>Run the <strong>assemble gate</strong> bill: 100 steel, 8 industrial components</td></tr>
-<tr><td>Out of calibration</td><td>Have a qualified staff member calibrate it</td></tr>
+<tr><td>Nobody certified</td><td>Run the <strong>train gate operator</strong> bill. A machining table or a crafting spot will do</td></tr>
+<tr><td>Out of calibration</td><td>Have a certified staff member calibrate it</td></tr>
 <tr><td>No operator at the controls</td><td>Keep someone at the console — it is a job, not a checkbox</td></tr>
 <tr><td>Reserve too low</td><td>More batteries, or more generation</td></tr>
 <tr><td>No crew ready</td><td>Check the crew planner; it names who is not ready and why</td></tr>
+<tr><td>No address to open to</td><td>Take one from a request, or <strong>dial an unknown address</strong></td></tr>
 <tr><td>No validated way home</td><td>The coordinate has no exit route yet</td></tr>
 <tr><td>Gate damaged</td><td>Below half condition it will not hold. Repair it, then calibrate again</td></tr>
 <tr><td>Connection was cut</td><td>Somebody threw the kill switch, or a containment breach cut everything</td></tr>
+<tr><td>Too many places held open</td><td>You are at your allowance. Release one, or board up a free way in</td></tr>
 </tbody></table>
 <h2>Every box is ticked and it still will not connect</h2>
-<p>Check the <strong>address</strong>. A gate needs a registered coordinate to dial, and the Machine pane will say when the list is empty.</p>
+<p><strong>Check gate control on both buildings.</strong> The machining table and the communications console are set to it separately, and setting one and not the other leaves a gate that looks finished and does nothing.</p>
+<p>These are steps 4 and 8 of eleven, and the Machine pane names which one is outstanding.</p>
+<p>Then check the <strong>address</strong>. A gate needs a registered coordinate to dial, and the Machine pane will say when the list is empty.</p>
+<hr>
+<h2>This gate is blocked — too many places held open</h2>
+<p>Every place you hold open costs a loaded map, and so does each colony. You are at your allowance, which is your own colony limit from Options.</p>
+<p>Three ways on: <strong>Release</strong> a place you no longer need, <strong>board up</strong> a free way in for 25 wood, or raise the colony limit in Options.</p>
+<p>The Places pane shows the count, so you can check before walking anywhere.</p>
+<h2>My crew is stuck on the other side</h2>
+<p>The return window expired. They are alive and their cargo is with them, at the saved address.</p>
+<ul><li><strong>Reopen that route.</strong> Fix whatever failed — power, calibration, the operator — and dial the same address again.</li><li><strong>Or send a relief trip.</strong> One extra person per run; the same relief member is reused for further attempts.</li></ul>
+<p>Nothing is lost by waiting, and the original crew is unchanged.</p>
+<h2>I released a place and my stock was in it</h2>
+<p><strong>Release is permanent, and the confirmation says so.</strong> It counts the items first and tells you how many would be left behind.</p>
+<p>A place you <em>found</em> rather than built is recoverable: it moves to a second list on the Places pane, and selecting the door that led there offers it back.</p>
+<p>A place reached through a gate you built does not come back.</p>
 <hr>
 <h2>Other messages</h2>
 <table>
@@ -91,13 +114,16 @@
 <p>Another mod took <code>\</code>. Rebind Operations in your Key Bindings dialog; the Help pane will show your new binding.</p>
 <hr>
 <h2>Things moved while I was away</h2>
-<p><strong>That is deliberate.</strong> Coordinates change between visits. Not every time, and nothing announces it.</p>
+<p>That is deliberate. Coordinates change between visits. Not every time, and nothing announces it.</p>
 <h2>Something followed my crew home</h2>
-<p>Also deliberate, at the deepest band through an advanced gate. <strong>Closing the connection before it arrives is what stops it.</strong></p>
+<p>Also deliberate, at the deepest band through an advanced gate. Closing the connection before it arrives is what stops it.</p>
+<h2>I took too long and missed a deadline</h2>
+<p><strong>There are no deadlines.</strong> No request, contract, offer, quote or trade in this mod expires, and nothing is penalised for delay. If something became unavailable it was not a clock — read the message, which names its own cause.</p>
 <hr>
 <h2>Everyone is down and the company turned up</h2>
 <p>Working as intended — see <a href="company.html#a-branch-never-dies">A branch never dies</a>.</p>
 <p>It costs you every bond on the map and up to 25,000,000 from the account. The letter gives you the figures.</p>
+<p>This applies once a branch is in contact with the corporation. The Store and Lone survivor starts have no such protection until they earn it.</p>
 <hr>
 <h2>Reporting a problem</h2>
 <p>Include your RimWorld version, your mod list, and the exact text of the message. See <a href="links.html">Links</a>.</p>

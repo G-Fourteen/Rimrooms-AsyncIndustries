@@ -29,10 +29,10 @@
   <nav class="sidebar" aria-label="Pages">
 <h2>Start</h2>
 <ul>
-  <li><a href="index.html" title="What this mod is, and the four pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
+  <li><a href="index.html" title="What this mod is, and the three pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
   <li><a href="install.html" title="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.">Install</a></li>
   <li><a href="first-hour.html" title="The gate start-up chain end to end: eleven goals, in the order they unlock.">Your first hour</a></li>
-  <li><a href="scenarios.html" title="The three shipped starts and what each one is actually like to play.">The three starts</a></li>
+  <li><a href="scenarios.html" title="The three starts and what each one is actually like to play.">The three starts</a></li>
 </ul>
 <h2>Playing</h2>
 <ul>
@@ -43,7 +43,7 @@
 </ul>
 <h2>Running it</h2>
 <ul>
-  <li><a href="mods.html" title="Nothing is required but RimWorld. What the 294-mod profile actually means for you.">Mods and expansions</a></li>
+  <li><a href="mods.html" title="Nothing is required but RimWorld. What the load-order profile actually means for you.">Mods and expansions</a></li>
   <li><a href="multiplayer.html" title="RimWorld Together is the mod that does it. What it is, and what we have not tested.">Multiplayer</a></li>
   <li><a href="troubleshooting.html" title="Symptoms, what each one usually means, and what to send if it is ours.">Troubleshooting</a></li>
 </ul>
@@ -55,22 +55,49 @@
   </nav>
 
   <main id="content" class="prose">
+    <div class="banner" role="presentation">
+      <img src="../1.6/Textures/UI/Menu/RR_Menu_LightsOut.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
+           width="1672" height="941">
+    </div>
     <p class="summary">What is through a gate: how a coordinate is generated, and what is down there.</p>
 <h1>Beyond the gate</h1>
 <p>A <strong>coordinate</strong> is an address, and the map it opens onto.</p>
-<p><strong>You visit one. You do not settle one</strong> — the game will say so if you try to put one on the books.</p>
+<p>You visit one. You do not settle one — the game will say so if you try to put one on the books.</p>
 <hr>
 <h2>Depth</h2>
-<p>The shallow rooms are the yellow ones: sparse, and wrong in the way you expect.</p>
-<p>Further in it stops pretending. Rooms are furnished as laboratories, workshops, nurseries and dormitories. Runs of rooms are furnished as one place rather than three. Corridors have benches in them, because down there that is normal.</p>
+<p>Every coordinate is a <strong>300 by 300</strong> map. What changes with depth is how that space is divided.</p>
+<table>
+<thead><tr><th>Depth</th><th>What it is like</th></tr></thead>
+<tbody>
+<tr><td><strong>1</strong></td><td>Around 36 rooms, large and open, including one grand hall more than twice the size of any other room</td></tr>
+<tr><td><strong>2</strong></td><td>Around 49 rooms, smaller</td></tr>
+<tr><td><strong>3 and deeper</strong></td><td>Around 60 rooms — a warren, at the ceiling</td></tr>
+</tbody></table>
+<p>The first band is the fewest and largest spaces you will see. Going deeper means more rooms, more branching corridors, and less open floor.</p>
+<p>Rooms too wide for a roof to span unaided carry <strong>pillars</strong>, which is why the largest spaces read as built rather than drawn.</p>
+<p>A few spaces are <strong>sealed</strong>, with no corridor reaching them at all.</p>
+<h2>What a room is made of</h2>
+<p>The shallow rooms are the yellow ones: wood and worn plank, sparse, wrong in the way you expect.</p>
+<p>Deeper, the building material changes with depth, and each look covers a whole place rather than one room:</p>
+<table>
+<tbody>
+<tr><td><strong>Poolrooms</strong></td><td>Wet tile and hard light</td></tr>
+<tr><td><strong>Machinery</strong></td><td>Plate, grating and grease</td></tr>
+<tr><td><strong>Abandoned offices</strong></td><td>Worn carpet under dead strip light</td></tr>
+<tr><td><strong>Cold storage</strong></td><td>Concrete and frost</td></tr>
+<tr><td><strong>Wrong</strong></td><td>Where the place stops agreeing with itself</td></tr>
+</tbody></table>
+<p>Which one you get follows depth with some variation, and it is fixed per address — a place looks the same every time you return.</p>
+<p>What a room is built from is also salvage: steel walls are steel.</p>
+<p>Further in, the furnishing stops pretending too. Rooms are furnished as laboratories, workshops, nurseries and dormitories. Runs of rooms are furnished as one place rather than three. Corridors have benches in them.</p>
 <h2>Things move</h2>
 <p>Go back to a space you have been before and something will not be where you left it.</p>
-<p>Nothing tells you. <strong>Not every time.</strong></p>
+<p>Nothing tells you, and not every time.</p>
 <hr>
 <h2>Bands</h2>
 <p>Every coordinate has a <strong>band</strong> — how hostile it currently is.</p>
-<p>It rises with <strong>depth</strong> and with <strong>what your colony is worth</strong>, and it decides what comes looking for your crew.</p>
-<p>The Atlas pane prints it. You never have to learn a band by being hurt by it.</p>
+<p>It rises with depth and with what your colony is worth, and it decides what comes looking for your crew.</p>
+<p>The Atlas pane prints it, so you never have to learn a band by being hurt by it.</p>
 <h2>The Atlas</h2>
 <table>
 <tbody>
@@ -81,14 +108,14 @@
 <hr>
 <h2>What lives there</h2>
 <p>Wanderers, the missing, the dead, survivors worth bringing home — and things that are none of those.</p>
-<p>Nothing starves or rots before you have found it. <strong>Discovery starts their clock</strong>, not your exploring speed.</p>
+<p>Nothing starves or rots before you have found it. Discovery starts their clock, not your exploring speed.</p>
 <h2>What follows you</h2>
 <p>At the hostile band, an inhabitant will hunt your crew <strong>as far as the threshold</strong>.</p>
-<p>Only that far — with one bounded exception: at the deepest band, through an advanced gate, while an opening is live, something that fits may step through behind them. Then it behaves like anything else that got inside your base.</p>
-<p><strong>Closing the connection before it arrives is what stops it.</strong></p>
+<p>Only that far, with one bounded exception: at the deepest band, through an advanced gate, while an opening is live, something that fits may step through behind them. It then behaves like anything else that got inside your base.</p>
+<p>Closing the connection before it arrives is what stops it.</p>
 <p>A gate is never an objective, a lure or a spawn target. Nothing is ever drawn toward one.</p>
 <h2>Nothing leaks in</h2>
-<p>Inhabitants come from this mod's own roster only. <strong>No content from any other mod appears in Backrooms generation.</strong></p>
+<p>Inhabitants come from this mod's own roster only. No content from any other mod appears in Backrooms generation.</p>
 <hr>
 <h2>Bringing something back</h2>
 <p>The point of a crossing is a record.</p>
@@ -101,6 +128,7 @@
 <tr><td>4. Spend the insight</td><td>A company project</td></tr>
 </tbody></table>
 <p>The Investigation pane shows which of the three parts each recording still lacks.</p>
+<p><strong>None of these steps is timed.</strong> A recording waits as long as you need it to.</p>
 <h2>Odd goods</h2>
 <p>Anything carried out of a coordinate is marked <strong>odd</strong> and never stacks with the ordinary kind.</p>
 <p>A thousand odd cotton is a thing you went and fetched, not a thing you grew. Buyers turn up wanting goods by origin and paying well over the ordinary rate.</p>

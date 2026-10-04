@@ -29,10 +29,10 @@
   <nav class="sidebar" aria-label="Pages">
 <h2>Start</h2>
 <ul>
-  <li><a href="index.html" title="What this mod is, and the four pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
+  <li><a href="index.html" title="What this mod is, and the three pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
   <li><a href="install.html" title="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.">Install</a></li>
   <li><a href="first-hour.html" title="The gate start-up chain end to end: eleven goals, in the order they unlock.">Your first hour</a></li>
-  <li><a href="scenarios.html" title="The three shipped starts and what each one is actually like to play.">The three starts</a></li>
+  <li><a href="scenarios.html" title="The three starts and what each one is actually like to play.">The three starts</a></li>
 </ul>
 <h2>Playing</h2>
 <ul>
@@ -43,7 +43,7 @@
 </ul>
 <h2>Running it</h2>
 <ul>
-  <li><a href="mods.html" title="Nothing is required but RimWorld. What the 294-mod profile actually means for you.">Mods and expansions</a></li>
+  <li><a href="mods.html" title="Nothing is required but RimWorld. What the load-order profile actually means for you.">Mods and expansions</a></li>
   <li><a href="multiplayer.html" title="RimWorld Together is the mod that does it. What it is, and what we have not tested.">Multiplayer</a></li>
   <li><a href="troubleshooting.html" title="Symptoms, what each one usually means, and what to send if it is ours.">Troubleshooting</a></li>
 </ul>
@@ -55,6 +55,10 @@
   </nav>
 
   <main id="content" class="prose">
+    <div class="banner" role="presentation">
+      <img src="../1.6/Textures/UI/Menu/RR_Menu_SilentRecovery.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
+           width="1672" height="941">
+    </div>
     <p class="summary">The Operations panel pane by pane, and what each control refuses and why.</p>
 <h1>The interface</h1>
 <p>Everything the company does lives in one tab: <strong>Operations</strong>, first on the bottom bar.</p>
@@ -64,7 +68,7 @@
 <thead><tr><th>Pane</th><th>What it is for</th></tr></thead>
 <tbody>
 <tr><td><strong>Overview</strong></td><td>The branch at a glance; register headquarters; pay obligations</td></tr>
-<tr><td><strong>Personnel</strong></td><td>Hire, pay, assign roles</td></tr>
+<tr><td><strong>Personnel</strong></td><td>Hire, pay, assign roles, train certificates</td></tr>
 <tr><td><strong>Contracts</strong></td><td>Requests first, then priced jobs</td></tr>
 <tr><td><strong>Ledger</strong></td><td>Account movements, with a reason for each</td></tr>
 <tr><td><strong>Atlas</strong></td><td>Coordinates, bands, surveyed rooms</td></tr>
@@ -75,6 +79,7 @@
 <tr><td><strong>Facilities</strong></td><td>Rooms, equipment links</td></tr>
 <tr><td><strong>Procurement</strong></td><td>The corporate catalogue</td></tr>
 <tr><td><strong>Sites</strong></td><td>Places on the books beyond headquarters</td></tr>
+<tr><td><strong>Places</strong></td><td>Every place held open, the count against your allowance, and Release</td></tr>
 <tr><td><strong>Help</strong></td><td>Glossary, your current keybind, readability</td></tr>
 </tbody></table>
 <p><strong>Help works with no game loaded.</strong> A glossary you need a running company to open is not help.</p>
@@ -91,7 +96,7 @@
 <hr>
 <h2>Colour, size and accessibility</h2>
 <p><strong>These screens set no colour and no text size of their own.</strong> Your Options — interface scale, font, colourblind mode — apply here exactly as they apply to the base game.</p>
-<p><strong>Nothing required is carried by colour, sound or animation alone.</strong> Gate readiness, the return reserve, route tags, distance, recall warnings and record status each have a written label.</p>
+<p><strong>Nothing required is carried by colour, sound or animation alone.</strong> Gate readiness, the return reserve, route tags, distance, recall warnings and record status each have a written label, and the Machine pane's indicator lights are paired with the game's own tick glyph.</p>
 <hr>
 <h2>Two things this deliberately does not do</h2>
 <p><strong>It does not remap RimWorld's menus.</strong> Nothing on the base game's tab bar is replaced, reordered or patched. Remapping the interface would fight every interface mod you have installed, and reachability was the actual requirement — the company tab is first, and everything it names is reachable from inside it.</p>

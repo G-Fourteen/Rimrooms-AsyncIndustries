@@ -29,10 +29,10 @@
   <nav class="sidebar" aria-label="Pages">
 <h2>Start</h2>
 <ul>
-  <li><a href="index.html" title="What this mod is, and the four pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
+  <li><a href="index.html" title="What this mod is, and the three pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
   <li><a href="install.html" title="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.">Install</a></li>
   <li><a href="first-hour.html" title="The gate start-up chain end to end: eleven goals, in the order they unlock." aria-current="page">Your first hour</a></li>
-  <li><a href="scenarios.html" title="The three shipped starts and what each one is actually like to play.">The three starts</a></li>
+  <li><a href="scenarios.html" title="The three starts and what each one is actually like to play.">The three starts</a></li>
 </ul>
 <h2>Playing</h2>
 <ul>
@@ -43,7 +43,7 @@
 </ul>
 <h2>Running it</h2>
 <ul>
-  <li><a href="mods.html" title="Nothing is required but RimWorld. What the 294-mod profile actually means for you.">Mods and expansions</a></li>
+  <li><a href="mods.html" title="Nothing is required but RimWorld. What the load-order profile actually means for you.">Mods and expansions</a></li>
   <li><a href="multiplayer.html" title="RimWorld Together is the mod that does it. What it is, and what we have not tested.">Multiplayer</a></li>
   <li><a href="troubleshooting.html" title="Symptoms, what each one usually means, and what to send if it is ours.">Troubleshooting</a></li>
 </ul>
@@ -55,15 +55,40 @@
   </nav>
 
   <main id="content" class="prose">
+    <div class="banner" role="presentation">
+      <img src="../1.6/Textures/UI/Menu/RR_Menu_IndustrialGateLogistics.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
+           width="1672" height="941">
+    </div>
     <p class="summary">The gate start-up chain end to end: eleven goals, in the order they unlock.</p>
 <h1>Your first hour</h1>
 <p>Written for the <strong>Async Industries</strong> start. The others reach the same place with less in hand.</p>
 <p>Open the <strong>Operations</strong> tab — first on the bottom bar, bound to <code>\</code> by default.</p>
 <hr>
+<h2>The eleven checks, in order</h2>
+<p>Operations → <strong>Machine</strong> lists all eleven with a light and a tick, and names what to do for each one that is not done.</p>
+<table>
+<thead><tr><th>#</th><th>The check</th><th>What satisfies it</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>A door chosen to become the gate</td><td>Designate any door</td></tr>
+<tr><td>2</td><td>Console, battery and machining table bound to it</td><td>Bind all three on the Machine pane</td></tr>
+<tr><td>3</td><td>The gate commissioned</td><td>A commissioning step on the same pane</td></tr>
+<tr><td>4</td><td><strong>Machining table set to gate control</strong></td><td>A switch on the table itself</td></tr>
+<tr><td>5</td><td>Gate assembled</td><td>The <strong>assemble gate</strong> bill: 100 steel, 8 industrial components</td></tr>
+<tr><td>6</td><td>An operator assigned</td><td>A certified gate operator, on Personnel</td></tr>
+<tr><td>7</td><td>The gate calibrated</td><td>A certified staff member, once assembly is done</td></tr>
+<tr><td>8</td><td><strong>Communications console set to gate control</strong></td><td>A switch on the console itself</td></tr>
+<tr><td>9</td><td>An address remembered</td><td>Somewhere to open to — dial, or take one from a request</td></tr>
+<tr><td>10</td><td>The operator standing at the console</td><td>A job, not a checkbox</td></tr>
+<tr><td>11</td><td>A session opened</td><td>Open the connection</td></tr>
+</tbody></table>
+<h2>Steps 4 and 8 are two separate switches</h2>
+<p><strong>The machining table and the communications console each have to be set to gate control.</strong> Setting one and not the other leaves the gate looking finished and unable to open, because every other check can read as done.</p>
+<p>If you have worked through the list and nothing happens, check both of these. The Machine pane names which one is outstanding.</p>
+<hr>
 <h2>1. Restore power</h2>
 <p>The gate needs a real supply <strong>and</strong> a real reserve.</p>
 <p>Ordinary generators and batteries. Nothing special is required, and nothing special is provided.</p>
-<h2>2. Build the gate</h2>
+<h2>2. Build and bind the gate</h2>
 <p>On Operations → <strong>Machine</strong>, designate four things:</p>
 <table>
 <tbody>
@@ -72,27 +97,41 @@
 <tr><td><strong>A battery</strong></td><td>The reserve</td></tr>
 <tr><td><strong>A machining table</strong></td><td>Where it gets assembled</td></tr>
 </tbody></table>
-<p>Then run the <strong>assemble gate</strong> bill on the table:</p>
+<p>Then commission it, set the table to gate control, and run the <strong>assemble gate</strong> bill:</p>
 <pre><code>100 steel + 8 industrial components</code></pre>
 <p>The table keeps all of its normal recipes.</p>
-<h2>3. Calibrate</h2>
-<p>A qualified staff member calibrates the gate once the assembly is done. The Machine pane numbers every step and shows which are complete.</p>
-<h2>4. Keep an operator on station</h2>
-<p>Someone stays at the console while a connection is open. <strong>This is a job, not a checkbox</strong> — walk them away and the connection drops.</p>
-<h2>5. Pick a crew</h2>
+<h2>3. Train a gate operator</h2>
+<p>The gate needs a certified operator, and you train one. Three <strong>train</strong> bills exist:</p>
+<table>
+<thead><tr><th>Bill</th><th>Needs</th></tr></thead>
+<tbody>
+<tr><td><strong>train gate operator</strong></td><td>Intellectual 4</td></tr>
+<tr><td><strong>train field analyst</strong></td><td>Intellectual 3</td></tr>
+<tr><td><strong>train reserve technician</strong></td><td>Crafting 5</td></tr>
+</tbody></table>
+<p>The first two run on a machining table or a crafting spot; the third needs the table.</p>
+<p>Until somebody is certified, the gate cannot be calibrated or opened.</p>
+<h2>4. Calibrate</h2>
+<p>A certified staff member calibrates the gate once the assembly is done. The Machine pane numbers every step and shows which are complete.</p>
+<h2>5. Keep an operator on station</h2>
+<p>Someone stays at the console while a connection is open. This is a job, not a checkbox — walk them away and the connection drops.</p>
+<h2>6. Pick a crew</h2>
 <p>Up to three field staff. The planner checks skill, health and carried weight, and names anyone who is not ready.</p>
-<p>It also shows who has <strong>been through before</strong>, and who has walked the exact address you are dialling. An operator who knows the route brings the gate up faster.</p>
-<h2>6. Open a connection and go</h2>
-<p>Bringing a connection up is <strong>work over time</strong>, not an instant. Walk away and it loses charge.</p>
+<p>It also shows who has been through before, and who has walked the exact address you are dialling. An operator who knows the route brings the gate up faster.</p>
+<h2>7. Have somewhere to go</h2>
+<p>A gate needs an address. Take one from a request, or <strong>dial an unknown address</strong> and let the gate pick.</p>
+<h2>8. Open a connection and go</h2>
+<p>Bringing a connection up is work over time, not an instant. Walk away and it loses charge.</p>
+<p><strong>A first opening holds about thirty minutes of real time.</strong> Research multiplies that by three per earned tier, and the top rung removes the countdown entirely.</p>
 <hr>
 <h2>Read the refusal</h2>
-<p>Operations refuses any opening it cannot complete, and <strong>always names the reason</strong>:</p>
-<ul><li>the assembly is unfinished</li><li>the reserve is below what a return costs</li><li>no qualified operator is at the controls</li><li>no crew is ready</li><li>no validated way home</li><li>the gate is out of calibration</li><li>the connection was cut deliberately</li></ul>
-<p><strong>The reason is the instruction.</strong> Fix the named one.</p>
+<p>Operations refuses any opening it cannot complete, and always names the reason:</p>
+<ul><li>the assembly is unfinished</li><li>a building is not set to gate control</li><li>the reserve is below what a return costs</li><li>nobody is certified to operate it</li><li>no qualified operator is at the controls</li><li>no crew is ready</li><li>no address to open to</li><li>no validated way home</li><li>the gate is out of calibration</li><li>the connection was cut deliberately</li><li>too many places are already held open</li></ul>
+<p>Fix the named one.</p>
 <hr>
 <h2>Then</h2>
 <ol><li>In the field, record a <strong>route</strong>, a <strong>distortion</strong> and an <strong>entity observation</strong>.</li><li>Come home before the window closes.</li><li><strong>Analyse</strong> the recording at a bound laboratory. Analysis is pawn work over time.</li><li>Have a second person <strong>review</strong> the finished report.</li><li>Spend the insight on a company project.</li></ol>
-<p>That loop is the game.</p>
+<p>That loop is the game. <strong>Nothing in it is timed except the connection itself.</strong></p>
   </main>
 
 </div>
