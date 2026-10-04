@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+    <defName>RR_Procurement_Silver</defName>
+    <label>Silver</label>
+    <description>Ordinary silver, bought rather than dug. The company sells it at a poor rate because you are paying for delivery to a branch that has no mine.</description>
+    <thingDefName>Silver</thingDefName>
+    <unitPriceUsd>1000</unitPriceUsd>
+    <dispatchDelayTicks>60000</dispatchDelayTicks>
+    <leadTimeTicks>120000</leadTimeTicks>
+    <maxOrderQuantity>1000000</maxOrderQuantity>
+  </RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+  <RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+    <defName>RR_Procurement_MarkerPods</defName>
+    <label>Glow pods</label>
+    <description>Live glow pods, crated. The company buys them from insect-hive salvagers by the pallet because a branch that cannot mark its own way back out files a great many more casualty reports.\n\nThey arrive packed for installation, and there is no limit on how many a branch may hold.</description>
+    <thingDefName>GlowPod</thingDefName>
+    <unitPriceUsd>4000</unitPriceUsd>
+    <dispatchDelayTicks>60000</dispatchDelayTicks>
+    <leadTimeTicks>120000</leadTimeTicks>
+    <maxOrderQuantity>500</maxOrderQuantity>
+  </RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+  <!-- Added in 0.12.24-dev, with the record book itself. A crew cannot be dispatched without a
+       book to write in, and a book burns: Core gives it flammability 1 and a deterioration rate
+       of 5. Core does sell textbooks, but only as random outlander stock at nought to two a
+       visit, which is not a supply line a branch can plan around. Leaving it at that would make
+       a burnt book a dead end, which is the same shape of defect as a way out that has no
+       marked anchor to lead to.
+
+       Priced the way glow pods are priced, and for the same reason: the company is buying its
+       own paperwork, so it does not charge a branch a fair market rate for the privilege. -->
+  <RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+    <defName>RR_Procurement_RecordBooks</defName>
+    <label>Record books</label>
+    <description>Blank company record books, boxed. A crew writes its observations into one of these in the field and brings it home as the evidence, so the company keeps every branch stocked and bills for them at cost.\n\nThey are ordinary textbooks. Anyone at the branch may read one when it is not out on a coordinate.</description>
+    <thingDefName>TextBook</thingDefName>
+    <unitPriceUsd>12000</unitPriceUsd>
+    <dispatchDelayTicks>60000</dispatchDelayTicks>
+    <leadTimeTicks>120000</leadTimeTicks>
+    <maxOrderQuantity>500</maxOrderQuantity>
+  </RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+  <RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+    <defName>RR_Procurement_Steel</defName>
+    <label>Steel</label>
+    <description>Structural steel. Everything a branch builds and most of what it repairs is made of this, and a gate assembly that lapses cannot be reconditioned without it.</description>
+    <thingDefName>Steel</thingDefName>
+    <unitPriceUsd>2000</unitPriceUsd>
+    <dispatchDelayTicks>60000</dispatchDelayTicks>
+    <leadTimeTicks>120000</leadTimeTicks>
+    <maxOrderQuantity>10000</maxOrderQuantity>
+  </RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+  <RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+    <defName>RR_Procurement_Components</defName>
+    <label>Industrial components</label>
+    <description>Industrial components. The limiting part of almost every machine worth having, and the one thing a branch is most likely to be short of at the worst moment.</description>
+    <thingDefName>ComponentIndustrial</thingDefName>
+    <unitPriceUsd>20000</unitPriceUsd>
+    <dispatchDelayTicks>60000</dispatchDelayTicks>
+    <leadTimeTicks>180000</leadTimeTicks>
+    <maxOrderQuantity>1000</maxOrderQuantity>
+  </RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+  <RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+    <defName>RR_Procurement_Wood</defName>
+    <label>Wood logs</label>
+    <description>Wood logs. Cheap, flammable and useful, and the fastest way to put a floor and a few walls up around a gate before the first connection is opened.</description>
+    <thingDefName>WoodLog</thingDefName>
+    <unitPriceUsd>250</unitPriceUsd>
+    <dispatchDelayTicks>60000</dispatchDelayTicks>
+    <leadTimeTicks>120000</leadTimeTicks>
+    <maxOrderQuantity>50000</maxOrderQuantity>
+  </RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+  <RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+    <defName>RR_Procurement_Cloth</defName>
+    <label>Cloth</label>
+    <description>Plain cloth. Clothing, bedding and the soft parts of a branch that keep people working; also the material the yellow rooms are remembered for.</description>
+    <thingDefName>Cloth</thingDefName>
+    <unitPriceUsd>2500</unitPriceUsd>
+    <dispatchDelayTicks>60000</dispatchDelayTicks>
+    <leadTimeTicks>180000</leadTimeTicks>
+    <maxOrderQuantity>5000</maxOrderQuantity>
+  </RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+  <RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+    <defName>RR_Procurement_Medicine</defName>
+    <label>Industrial medicine</label>
+    <description>Industrial medicine. Crews come back from a coordinate needing it more reliably than they come back with anything worth selling.</description>
+    <thingDefName>MedicineIndustrial</thingDefName>
+    <unitPriceUsd>25000</unitPriceUsd>
+    <dispatchDelayTicks>60000</dispatchDelayTicks>
+    <leadTimeTicks>180000</leadTimeTicks>
+    <maxOrderQuantity>500</maxOrderQuantity>
+  </RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+  <RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+    <defName>RR_Procurement_SurvivalMeals</defName>
+    <label>Packaged survival meals</label>
+    <description>Packaged survival meals. They keep indefinitely and need no kitchen, which is the entire reason to carry them through a gate instead of cooking.</description>
+    <thingDefName>MealSurvivalPack</thingDefName>
+    <unitPriceUsd>5000</unitPriceUsd>
+    <dispatchDelayTicks>60000</dispatchDelayTicks>
+    <leadTimeTicks>120000</leadTimeTicks>
+    <maxOrderQuantity>2000</maxOrderQuantity>
+  </RimroomsAsyncIndustries.Procurement.RimroomsProcurementCatalogDef>
+</Defs>

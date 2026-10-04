@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+  <name>Rimrooms - Async Industries</name>
+  <author>Operator</author>
+  <packageId>Rimrooms.AsyncIndustries</packageId>
+  <modVersion>0.12.93-dev</modVersion>
+  <supportedVersions>
+    <li>1.6</li>
+  </supportedVersions>
+  <!-- Owner direction, 2026-10-03: "rework mod to not need any depeancie mods", and
+       "we hope to have the mod as a complete stand alone". This file declared 293 hard
+       modDependencies; every one of them was already in loadAfter below, so the block
+       carried no ordering a manager did not already have. It only announced 293
+       requirements the assembly does not have: it references Assembly-CSharp and three
+       UnityEngine modules, and nothing else. Load order is unchanged. -->
+  <loadAfter>
+    <li>Ludeon.RimWorld</li>
+    <li>brrainz.harmony</li>
+    <li>SF.Grim.Reality</li>
+    <li>ilyvion.LoadingProgress</li>
+    <li>Ludeon.RimWorld.Royalty</li>
+    <li>Ludeon.RimWorld.Ideology</li>
+    <li>Ludeon.RimWorld.Biotech</li>
+    <li>Ludeon.RimWorld.Anomaly</li>
+    <li>Ludeon.RimWorld.Odyssey</li>
+    <li>adaptive.storage.framework</li>
+    <li>SmashPhil.VehicleFramework</li>
+    <li>imranfish.xmlextensions</li>
+    <li>UnlimitedHugs.HugsLib</li>
+    <li>OskarPotocki.VanillaFactionsExpanded.Core</li>
+    <li>Arylice.Rimworld.AutomaticStumpChopping</li>
+    <li>kittahkhan.grazeup</li>
+    <li>zal.calltradeships</li>
+    <li>LingLuo.MoveSteamGeyser</li>
+    <li>Og.AutomaticPowerSwitch</li>
+    <li>SR.ModRimworld.FactionalWarContinued</li>
+    <li>Mlie.XNDProfitableWeapons</li>
+    <li>XeoNovaDan.VisiblePants</li>
+    <li>SamBucher.ADogSaidAnimalProsthetics2</li>
+    <li>Adaptive.Ideology.Storage</li>
+    <li>Adaptive.PrimitiveStorage</li>
+    <li>Adaptive.SimpleStorage</li>
+    <li>LegendaryMinuteman.AgeRMechSerum</li>
+    <li>Mlie.AllMemoriesFade</li>
+    <li>Mlie.AllTurretsCanSetForcedTarget</li>
+    <li>UnlimitedHugs.AllowTool</li>
+    <li>Ingendum.AnimalApparelFramework</li>
+    <li>Ingendum.AnimalArmorVacBelt</li>
+    <li>avilmask.AnimalControls</li>
+    <li>GodlyAnnihilator.AnimalMedicalBed</li>
+    <li>overpl.AnimalSarcophagus</li>
+    <li>Fluffy.AnimalTab</li>
+    <li>ColossalFossil.AnimalsAreFunContinued</li>
+    <li>Oblitus.AnimalsLogic</li>
+    <li>zoarak.anomalyplat</li>
+    <li>com.bymarcin.ArchitectIcons</li>
+    <li>Mlie.AreaUnlocker</li>
+    <li>Broms.AsteroidMineralScanner</li>
+    <li>automatic.autolinks</li>
+    <li>Defi.AutoCutBlight</li>
+    <li>Mlie.BadCanBeGood</li>
+    <li>BinarySpark.CaravanDogs</li>
+    <li>Meltup.BeautifulOutdoors</li>
+    <li>bedrestforfoodpoisoning.1trickPonyta</li>
+    <li>AdamBucior.BetterElectronics</li>
+    <li>nephlite.advexplosions</li>
+    <li>RedMattis.BetterGeneInheritance</li>
+    <li>ArchieV.BetterWeight</li>
+    <li>Daria40K.BigLittleModPatch</li>
+    <li>Fuu.BloodAnimations</li>
+    <li>Defi.Blueprints.fork</li>
+    <li>Bos.MilkableAnimals</li>
+    <li>Memegoddess.BuildFromInventory</li>
+    <li>Buildable.Terrain</li>
+    <li>arakos.callatrader.acat</li>
+    <li>Mlie.CaptureThem</li>
+    <li>Mlie.CarryallsIntercontinentalTransport</li>
+    <li>Orion.CashRegister</li>
+    <li>kapitanoczywisty.changemapedge</li>
+    <li>void.charactereditor</li>
+    <li>CrashM.ColorCodedMoodBar.11</li>
+    <li>avilmask.CommonSense</li>
+    <li>Mlie.CompactWorkTab</li>
+    <li>arl85.CorpseInfo</li>
+    <li>GwinnBleidd.CraftableMountains</li>
+    <li>CaesarV6.DamageIndicators</li>
+    <li>Troopersmith1.DeathRattle</li>
+    <li>TheCafFiend.OverdoseDependencyFix</li>
+    <li>Garwel.DestroyItem</li>
+    <li>Mlie.DingOnGameLoaded</li>
+    <li>Xercaine.DoRecreationWhenIdle</li>
+    <li>MD.PrioritizeResearch</li>
+    <li>jecrell.doorsexpanded</li>
+    <li>Wolfcub05.DraftableAnimals</li>
+    <li>telardo.DragSelect</li>
+    <li>MemeGoddess.DualWield</li>
+    <li>Dubwise.DubsMintMenus</li>
+    <li>dubwise.dubsmintminimap</li>
+    <li>Dubwise.Rimatomics</li>
+    <li>Dubwise.DubsRimkit</li>
+    <li>EdB.PrepareCarefully</li>
+    <li>efficient.batteries</li>
+    <li>Mlie.EggIncubator</li>
+    <li>Cocaine.ElectricStonecuttingTable</li>
+    <li>Mlie.ExplosiveImplant</li>
+    <li>Aelanna.FistNerf</li>
+    <li>Mlie.FlickableStorage</li>
+    <li>Hawkwood.FloorsAreAlmostWorthless</li>
+    <li>Mlie.FoodPoisoningStackFix</li>
+    <li>zed.0xff.ForceXenogermImplantation</li>
+    <li>notfood.FrameRateControl</li>
+    <li>Xercaine.FueledCrematorium</li>
+    <li>zylle.Gemstones</li>
+    <li>MemeGoddess.GiddyUp</li>
+    <li>amunra.gmc</li>
+    <li>Albion.GoExplore</li>
+    <li>kongkim.GSingots</li>
+    <li>Arkymn.AgingVisuals</li>
+    <li>Mlie.GreyerMorals</li>
+    <li>Sirprook.HardenedArmor</li>
+    <li>Smuffle.HarvestOrgansPostMortem</li>
+    <li>Mlie.HarvestWhenButchering</li>
+    <li>jkluch.HaulToStack</li>
+    <li>Syrus.HMSChoice</li>
+    <li>Adamas.Hospital</li>
+    <li>FLASHPOINT55.HumanPowerGeneratorMod</li>
+    <li>Mlie.IClearlyHaveEnough</li>
+    <li>Zaf.InjectGene</li>
+    <li>Haecriver.InjuredCarry</li>
+    <li>Turnovus.Biotech.IntegratedGenes</li>
+    <li>kazepsi.irbm</li>
+    <li>Mlie.JustPutItOverThere</li>
+    <li>Linnun.KeepConverting</li>
+    <li>Mlie.LadiesCanFlirtToo</li>
+    <li>Mlie.LessStupidRomanceAttempt</li>
+    <li>Mlie.LiveWithThePain</li>
+    <li>amunra.lc</li>
+    <li>ASF.DeepStorage</li>
+    <li>ratys.madskills</li>
+    <li>m00nl1ght.MapPreview</li>
+    <li>Memegoddess.MealsOnWheels</li>
+    <li>cantaloupetheclown.MedicalIVsFork</li>
+    <li>rabiosus.minesight</li>
+    <li>erdelf.MinifyEverything</li>
+    <li>Haplo.Miscellaneous.Training</li>
+    <li>Burpee.MoreBeautifulBodies</li>
+    <li>AtamanDolinskaja.MoreCrashedShipParts</li>
+    <li>Mlie.MoreFactionInteraction</li>
+    <li>arl85.AnimalsAgeFilter</li>
+    <li>4loris4.MoreLinkables</li>
+    <li>KobeRiddle.MilkAndWoolPatches</li>
+    <li>zylle.MoreVanillaBiomes</li>
+    <li>hobtook.mortaraccuracy</li>
+    <li>ferny.moveyourmonolith</li>
+    <li>IssacZhuang.MuzzleFlash</li>
+    <li>ferny.NameYourEntities</li>
+    <li>zal.namesgalore</li>
+    <li>AmCh.NeedBarOverflow</li>
+    <li>amunra.nc</li>
+    <li>Unon.NoBurnMetal</li>
+    <li>cucumpear.cooties</li>
+    <li>Dark.NoHemogenFarmMedicalAlert</li>
+    <li>walkingproblem.noinfestation</li>
+    <li>eBae.NoQuestsWithoutComms</li>
+    <li>No.Royal.Clothing.Reqs</li>
+    <li>laura7z.noflares</li>
+    <li>sk.noprisonersympathy</li>
+    <li>avilmask.NonUnoPinata</li>
+    <li>Vesper.NotMyFault</li>
+    <li>io.github.cvrunmin.OrbitTradeNotOnlyGeneBank</li>
+    <li>Mehni.Numbers</li>
+    <li>Mlie.OffspringInheritXenogenes</li>
+    <li>Ogre.OgreStack</li>
+    <li>redundant.oopsallgenepacks</li>
+    <li>PackMulesExtended.Standard</li>
+    <li>turnovus.submod.backpacksarenotbelts</li>
+    <li>Mlie.PassItThroughTheWindow</li>
+    <li>fed1sPlay.PawnTargetFix</li>
+    <li>Owlchemist.PermeableTerrain</li>
+    <li>Mehni.PickUpAndHaul</li>
+    <li>Mlie.PlantGrowthSync</li>
+    <li>Mlie.PlasteelSurgery</li>
+    <li>co.uk.epicguru.rimforgepoles</li>
+    <li>tk421storm.PriorityTreatmentRessurected</li>
+    <li>Mlie.PrisonCommons</li>
+    <li>Mlie.PrisonerArena</li>
+    <li>Extracting.Organs.1.5</li>
+    <li>ocarina.prisonerjumpsuits</li>
+    <li>erdelf.PrisonerRansom</li>
+    <li>divineDerivative.PrisonerReading</li>
+    <li>Mlie.PrisonersDontHaveKeys</li>
+    <li>MadaraUchiha.PrisonersNeedRecruiting</li>
+    <li>Mlie.PrisonersShouldFearTurrets</li>
+    <li>Mlie.ProstheticDidgets</li>
+    <li>Mlie.ProstheticNoMissingBodyParts</li>
+    <li>DawnsGlow.qualcolor</li>
+    <li>hatti.qualitybuilder</li>
+    <li>Mlie.QuestionableEthicsEnhanced</li>
+    <li>Mlie.RealFactionGuest</li>
+    <li>Lucifer.RealisticRooms</li>
+    <li>ReBuild.COTR.DoorsAndCorners</li>
+    <li>Mlie.RecipeIcons</li>
+    <li>Mlie.RemoteDoors</li>
+    <li>Proxyer.RemovableMtRockRoofPatche</li>
+    <li>Memegoddess.ReplaceStuff</li>
+    <li>Spuffy.AnimaReplant</li>
+    <li>eheieh.researchtree</li>
+    <li>BDew.Restraints</li>
+    <li>temmie3754.retend.1</li>
+    <li>Dubwise.Rimefeller</li>
+    <li>rimfridge.kv.rw</li>
+    <li>nova.rimworldtogether</li>
+    <li>telardo.RomanceOnTheRim</li>
+    <li>MemeGoddess.RunAndGun</li>
+    <li>Mlie.SafelyHiddenAway</li>
+    <li>MemeGoddess.SearchAndDestroy</li>
+    <li>Mlie.SecretPassageDoors</li>
+    <li>FlyingSloth.SCFilthReducer</li>
+    <li>Mlie.ShitRimworldSays</li>
+    <li>Mlie.ShowMeYourHands</li>
+    <li>PeteTimesSix.SimpleSidearms</li>
+    <li>NightKosh.SlaveOutfitFix</li>
+    <li>Xercaine.Furniture.Small</li>
+    <li>Longman.SmallerRadiusForAnimaTreesAndShrines</li>
+    <li>Memegoddess.SmartMedicine</li>
+    <li>PureMJ.MjRimMods.SmartMeditation</li>
+    <li>denev.SmartTurretCovering</li>
+    <li>dhultgren.smarterconstruction</li>
+    <li>Mlie.SmarterVisitors</li>
+    <li>weilbyte.snapout</li>
+    <li>Krelinos.SocialEXPFromTrade</li>
+    <li>Albion.SparklingWorlds.Full</li>
+    <li>Mlie.SSLightningRod</li>
+    <li>ccyt.stargatesmod</li>
+    <li>Scherub.StonecuttingExtended</li>
+    <li>balistafreak.StopDropAndRoll</li>
+    <li>Mlie.StuffMassMatters</li>
+    <li>moistestWhale.stuffOnTablesForked</li>
+    <li>sov.det.surrogatemech</li>
+    <li>rabiosus.TakeCover</li>
+    <li>msd.tendyourself</li>
+    <li>GodlyAnnihilator.TheLowCooler</li>
+    <li>santa.titantreatment</li>
+    <li>Jaxe.ToggleHarvest</li>
+    <li>Meow.TradableMeals</li>
+    <li>Meow.TradableStoneBlocks</li>
+    <li>smashphil.dropspot</li>
+    <li>WindowsXP.TradeShipsNoMatterWhat</li>
+    <li>CarnySenpai.TraitRarityColors</li>
+    <li>archie.turrettargetpatch</li>
+    <li>Mlie.TVIsEducational</li>
+    <li>Mlie.TVForPrison</li>
+    <li>marvinkosh.ughyougotme</li>
+    <li>uglytogether.leeh</li>
+    <li>madarauchiha.undraftaftertucking</li>
+    <li>BlackFranky.UnsterilizeAnimals</li>
+    <li>dd.useyourgun</li>
+    <li>VanillaExpanded.VAPPE</li>
+    <li>VanillaExpanded.VAEAccessories</li>
+    <li>VanillaExpanded.VARME</li>
+    <li>PureMJ.MjRimMods.VanillaFixHaulAfterSlaughter</li>
+    <li>VanillaExpanded.VFEFactory</li>
+    <li>vanillaexpanded.gravship</li>
+    <li>VanillaExpanded.VHE</li>
+    <li>OskarPotocki.VanillaVehiclesExpanded</li>
+    <li>VanillaExpanded.VWENL</li>
+    <li>Mlie.VariousSpaceShipChunk</li>
+    <li>SickBoyWi.Vault.OnePointOne</li>
+    <li>Mlie.WalkableSolarPanels</li>
+    <li>Xercaine.WallHeater</li>
+    <li>Xercaine.WallOrbitalTradeBeacon</li>
+    <li>Xercaine.WallTelevisions</li>
+    <li>Xercaine.WallVitalsMonitor</li>
+    <li>Mersid.WCE2Updated.Core</li>
+    <li>vin.warehouse.storage</li>
+    <li>PureMJ.MjRimMods.WhileYouAreNearby</li>
+    <li>Tixiv.WhoShotMyLegOff</li>
+    <li>RedMattis.BetterConversion</li>
+    <li>Spacemoth.YouDriveISleep</li>
+    <li>Mlie.ZoneToSchedule</li>
+    <li>Endy.Airtightgarage</li>
+    <li>sarg.alphavehiclesageofsail</li>
+    <li>Ingendum.AnimalArmorBasic</li>
+    <li>mireia.bodies</li>
+    <li>Orion.Gastronomy</li>
+    <li>Orion.Hospitality</li>
+    <li>kikohi.jewelry</li>
+    <li>Troopersmith1.LifeSupport</li>
+    <li>avius.locks</li>
+    <li>Heremeus.MedicalDissection</li>
+    <li>Smxrez.nonlethalreexamined</li>
+    <li>gy.ppextend</li>
+    <li>Rebuild.Embrasures</li>
+    <li>Deadmano.ReplaceStuffCoolerVentPlacementFix</li>
+    <li>avilmask.ResearchWhatever</li>
+    <li>SirVan.MiscTrainingRetexture</li>
+    <li>vanillaexpanded.gravship2</li>
+    <li>OskarPotocki.VanillaVehiclesExpandedTier3</li>
+    <li>OskarPotocki.VanillaVehiclesExpandedUpgrades</li>
+    <li>FrozenSnowFox.FrozenSnowFoxTweaks</li>
+    <li>gatoviejo.hospitality.invitetostay</li>
+    <li>Adamas.Storefront</li>
+    <li>AgentBlac.MakePawnsPrisoners</li>
+    <li>avius.prisonlabor</li>
+    <li>LegendaryMinuteman.SimpleIvory.fork</li>
+    <li>Explorern11.VehiclesWrecksExpanded</li>
+    <li>tgbm.vve.secondary.weapons</li>
+    <li>Mlie.CustomPrisonerInteractions</li>
+    <li>proxyer.dismantleancientjunk</li>
+    <li>VehiclesWrecksExpanded.Revisited</li>
+  </loadAfter>
+  <description>Development build 0.12.93-dev. Gameplay acceptance is pending; this is not a finished campaign release.
+
+Rimrooms - Async Industries is a company-management campaign about an authorised research branch that investigates, contains and profits from unstable spaces beyond a gate.
+
+--- THE GATE ---
+
+A gate is an ordinary door you designate, not a custom machine. Core's own door and autodoor give you a one-cell gate; its ornate door gives you a two-cell one with no other mods at all. With Doors Expanded installed, its double and triple doors and its big blast door work too.
+
+A wider gate is more machine: it draws more power while open and takes longer to bring up. It also decides what fits through. A one-cell opening passes people, dogs and working animals; two cells passes pack animals like muffalo and dromedaries; three or more passes anything at all.
+
+Opening a connection is work, not a button. Your assigned operator brings the gate up at the console over time, and the console shows the progress while they do it. Walk away and it loses charge. A route your crew has run before comes up faster than one they have never taken.
+
+Every gate keeps its own list of everywhere it has connected to. Rename them, pin the ones that matter, clear the rest. A gate you have designated is a blue door with a blue glow around it, so you can tell one from an ordinary door at a glance.
+
+--- WHAT IS THROUGH IT ---
+
+Each coordinate is a seeded, saved space you can return to. The shallow rooms are the yellow ones, sparse and wrong in the way you expect. Further in it stops pretending: rooms are furnished as laboratories, workshops, nurseries and dormitories, runs of rooms are furnished as one place rather than three, and corridors have benches in them because down there that is normal.
+
+Go back to a space you have been to before and something is sometimes not where you left it. Nothing tells you. Not every time.
+
+People are down there too - wanderers, the missing, the dead, survivors worth bringing home. Nothing starves or rots before you have found it; discovery starts their clock, not your exploring speed.
+
+In the worst coordinates, what lives there stops holding its ground and follows your crew to the threshold. On an advanced gate it can step through behind them, and then it behaves like anything else that gets inside your base. Closing the connection before it arrives is what stops it.
+
+--- THE COMPANY ---
+
+Hire and pay staff, run procurement, keep a facility with the rooms a branch actually needs, take contracts and run company research.
+
+Anything carried out of a coordinate is marked odd and never stacks with the ordinary kind, so a thousand odd cotton is a thing you went and fetched rather than a thing you grew. Buyers turn up wanting goods by origin and paying well over the ordinary rate. Company bonds hold value in denominations from ten up to a quadrillion, a beacon shows what you have, and a corporate trader opens its catalogue as you earn the right to see it.
+
+Your colonists work across a gate the way they work anywhere: hauling, construction, bills, research, medical, cooking, cleaning, mining, hunting, farming, animals and the rest. Every kind of work in the game is either answered or deliberately left local for a stated reason.
+
+--- REQUIREMENTS ---
+
+This mod needs nothing but RimWorld itself. It declares no dependencies: not one mod, and not one expansion. Royalty, Ideology, Biotech, Anomaly and Odyssey are each optional, and the parts that use them simply are not there when they are not installed.
+
+Load this mod last. It lists 294 mods in loadAfter, which is sorting advice rather than a requirement: a sorting manager will place it correctly on its own, and every one of those mods is optional. Nothing is announced as compatible until it has been tested.
+
+Nothing here is patched through Harmony. Content from another mod is looked up by name and never assumed, so a missing one degrades what depends on it rather than throwing.
+
+--- THE WIKI ---
+
+How to install it, how to set up your mod manager, how to play, what is through the gate, and what to do when something refuses: https://github.com/G-Fourteen/Rimrooms-AsyncIndustries
+
+Original Backrooms menu backgrounds show the mod title and loaded version beside the native version information.</description>
+</ModMetaData>

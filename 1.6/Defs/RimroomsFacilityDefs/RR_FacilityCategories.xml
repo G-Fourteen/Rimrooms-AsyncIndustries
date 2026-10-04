@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+    <defName>RR_Facility_Quarters</defName><label>quarters</label><description>Where staff sleep. A branch short of beds runs its people tired, and a tired operator is the one standing at the console when a connection needs holding.</description><displayOrder>10</displayOrder>
+    <buildingDefNames><li>Bed</li><li>DoubleBed</li><li>RoyalBed</li><li>SleepingSpot</li><li>DoubleSleepingSpot</li><li>Bedroll</li><li>BedrollDouble</li></buildingDefNames>
+  </RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+  <RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+    <defName>RR_Facility_Medical</defName><label>medical furniture</label><description>Where injuries are treated. Crews come back hurt more often than not, and a hospital bed with a vitals monitor beside it is the difference between a recovery and a grave.</description><displayOrder>20</displayOrder>
+    <buildingDefNames><li>HospitalBed</li><li>VitalsMonitor</li></buildingDefNames>
+  </RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+  <RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+    <defName>RR_Facility_Mess</defName><label>cafeteria and kitchen</label><description>Where food is cooked and eaten. Stock arriving by procurement is raw; somebody has to turn it into meals, and a branch eating off the floor loses morale it cannot spare.</description><displayOrder>30</displayOrder>
+    <buildingDefNames><li>Table1x2c</li><li>Table2x2c</li><li>Table2x4c</li><li>Table3x3c</li><li>Stool</li><li>DiningChair</li><li>ElectricStove</li><li>FueledStove</li><li>NutrientPasteDispenser</li><li>Hopper</li></buildingDefNames>
+  </RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+  <RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+    <defName>RR_Facility_Recreation</defName><label>recreation</label><description>Where staff recover from what they have seen. Time spent past a gate is not restful, and a branch with nowhere to sit is a branch with breakdowns waiting in it.</description><displayOrder>40</displayOrder>
+    <buildingDefNames><li>HorseshoesPin</li><li>HoopstoneRing</li><li>ChessTable</li><li>GameOfUrBoard</li><li>BilliardsTable</li><li>PokerTable</li><li>TubeTelevision</li><li>FlatscreenTelevision</li><li>MegascreenTelevision</li></buildingDefNames>
+  </RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+  <RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+    <defName>RR_Facility_Laboratory</defName><label>research and analysis</label><description>Where what you carry back is studied. Company projects are worked at a research bench you have designated, and an unstudied find is a curiosity rather than an advantage.</description><displayOrder>50</displayOrder>
+    <buildingDefNames><li>SimpleResearchBench</li><li>HiTechResearchBench</li><li>MultiAnalyzer</li></buildingDefNames>
+  </RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+  <RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+    <defName>RR_Facility_Workshop</defName><label>workshops</label><description>Where materials become equipment. The gate assembly is worked at a machining table, and everything a crew carries through was made at one of these first.</description><displayOrder>60</displayOrder>
+    <buildingDefNames><li>TableMachining</li><li>ElectricSmithy</li><li>FueledSmithy</li><li>ElectricTailoringBench</li><li>HandTailoringBench</li><li>TableStonecutter</li><li>TableSculpting</li><li>DrugLab</li><li>FabricationBench</li></buildingDefNames>
+  </RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+  <RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+    <defName>RR_Facility_Machine</defName><label>gate and control</label><description>The gate itself and the station it is run from. A designated door, a comms console to operate it, a machining table to assemble it and a switch that can cut it. Without all four, a branch has a door rather than a gate.</description><displayOrder>70</displayOrder>
+    <buildingDefNames><li>Door</li><li>Autodoor</li><li>CommsConsole</li><li>PowerSwitch</li></buildingDefNames>
+  </RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+  <RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+    <defName>RR_Facility_Power</defName><label>power sources and reserves</label><description>What keeps the lights on and a connection open. A gate draws heavily while open and draws more the wider it is, and it is fed from the battery you bound to it rather than from the grid directly.</description><displayOrder>80</displayOrder>
+    <includePowerSources>true</includePowerSources><buildingDefNames><li>PowerConduit</li><li>HiddenConduit</li><li>PowerSwitch</li></buildingDefNames>
+  </RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+  <!-- Containment is matched by capability rather than by name, so there is no
+       buildingDefNames list here at all: includeContainment picks up anything carrying
+       CompEntityHolder plus any bed Core classifies as a prisoner bed. Naming the shipped
+       holding platform would have been an ungated expansion reference in a Core-only mod,
+       and would have covered no modded holder. -->
+  <RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+    <defName>RR_Facility_Containment</defName><label>containment</label><description>Where what you brought back is held. A platform without power is a platform that is about to let go, and a branch that cannot see its own containment from the far side of a gate finds out about a breach when it walks into one.</description><displayOrder>95</displayOrder>
+    <includeContainment>true</includeContainment>
+  </RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+  <RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+    <defName>RR_Facility_Storage</defName><label>storage furniture</label><description>Where stock is kept off the floor. Shelving decides how much a branch can actually hold and how quickly haulers can find what a bill is short of.</description><displayOrder>90</displayOrder>
+    <buildingDefNames><li>Shelf</li><li>ShelfSmall</li></buildingDefNames>
+  </RimroomsAsyncIndustries.Facilities.RimroomsFacilityCategoryDef>
+</Defs>

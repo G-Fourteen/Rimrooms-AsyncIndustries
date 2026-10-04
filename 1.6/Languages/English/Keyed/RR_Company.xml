@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RR_UI_CoordinateBand>   pressure: {0}</RR_UI_CoordinateBand>
+  <RR_Exchange_SellConfirm>Sell all {0} tradeable items inside the beacon radius for {1} USD?
+
+This cannot be undone.</RR_Exchange_SellConfirm>
+  <RR_Company_UnsupportedSave>This company record belongs to another Rimrooms version. Keep the original save and use the matching build.</RR_Company_UnsupportedSave>
+  <RR_Company_InvalidStart>The company start is incomplete. Check the headquarters, starting staff and scenario report before continuing.</RR_Company_InvalidStart>
+  <RR_Company_AlreadyStarted>This save already belongs to a company branch. A second start cannot replace its records or grant more supplies.</RR_Company_AlreadyStarted>
+  <RR_Company_InvalidSave>Company records could not be reconciled. Company actions are disabled to preserve them. Keep the original save and review the Rimrooms log.</RR_Company_InvalidSave>
+  <RR_Company_InvalidAmount>The quoted transaction is invalid. No payment was posted.</RR_Company_InvalidAmount>
+  <RR_Company_ReceiptMismatch>This operation ID already has a different recorded result. No second transaction was posted.</RR_Company_ReceiptMismatch>
+  <RR_Company_InsufficientFunds>The Company Account cannot cover this payment. Existing debts and physical stock remain recorded.</RR_Company_InsufficientFunds>
+  <RR_Company_Inactive>No company branch is active in this save. Start the Async Industries scenario to establish one.</RR_Company_Inactive>
+  <RR_Company_InitialCase>AI-01: conflicting route record</RR_Company_InitialCase>
+  <RR_Company_InitialContract>AI-01 onboarding survey</RR_Company_InitialContract>
+  <RR_Ledger_InitialFunding>Authorized branch allocation</RR_Ledger_InitialFunding>
+  <RR_Ledger_Payroll>Staff payroll</RR_Ledger_Payroll>
+  <RR_Ledger_Overhead>Headquarters administration and communications</RR_Ledger_Overhead>
+  <RR_Ledger_SurveyPayment>Accepted survey deliverables</RR_Ledger_SurveyPayment>
+  <RR_Ledger_SurveyBonus>Complete crew and observation records</RR_Ledger_SurveyBonus>
+  <RR_Event_BranchStarted>Company branch established. The onboarding survey is accepted and the initial allocation is recorded.</RR_Event_BranchStarted>
+  <RR_Event_OperatingArrears>Operating charges remain unpaid. Review the account and outstanding obligations.</RR_Event_OperatingArrears>
+  <RR_Company_Balance>Company Account: {0} USD</RR_Company_Balance>
+  <RR_Company_CashExplanation>Company USD is an accounting balance. Silver, food, equipment and materials remain physical goods that staff must haul, store and use.</RR_Company_CashExplanation>
+  <RR_Company_Outstanding>Unpaid obligations: {0} USD</RR_Company_Outstanding>
+  <RR_Company_PayOutstanding>Pay outstanding obligations</RR_Company_PayOutstanding>
+  <RR_Company_Insights>Available research insights: {0}</RR_Company_Insights>
+  <RR_Company_StaffCount>Company staff: {0}</RR_Company_StaffCount>
+  <RR_Company_OpeningObjective>Next objective: prepare the gate, appoint its operator and review the AI-01 survey before dispatch.</RR_Company_OpeningObjective>
+  <RR_Company_OpeningBriefTitle>Opening brief</RR_Company_OpeningBriefTitle>
+  <RR_Company_OpenHeadquarters>View headquarters</RR_Company_OpenHeadquarters>
+  <RR_Company_MapUnavailable>The headquarters is unavailable. Its company records have been retained.</RR_Company_MapUnavailable>
+  <RR_UI_Overview>Overview</RR_UI_Overview>
+  <RR_UI_Personnel>Personnel</RR_UI_Personnel>
+  <RR_UI_Contracts>Contracts</RR_UI_Contracts>
+  <RR_UI_Ledger>Ledger</RR_UI_Ledger>
+  <RR_UI_Atlas>Atlas</RR_UI_Atlas>
+  <RR_UI_Activity>Activity</RR_UI_Activity>
+  <RR_UI_NoRecords>No records yet.</RR_UI_NoRecords>
+  <RR_UI_ViewPawn>View {0}</RR_UI_ViewPawn>
+  <RR_UI_MissingPawn>{0}: location unavailable; roster history retained.</RR_UI_MissingPawn>
+  <RR_UI_StaffRow>{0} — {1}; {2} USD per day</RR_UI_StaffRow>
+  <RR_Role_operations>Operations lead</RR_Role_operations>
+  <RR_Role_research>Researcher</RR_Role_research>
+  <RR_Role_engineering>Engineer</RR_Role_engineering>
+  <RR_Role_security>Security guard</RR_Role_security>
+  <RR_Role_medical_logistics>Medic and logistics</RR_Role_medical_logistics>
+  <RR_Contract_Accepted>Accepted</RR_Contract_Accepted>
+  <RR_Contract_Completed>Completed</RR_Contract_Completed>
+  <RR_Contract_Failed>Failed</RR_Contract_Failed>
+  <RR_Contract_Cancelled>Cancelled</RR_Contract_Cancelled>
+  <RR_UI_ContractRow>{0} — {1}</RR_UI_ContractRow>
+  <RR_UI_ContractValue>Quoted payment: {0} USD; optional records bonus: {1} USD</RR_UI_ContractValue>
+  <RR_UI_ContractTerms>Survey the route, record the distortion, recover the record book and analyse it at headquarters. The optional bonus requires all three crew to return with route, distortion and entity observations. Combat is optional; a recoverable injury does not cancel the bonus.</RR_UI_ContractTerms>
+  <RR_UI_ContractTermsBrief>Survey terms</RR_UI_ContractTermsBrief>
+  <RR_UI_LedgerRow>Day {0}: {1} — {2} USD; balance {3} USD</RR_UI_LedgerRow>
+  <RR_UI_LedgerRecent>Most recent 60 transactions are shown here. Earlier receipts remain saved in the company ledger.</RR_UI_LedgerRecent>
+  <RR_UI_LedgerTitle>Company ledger</RR_UI_LedgerTitle>
+  <RR_Coordinate_Discovered>Signal registered; site not yet visited</RR_Coordinate_Discovered>
+  <RR_Coordinate_Ready>Saved site available</RR_Coordinate_Ready>
+  <RR_Coordinate_Unavailable>Route unavailable; recovery required</RR_Coordinate_Unavailable>
+  <RR_UI_CoordinateRow>{0} — {1}</RR_UI_CoordinateRow>
+  <RR_UI_SurveyedRooms>Surveyed rooms: {0}</RR_UI_SurveyedRooms>
+  <RR_UI_ActivityRow>Day {0}: {1}</RR_UI_ActivityRow>
+  <RR_Debug_RuntimeIdentity>Write build, loaded order and coordinate identity to Player.log</RR_Debug_RuntimeIdentity>
+  <RR_UI_Procurement>Procurement</RR_UI_Procurement>
+  <RR_Company_UnnamedCompany>this company</RR_Company_UnnamedCompany>
+  <RR_Company_InvalidName>That name cannot be used. Enter between 1 and 64 characters.</RR_Company_InvalidName>
+  <RR_Company_NameHeading>Company: {0}</RR_Company_NameHeading>
+  <RR_Company_RenameButton>Rename company</RR_Company_RenameButton>
+  <RR_Event_CompanyRenamed>The company is now called {0}.</RR_Event_CompanyRenamed>
+
+  <!-- Containment: the procedure, the alarm and what the branch is holding. Row 761. -->
+  <RR_Company_Unavailable>The company records are unavailable. Nothing can be ordered right now.</RR_Company_Unavailable>
+  <RR_Containment_Held>Subjects held across every site: {0}</RR_Containment_Held>
+  <RR_Containment_Escaping>Getting loose right now: {0}. Whatever is on that platform is on its way off it.</RR_Containment_Escaping>
+  <RR_Containment_Unpowered>Holding without power: {0}. A platform with no power will not hold for long.</RR_Containment_Unpowered>
+  <RR_Containment_ProcedureOn>Standing order: if anything gets loose, every open connection is cut and the crews come home.</RR_Containment_ProcedureOn>
+  <RR_Containment_ProcedureOff>Standing order: connections stay open through a containment failure. Nothing will be closed for you.</RR_Containment_ProcedureOff>
+  <RR_Containment_Arm>Cut connections on a containment failure</RR_Containment_Arm>
+  <RR_Containment_Disarm>Leave connections open through a containment failure</RR_Containment_Disarm>
+  <RR_Containment_AlarmLabel>Sound the containment alarm</RR_Containment_AlarmLabel>
+  <RR_Containment_AlarmDesc>Cut every connection the company has open, right now, and start the return window on each so the crews walk home.\n\nThis is the same action the standing order takes by itself when something gets loose. Use it when you can see the problem coming and the order is disarmed.</RR_Containment_AlarmDesc>
+  <RR_Containment_NothingOpen>There is nothing open to cut. No connection is live.</RR_Containment_NothingOpen>
+  <RR_Letter_ContainmentCutLabel>Containment failure: connections cut</RR_Letter_ContainmentCutLabel>
+  <RR_Letter_ContainmentCutText>Something is coming off a holding platform, and the standing order was to shut the doors.\n\nConnections cut: {0}. Every crew on the far side is inside its return window and walking back. You can disarm this order from the facilities pane if you would rather decide each time yourself.</RR_Letter_ContainmentCutText>
+
+  <!-- Staff debrief, and quarantine, which is the same mechanism: you do not go back out until
+       you have reported in. Row 761, last two halves. -->
+  <RR_Debrief_Outstanding>Crew home and not yet debriefed: {0}. None of them will be sent out again until they have reported in.</RR_Debrief_Outstanding>
+  <RR_Debrief_Count>Crew home and not yet debriefed: {0}</RR_Debrief_Count>
+  <RR_Debrief_NoneOutstanding>Every returned crew member has reported in.</RR_Debrief_NoneOutstanding>
+  <RR_Debrief_Row>{0} - cannot be debriefed: {1}</RR_Debrief_Row>
+  <RR_Debrief_Take>Debrief {0} (report taken by {1})</RR_Debrief_Take>
+  <RR_Debrief_UnknownStaff>a former employee</RR_Debrief_UnknownStaff>
+  <RR_Debrief_NobodyToReport>there is nobody here to take the report</RR_Debrief_NobodyToReport>
+  <RR_Debrief_NothingToReport>they have nothing outstanding to report</RR_Debrief_NothingToReport>
+  <RR_Debrief_SelfReport>nobody debriefs themselves</RR_Debrief_SelfReport>
+  <RR_Debrief_NotStaff>only company staff can take a debrief</RR_Debrief_NotStaff>
+  <RR_Debrief_InterviewerUnfit>whoever would take the report is in no state to take it</RR_Debrief_InterviewerUnfit>
+  <RR_Debrief_InterviewerUnskilled>nobody here is a good enough talker to take the report</RR_Debrief_InterviewerUnskilled>
+  <RR_Debrief_NotOurs>that is not one of the company's sites</RR_Debrief_NotOurs>
+  <RR_Debrief_NotHome>they are not back at the headquarters yet</RR_Debrief_NotHome>
+  <RR_Debrief_NotTogether>the two of them are not in the same place</RR_Debrief_NotTogether>
+  <RR_Event_StaffDebriefed>Staff debriefed after returning from the field</RR_Event_StaffDebriefed>
+
+  <!-- Rows 764, 765, 766, 784: what optional mods are loaded and what this mod does about each.
+       Every position is the register's own words turned into something a player can read, and
+       every one ends in the same caveat because nothing has been tested in play. -->
+  <RR_Integration_Heading>Optional mods this company has a position on: {0} of {1} loaded</RR_Integration_Heading>
+  <RR_Integration_Caveat>None of these has been tested in play. Loaded means present, not proven.</RR_Integration_Caveat>
+  <RR_Integration_RowActive>{0} - loaded (register row {1})</RR_Integration_RowActive>
+  <RR_Integration_RowAbsent>{0} - not loaded (register row {1})</RR_Integration_RowAbsent>
+  <RR_Integration_OpenWorld>Open the world map</RR_Integration_OpenWorld>
+
+  <RR_Integration_VehicleFrameworkName>Vehicle Framework</RR_Integration_VehicleFrameworkName>
+  <RR_Integration_VehicleFrameworkPosition>Vehicles stay entirely the other mod's business. Nothing here needs one: a gate is opened on foot, a crew walks through it, and no route, contract or expedition will ever ask you for a vehicle.</RR_Integration_VehicleFrameworkPosition>
+
+  <RR_Integration_RimWorldTogetherName>RimWorld Together</RR_Integration_RimWorldTogetherName>
+  <RR_Integration_RimWorldTogetherPosition>Each player runs their own company: their own facility, their own gate, their own discoveries, their own research and their own books. Visits and supply exchange are the other mod's features and work as it makes them work. There is no shared map, no shared research, and nothing here transfers a case file or a crew between companies.</RR_Integration_RimWorldTogetherPosition>
+
+  <RR_Integration_GravshipOneName>Vanilla Gravship Expanded - Chapter 1</RR_Integration_GravshipOneName>
+  <RR_Integration_GravshipOnePosition>Orbital travel is a separate way to get about and stays that way. Its air, fuel, power, heat and crew systems are untouched. A gate remains the only way into the Backrooms, and nothing here reads or changes a gravship.</RR_Integration_GravshipOnePosition>
+
+  <RR_Integration_VehiclesExpandedName>Vanilla Vehicles Expanded</RR_Integration_VehiclesExpandedName>
+  <RR_Integration_VehiclesExpandedPosition>Use its vehicles for whatever you like - staging a team, moving stock, carrying somebody home. None of it is required and none of it is changed here.</RR_Integration_VehiclesExpandedPosition>
+
+  <RR_Integration_GravshipTwoName>Vanilla Gravship Expanded - Chapter 2</RR_Integration_GravshipTwoName>
+  <RR_Integration_GravshipTwoPosition>Its orbital combat, contracts and salvage are its own and are not patched. Nothing it fights will ever turn up in a Backrooms space: what lives in there is drawn only from this mod's own list of inhabitants, and that is checked on every build.</RR_Integration_GravshipTwoPosition>
+</LanguageData>

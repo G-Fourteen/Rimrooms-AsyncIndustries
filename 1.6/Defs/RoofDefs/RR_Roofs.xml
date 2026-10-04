@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- THE BACKROOMS DO NOT CAVE IN.
+
+       Owner direction, 2026-09-30, verbatim: **"and remember backrooms can not and shall not
+       have cave ins so removing walls floors columns shall not cause mountain overhead to column
+       collapse"**, and immediately after, when asked how far it reached: **"tgis is only for
+       backrooms"**.
+
+       WHY A ROOF DEF OF OUR OWN, AND WHY THIS IS THE ONLY HONEST WAY TO DO IT.
+
+       Core gates every cave-in on `RoofDef.canCollapse`, in
+       `RoofCollapseCellsFinder.ProcessRoofHolderDespawned`:
+
+           ... && roofGrid.RoofAt(intVec).canCollapse && !RoofCollapseUtility.WithinRangeOfRoofHolder(...)
+
+       `canCollapse` DEFAULTS TO TRUE and Core sets it false on none of its three roofs, so
+       `RoofRockThick` collapses like any other. The comment in BuildShell that claimed a
+       coordinate "can be mined to nothing and still never open a hole in the world" was half
+       right: `VanishOnCollapse` is false for thick roof, so no hole opens - but the roof still
+       drops `CollapsedRocks` and crushes whatever is beneath it. That is a cave-in.
+
+       Patching `RoofRockThick` itself was considered and REFUSED. It would make every mountain
+       in every colony non-collapsing, for this player and for every other mod in the profile.
+       The owner's own words draw the line: "tgis is only for backrooms".
+
+       A RoofDef is the right unit for this. It is a `Def`, not a `ThingDef`, and it carries
+       **no texture, graphic or sound of its own that we author** - roofs are drawn from the map
+       mesh according to `isThickRoof`. So this stays inside the existing-content-only rule: no
+       new gameplay ThingDef, no sprite, no audio.
+
+       WHY `isThickRoof` IS TRUE. Every piece of Core behaviour that matters reads that flag, not
+       the def's identity: drop pods (`DropPodUtility`, `DropCellFinder`), projectiles and
+       bombardment, `RoomTempTracker`, `Fire`, turret line of fire, the indoor mask and the
+       lighting overlay, and `Designator_AreaNoRoof`. With it true this behaves exactly like
+       overhead mountain, which is what invariant 13 requires: **a Backrooms coordinate has no
+       outside.**
+
+       WHAT IS KNOWINGLY GIVEN UP. Two places in Core compare against the def itself rather than
+       the flag. `RoofGrid.GetCellExtraColor` tints `RoofRockThick` gray in the roof-overlay
+       view, so ours draws white there - cosmetic, and only inside that toggle. And
+       `MechClusterUtility` avoids cells whose roof IS `RoofRockThick`; mech clusters are a
+       colony-map incident and do not target coordinate maps.
+
+       WHAT THE MOD REGISTER FOUND, AND IT IS BIGGER THAN THE CAVE-IN.
+
+       Register row [188] **Removable Mt.Rock Roof Patch** (Workshop 1541438898,
+       Proxyer.RemovableMtRockRoofPatche, family "Facilities and spatial construction", Optional,
+       Provisional) is INSTALLED IN THIS PROFILE, and its patch reads:
+
+           <xpath>*/RoofDef[defName = "RoofRockThick"]/isThickRoof</xpath>
+           <value><isThickRoof>false</isThickRoof></value>
+
+       So in this player's game **Core's overhead mountain is not thick.** And
+       `RoofDef.VanishOnCollapse => !isThickRoof`, which means it **VANISHES ON COLLAPSE** and
+       leaves open sky.
+
+       That breaks invariant 13 outright, and it was already broken before any of today's work: a
+       coordinate roofed with `RoofRockThick` in this profile could be mined into a hole in the
+       world. The claim in BackroomsContainment that thick roof "never vanishes" was reasoning
+       from unpatched Core, and this profile is not unpatched Core.
+
+       Two things follow. First, this def is not only about cave-ins - **it restores invariant 13
+       for this profile**, because it carries its own `isThickRoof` that nothing patches. Second,
+       it is another reason patching `RoofRockThick` would have been wrong: two mods editing one
+       def at startup, resolved by load order, and that mod asks to be loaded last.
+
+       Also checked, and clear: row [69] **Craftable Mountains** (2906276423) only *sets*
+       `RoofDefOf.RoofRockThick` from its own assembly and adds terrain defs, so it consumes the
+       def rather than redefining it. Row [63] **Change map edge limit** (1546494565) affects
+       player map sizing; a coordinate is a fixed size this mod creates, so it is unaffected.
+
+       WHAT THIS DOES NOT CLAIM. `canCollapse` closes the reachable path - mine or deconstruct a
+       wide span, get "roof collapsed". It does not gate
+       `RoofCollapseCellsFinder.CheckCollapseFlyingRoofAtAndAdjInternal`, which marks a roofed
+       region carrying NO roof holder anywhere in it. In a coordinate every cell is roofed and the
+       space between rooms is solid rock, so that region contains tens of thousands of holders; it
+       would take mining the entire map AND deconstructing every wall to empty it. -->
+  <RoofDef>
+    <defName>RR_RoofBackroomsOverhead</defName>
+    <label>overhead mass</label>
+    <isThickRoof>true</isThickRoof>
+    <isNatural>true</isNatural>
+    <canCollapse>false</canCollapse>
+    <filthLeaving>Filth_RubbleRock</filthLeaving>
+  </RoofDef>
+
+</Defs>

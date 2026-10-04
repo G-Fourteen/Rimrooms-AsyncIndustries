@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ThingDef ParentName="BuildingBase">
+    <defName>RR_ReturnAnchor</defName><label>validated return anchor</label>
+    <description>The saved threshold for this coordinate. Approach this marker to return through an open company gate. Closing the gate does not erase the site or move its anchor. A blocked approach must be cleared before extraction.</description>
+    <thingClass>Building</thingClass><size>(1,1)</size><rotatable>false</rotatable>
+    <graphicData><texPath>Things/Building/Furniture/PenMarker</texPath><graphicClass>Graphic_Single</graphicClass><drawSize>(1,1)</drawSize></graphicData>
+    <passability>Standable</passability><altitudeLayer>FloorEmplacement</altitudeLayer>
+    <useHitPoints>false</useHitPoints><selectable>true</selectable><fillPercent>0</fillPercent>
+    <statBases><Mass>30</Mass><MarketValue>0</MarketValue><WorkToBuild>0</WorkToBuild></statBases>
+    <building><isEdifice>false</isEdifice><deconstructible>false</deconstructible><claimable>false</claimable><canBuildNonEdificesUnder>true</canBuildNonEdificesUnder></building>
+  </ThingDef>
+    <!-- **RR_QuietPursuer IS RETIRED, 0.12.87-dev.** Owner, 2026-10-04: "things that chase
+         you are just npc pawns and wild animals and shit of the gasme spawned in
+         procedurally and dynamically for randomness encounters, not somew new type of np0c
+         in the backrooms ... not some blob figure, just normal core mechanics".
+
+         This was a ThingDef drawn with Things/Mote/Black at 1.4 tiles, driven by a bespoke
+         Thing_QuietPursuer that teleported room to room and landed one scripted two-point
+         blow. A chaser is now a real Pawn of a Core PawnKindDef - a hostile humanlike or
+         one of the biome own wild animals - hunting with Core AI, Core pathing, Core
+         doors and Core wounds. See Threats/FirstSlicePursuer.cs. -->
+</Defs>

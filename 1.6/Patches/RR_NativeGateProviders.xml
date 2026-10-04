@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <!-- Exact Core providers only. Their new components remain dormant until explicit designation.
+       The emergence component is added beside the gate one on the same two door defs: it is where
+       a way out of the Backrooms comes up, and only ever on a door the player marked. -->
+  <Operation Class="PatchOperationSequence">
+    <operations>
+      <li Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName="Door"]/comps</xpath>
+        <nomatch Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Door"]</xpath>
+          <value><comps /></value>
+        </nomatch>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Door" or defName="Autodoor"]/comps</xpath>
+        <value>
+          <li Class="RimroomsAsyncIndustries.Gate.CompProperties_RimroomsGate" />
+        </value>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Door" or defName="Autodoor"]/comps</xpath>
+        <value>
+          <li Class="RimroomsAsyncIndustries.Portals.CompProperties_RimroomsEmergence" />
+          <!-- A GATE LOOKS LIKE A GATE. Owner, 2026-09-30: *"its not blue!!! it doesnt have a
+               light aura, and it in no way is a portal to the back rooms"*, and repeatedly
+               before that, that the Stargate mod is the model for how a gate reads and behaves.
+
+               Both comps are Core and both are settable PER INSTANCE — `CompGlower.GlowColor`
+               and `GlowRadius` have setters backed by per-instance overrides, and
+               `CompColorable.SetColor` is per thing. So a live gate is blue and casts light with
+               NO new texture and NO new def, which is the existing-content rule kept exactly.
+
+               WHY THIS DOES NOT TOUCH ANY OTHER DOOR IN THE GAME, and this is the load-bearing
+               part. `CompGlower.ShouldBeLitNow` walks every comp on the parent and asks any that
+               implements `Verse.IThingGlower`. `CompRimroomsEmergence` implements it and answers
+               false unless this door is a live gate, so every ordinary door in every colony and
+               every door any other mod ships carries an inert glower that Core itself refuses to
+               light. That is a guarantee from Core's own rule rather than a hope.
+
+               The radius and colour here are only defaults; the comp overrides both when a gate
+               goes live, and the blue is the one the owner asked for. -->
+          <li Class="CompProperties_Glower">
+            <glowRadius>0</glowRadius>
+            <glowColor>(70,130,220,0)</glowColor>
+          </li>
+          <!-- NO `Class` ATTRIBUTE, AND THIS COST THE SEVENTH LAUNCH. There is no
+               `CompProperties_Colorable` type in the game; `CompColorable` is declared with a
+               plain `CompProperties` carrying a `compClass`, exactly as Core does it for
+               apparel, textiles and the Ideology floor coverings — the last of which are
+               buildings, so it is the right mechanism for a door, it was only spelled with a
+               class that does not exist. Naming a type the game cannot resolve throws out of
+               `DirectXmlToObjectNew`, and that does not fail the one comp: it discards the
+               WHOLE ThingDef being parsed. `Door` and `Autodoor` left the game, every def
+               referencing them failed to cross-resolve, and the log went red from the top. -->
+          <li>
+            <compClass>CompColorable</compClass>
+          </li>
+        </value>
+      </li>
+      <!-- Owner direction 2026-09-29: "like orbital beacons to beable to show that available
+           credits". A Core trade beacon already means "the valuables in this circle are the
+           ones that count", so nobody has to learn a new idea and Core already draws the
+           radius. Dormant until the player designates it, exactly like the gate comps above:
+           a trade beacon in somebody's existing colony must behave as it always has. -->
+      <li Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName="OrbitalTradeBeacon"]/comps</xpath>
+        <nomatch Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="OrbitalTradeBeacon"]</xpath>
+          <value><comps /></value>
+        </nomatch>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="OrbitalTradeBeacon"]/comps</xpath>
+        <value>
+          <li Class="RimroomsAsyncIndustries.Economy.CompProperties_RimroomsCreditBeacon" />
+        </value>
+      </li>
+      <!-- Owner direction 2026-09-29: "lost pawns". The comp sits on the human race def so
+           every person in the game carries it, and it does nothing at all unless a coordinate
+           marked that particular person as a survivor it produced. Same dormant-until-marked
+           pattern as the gate and beacon comps above: installing this mod must never change
+           anybody who was not asking for it. -->
+      <li Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName="Human"]/comps</xpath>
+        <nomatch Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="Human"]</xpath>
+          <value><comps /></value>
+        </nomatch>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="Human"]/comps</xpath>
+        <value>
+          <li Class="RimroomsAsyncIndustries.Threats.CompProperties_RimroomsSurvivor" />
+        </value>
+      </li>
+      <!-- **AND ON ANIMALS, so a found animal can say what is wrong with it.** Owner,
+           2026-10-04: "remember lsd unnerving feeling with all things ie events random
+           spanwns, enemies, allies, nuetrals". The comp carries which inhabitant family a
+           coordinate produced a pawn as, and therefore its tell; the two Fauna families are
+           animals, so without this their tell would have had nowhere to live.
+
+           AnimalThingBase is Core's own abstract parent and inheritance carries the comp to
+           every animal that uses it. A race-condition xpath looks like the right answer and is
+           not: patches run on the raw XML BEFORE def inheritance is resolved, so
+           ThingDef[race/intelligence="Animal"] matches only the few defs that state it
+           themselves and silently misses the rest.
+
+           KNOWN LIMIT, stated rather than hidden: an animal from a mod that does not inherit
+           AnimalThingBase carries no comp. Its tell then reaches the player in the family's
+           letter, which every family has, and nothing throws - TryGetComp returns null and the
+           mark is never made. A reduced reading, not a fault.
+
+           Dormant until marked, exactly like the human attachment: installing this mod must
+           never change an animal nobody asked it to change. -->
+      <li Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[@Name="AnimalThingBase"]/comps</xpath>
+        <nomatch Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[@Name="AnimalThingBase"]</xpath>
+          <value><comps /></value>
+        </nomatch>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[@Name="AnimalThingBase"]/comps</xpath>
+        <value>
+          <li Class="RimroomsAsyncIndustries.Threats.CompProperties_RimroomsSurvivor" />
+        </value>
+      </li>
+      <!-- Owner direction 2026-09-29: "ther are 1x1 1x2 and 1x3 and 2x3 gate doors that
+           allow differnt capabilities". The component is only ever attached here, so this
+           file is the allowlist of what may become a gate, and the four legal footprints
+           are enforced in code.
+
+           Core's own OrnateDoor is 2x1, which was found by reading the installed game data
+           rather than assumed. It means a 1x2 gate needs no mods at all. Dormant until
+           designated, exactly like the doors above. -->
+      <li Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName="OrnateDoor"]/comps</xpath>
+        <nomatch Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="OrnateDoor"]</xpath>
+          <value><comps /></value>
+        </nomatch>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="OrnateDoor"]/comps</xpath>
+        <value>
+          <li Class="RimroomsAsyncIndustries.Gate.CompProperties_RimroomsGate" />
+        </value>
+      </li>
+      <!-- Anomaly's security door is also 2x1. Wrapped in a conditional rather than gated by
+           name: without the DLC the def simply is not there, the condition does not match,
+           and nothing is attempted. An unguarded add against an absent def logs an error. -->
+      <li Class="PatchOperationConditional">
+        <xpath>Defs/ThingDef[defName="SecurityDoor"]/comps</xpath>
+        <match Class="PatchOperationAdd">
+          <xpath>Defs/ThingDef[defName="SecurityDoor"]/comps</xpath>
+          <value>
+            <li Class="RimroomsAsyncIndustries.Gate.CompProperties_RimroomsGate" />
+          </value>
+        </match>
+      </li>
+      <li Class="PatchOperationAdd">
+        <xpath>Defs/ThingDef[defName="CommsConsole" or defName="TableMachining"]/comps</xpath>
+        <value>
+          <li Class="RimroomsAsyncIndustries.Gate.CompProperties_RimroomsGateConsole" />
+        </value>
+      </li>
+    </operations>
+  </Operation>
+  <!-- Optional compatibility. PatchOperationFindMod applies nothing when Doors Expanded is
+       not installed, and modifies none of its files when it is. Def names and footprints
+       were read from the installed copy: PH_DoorDouble and PH_AutodoorDouble are 2x1,
+       PH_DoorTriple and PH_AutodoorTriple are 3x1, PH_GateDoubleThick and PH_DoorBlastDoor
+       are 2x1, and PH_DoorThickBlastDoor is 3x2, which is the 2x3 the owner named. The
+       cloth curtains and the 1x1 jail door are deliberately not included: a curtain is not a
+       gate, and Core already covers 1x1. -->
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>Doors Expanded</li>
+    </mods>
+    <match Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PH_DoorDouble" or defName="PH_DoorTriple" or defName="PH_AutodoorDouble" or defName="PH_AutodoorTriple" or defName="PH_GateDoubleThick" or defName="PH_DoorBlastDoor" or defName="PH_DoorThickBlastDoor"]/comps</xpath>
+      <value>
+        <li Class="RimroomsAsyncIndustries.Gate.CompProperties_RimroomsGate" />
+      </value>
+    </match>
+  </Operation>
+</Patch>

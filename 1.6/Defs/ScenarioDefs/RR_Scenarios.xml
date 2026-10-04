@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+  <ScenarioDef ParentName="ScenarioBase">
+    <defName>RR_AsyncIndustries</defName>
+    <label>Async Industries</label>
+    <description>Lead an authorised research branch of Async Industries.
+
+A small facility, an unfinished gate, a first survey and a $50 million allocation wait for you at the surface tile you choose. The headquarters is a fixed 60 by 60 layout, and temperate conditions are recommended.
+
+Five colonists by default. The company review supports one to twenty selected people without replacing them, so customise your staff and supplies with native setup or Prepare Carefully as you prefer.
+
+Supplies arrive physically with your people and stay editable separately from the fixed structures. Extra staff need extra beds and food, and a small team may need to hire before it can field a full expedition.</description>
+    <scenario>
+      <summary>Customize your people and supplies, review company roles, and establish a $50 million research branch at your chosen surface tile. Five colonists by default; a fixed 60 by 60 headquarters.</summary>
+      <parts>
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>5</pawnCount>
+          <pawnChoiceCount>10</pawnChoiceCount>
+          <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+        </li>
+        <li Class="RimroomsAsyncIndustries.Scenario.ScenPart_RimroomsStart">
+          <def>RR_CompanyStart</def>
+          <startDef>RR_AsyncIndustriesStart</startDef>
+          <visible>false</visible>
+        </li>
+        <li Class="RimroomsAsyncIndustries.Scenario.ScenPart_RimroomsArrival">
+          <def>RR_CompanyArrival</def>
+          <method>Standing</method>
+          <visible>false</visible>
+        </li>
+        <!-- Native parts stay visible/editable to scenario setup and Prepare Carefully. -->
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Steel</thingDef><count>250</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>ComponentIndustrial</thingDef><count>18</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>ComponentSpacer</thingDef><count>2</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Silver</thingDef><count>150</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>MealSurvivalPack</thingDef><count>50</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>MedicineIndustrial</thingDef><count>6</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Gun_BoltActionRifle</thingDef><count>1</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Gun_Revolver</thingDef><count>1</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Apparel_FlakVest</thingDef><count>1</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>WoodLog</thingDef><count>150</count></li>
+        <!-- The field recorder became the record book in 0.12.24-dev. One textbook,
+             taken in blank, written in in the field, carried home as the evidence. A
+             branch that loses it buys another from the company catalogue. -->
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>TextBook</thingDef><count>1</count></li>
+        <!-- Six survey tags became eight glow pods at 0.10.7-dev. The eight moved OUT of
+             this list at 0.12.44-dev and into the fixed facility in RR_Starts.xml, because
+             `GlowPod` is a Core *Building* and EdB Prepare Carefully's equipment database has
+             no entry for a building with no stuff - it logged "Couldn't initialize all
+             scenario equipment" on every single setup. Vanilla copes (ScenPart_StartingThing_
+             Defined calls MakeMinified on anything minifiable); EdB does not. A placed glow
+             pod can still be uninstalled, minified and carried, so the only thing given up is
+             editing them in Prepare Carefully. -->
+        <!-- The sealed evidence case was retired in 0.10.9-dev. Custody is a shelf linked
+             to a gate as a records archive, so the start grants the shelf instead of a
+             custom item whose only job was to exist somewhere on the map. -->
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Shelf</thingDef><count>2</count></li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+  <ScenarioDef ParentName="ScenarioBase">
+    <defName>RR_FurnitureStore</defName>
+    <label>Furniture and Knickknack Store</label>
+    <description>Run a small furniture and knickknack shop with a door in the back that should not be there.
+
+Three ordinary people, a sales floor, a stockroom and two hundred silver in the till. There is no corporation, no research and no rescue: nobody is watching this place, and nothing is coming if it goes wrong.
+
+One expected customer has not come back out. What the door is, and what you do about it, is entirely yours to decide. Reaching Async Industries at all is an achievement here rather than a starting condition.
+
+Three people by default. Customise your staff and stock with native setup or Prepare Carefully as you prefer.</description>
+    <scenario>
+      <summary>A small shop, three ordinary people, and an anomalous threshold in the back room. No corporation, no research, and no rescue until you earn one.</summary>
+      <parts>
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>3</pawnCount>
+          <pawnChoiceCount>6</pawnChoiceCount>
+          <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+        </li>
+        <li Class="RimroomsAsyncIndustries.Scenario.ScenPart_RimroomsStart">
+          <def>RR_CompanyStart</def>
+          <startDef>RR_FurnitureStoreStart</startDef>
+          <visible>false</visible>
+        </li>
+        <li Class="RimroomsAsyncIndustries.Scenario.ScenPart_RimroomsArrival">
+          <def>RR_CompanyArrival</def>
+          <method>Standing</method>
+          <visible>false</visible>
+        </li>
+        <!-- A shop's stock and a shop's petty cash. No company kit, no field recorder, no
+             glow pods: everything this start would need for an expedition is something it
+             has to acquire, which is the difference between it and Async Industries. -->
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Silver</thingDef><count>200</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>WoodLog</thingDef><count>200</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Cloth</thingDef><count>120</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Steel</thingDef><count>80</count></li>
+        <!-- Owner direction 2026-10-02, verbatim: "should start scenerio with survival meals
+             not simple meals and should be like 100 to start besides whats set in prepare
+             carfully", narrowed to "it was just the simple meals that need to be survioval
+             meals and they need to properly spawn in with starting goods".
+
+             This was MealSimple 24 and it was the only simple meal any scenario granted;
+             Async grants MealSurvivalPack 50 and solo/group 5, so the Store was the odd one
+             out. A packaged survival meal does not spoil, which is the behaviour a shop full
+             of stock wants - MealSimple carries daysToRotStart and a start that hands the
+             player two dozen rotting meals is a start that quietly takes them away again. -->
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>MealSurvivalPack</thingDef><count>100</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>MedicineHerbal</thingDef><count>8</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Gun_Revolver</thingDef><count>1</count></li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+
+  <ScenarioDef ParentName="ScenarioBase">
+    <defName>RR_SoloGroup</defName>
+    <label>Solo or group, inside</label>
+    <description>You are already in. There was no gate and there is no way back that anybody knows about.
+
+The rooms go on further than you have walked. The roof does not come off. Nothing here was built for you and nothing here is coming for you, because no company knows this place exists and neither did you until today.
+
+One to five people, your choice. Groups have been known to end up in together.
+
+Stay alive, learn one rule this place obeys, mark the way you came, and decide whether you are looking for a way out, a way to call somebody, or somewhere to put a bed.</description>
+    <scenario>
+      <summary>You start inside the Backrooms with what you were carrying. No company, no gate, no research and nobody looking for you. One to five people.</summary>
+      <parts>
+        <li Class="ScenPart_ConfigPage_ConfigureStartingPawns">
+          <def>ConfigPage_ConfigureStartingPawns</def>
+          <pawnCount>1</pawnCount>
+          <pawnChoiceCount>5</pawnChoiceCount>
+          <allowedDevelopmentalStages>Adult</allowedDevelopmentalStages>
+        </li>
+        <li Class="RimroomsAsyncIndustries.Scenario.ScenPart_RimroomsStart">
+          <def>RR_CompanyStart</def>
+          <startDef>RR_SoloGroupStart</startDef>
+          <visible>false</visible>
+        </li>
+        <li Class="RimroomsAsyncIndustries.Scenario.ScenPart_RimroomsArrival">
+          <def>RR_CompanyArrival</def>
+          <method>Standing</method>
+          <visible>false</visible>
+        </li>
+        <!-- What you had on you. A light source matters more than anything else here, and
+             the place has no power: nobody wired it and nobody is going to. -->
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>MealSurvivalPack</thingDef><count>5</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>MedicineHerbal</thingDef><count>2</count></li>
+        <!-- A book was the one piece of company property worth having on you. -->
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>TextBook</thingDef><count>1</count></li>
+        <!-- Three glow pods, CARRIED, and they must stay carried. 0.12.44-dev moved these
+             into a fixed facility to silence an EdB warning, which was wrong twice over:
+             they were attributed to the Store (whose own note says it has none) and this
+             start's party is moved INSIDE a coordinate on the first tick, so anything
+             standing in the surface shell is abandoned immediately. EdB logs a warning
+             it cannot avoid for a Building granted as a starting thing; a warning is
+             cheaper than a start whose only light source is left behind. -->
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>GlowPod</thingDef><count>3</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>Steel</thingDef><count>40</count></li>
+        <li Class="ScenPart_StartingThing_Defined"><def>StartingThing_Defined</def><thingDef>ComponentIndustrial</thingDef><count>2</count></li>
+      </parts>
+    </scenario>
+  </ScenarioDef>
+
+  <!-- The RR_Headquarters MapGeneratorDef was retired at 0.12.46-dev. Owner direction:
+       **"the map generator is not our mod"**. It had four gen steps against Core's whole
+       chain, so a start map was flat Soil with a building on it - no rock, no plants, no
+       water, no biome character - and Map Preview, which simulates the REAL generator, showed
+       a tile the mod then discarded. Core generates the map now; the two gen steps below are
+       patched into Base_Player in Patches/RR_StartGenSteps.xml so the facility is placed ONTO
+       it. Both steps return immediately unless the map is the initial company start. -->
+  <!-- Order 100 sits between Core's ElevationFertility (10) and RocksFromGrid (200), which
+       spawns a rock formation in every cell whose elevation exceeds 0.7. Lowering the
+       elevation under the facility there means Core never generates rock on the site at all.
+       At the previous order of 5 the elevation grid did not exist yet. Fourth-launch
+       measurement: 234 of the Store's 1020 footprint cells held Marble or Granite. -->
+  <GenStepDef>
+    <defName>RR_HeadquartersTerrain</defName>
+    <order>100</order>
+    <genStep Class="RimroomsAsyncIndustries.Scenario.GenStep_HeadquartersTerrain" />
+  </GenStepDef>
+  <GenStepDef>
+    <defName>RR_HeadquartersFacility</defName>
+    <order>800</order>
+    <genStep Class="RimroomsAsyncIndustries.Scenario.GenStep_HeadquartersFacility" />
+  </GenStepDef>
+</Defs>

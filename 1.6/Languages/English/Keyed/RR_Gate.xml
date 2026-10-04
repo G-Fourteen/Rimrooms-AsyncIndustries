@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+  <RR_Gate_AssignOperatorLabel>Assign gate operator</RR_Gate_AssignOperatorLabel>
+  <RR_Gate_AssignOperatorDesc>Choose an employed staff member for the gate console.</RR_Gate_AssignOperatorDesc>
+  <RR_Gate_CalibrateLabel>Calibrate gate</RR_Gate_CalibrateLabel>
+  <RR_Gate_CalibrateDesc>Start a staffed calibration job at the powered console.</RR_Gate_CalibrateDesc>
+  <RR_Gate_StaffConsoleLabel>Staff gate console</RR_Gate_StaffConsoleLabel>
+  <RR_Gate_StaffConsoleDesc>Order the assigned operator to reserve and staff the console.</RR_Gate_StaffConsoleDesc>
+  <RR_Gate_StaffChoice>{0} ({1})</RR_Gate_StaffChoice>
+  <RR_Gate_UnassignOperator>Unassign operator</RR_Gate_UnassignOperator>
+  <RR_Gate_NoOperator>No operator assigned.</RR_Gate_NoOperator>
+  <RR_Gate_OperatorPresent>Operator on station: {0}</RR_Gate_OperatorPresent>
+  <RR_Gate_OperatorAway>Assigned operator away from the console: {0}</RR_Gate_OperatorAway>
+  <RR_Gate_ReserveReadout>Emergency return reserve: {0} / {1} watt-days</RR_Gate_ReserveReadout>
+  <RR_Gate_OpeningReadout>Opening time: {0}\nEmergency return: {1}\nStatus: {2}</RR_Gate_OpeningReadout>
+  <RR_Gate_WindowClosed>Closed</RR_Gate_WindowClosed>
+  <RR_Gate_RemainingMinutes>{0} in-game minutes remaining</RR_Gate_RemainingMinutes>
+  <RR_Gate_NoFailure>normal</RR_Gate_NoFailure>
+  <RR_Gate_StatusIncomplete>Assembly required</RR_Gate_StatusIncomplete>
+  <RR_Gate_StatusNeedsCalibration>Calibration required</RR_Gate_StatusNeedsCalibration>
+  <RR_Gate_StatusCalibrated>Calibrated</RR_Gate_StatusCalibrated>
+  <RR_Gate_JobUnavailable>The assigned staff member cannot start this gate job.</RR_Gate_JobUnavailable>
+  <RR_Gate_NoAssignedOperator>No employed operator is assigned.</RR_Gate_NoAssignedOperator>
+  <RR_Gate_ActiveCannotReassign>The operator cannot be changed while an expedition is active.</RR_Gate_ActiveCannotReassign>
+  <RR_Gate_StaffOnly>Only an employed company staff member can be assigned to the gate.</RR_Gate_StaffOnly>
+  <RR_Gate_InvalidExpedition>The expedition ID is missing or invalid.</RR_Gate_InvalidExpedition>
+  <RR_Gate_NotAssembled>The gate needs its physical materials and staffed assembly bill completed.</RR_Gate_NotAssembled>
+  <RR_Gate_NotCalibrated>The gate needs staffed calibration before opening.</RR_Gate_NotCalibrated>
+  <RR_Gate_AlreadyOpen>The gate already has an active expedition.</RR_Gate_AlreadyOpen>
+  <RR_Gate_RecoveryRequired>The previous opening has failed. Use the recovery operation after the return window ends.</RR_Gate_RecoveryRequired>
+  <RR_Gate_RecoveryWindowStillActive>The bounded emergency-return window must expire before a recovery opening can begin.</RR_Gate_RecoveryWindowStillActive>
+  <RR_Gate_InvalidOperation>The operation receipt ID is missing or invalid.</RR_Gate_InvalidOperation>
+  <RR_Gate_InvalidTimeCost>The opening time cost must be a positive number of ticks.</RR_Gate_InvalidTimeCost>
+  <RR_Gate_OperationIdConflict>This operation receipt ID was already used for a different request.</RR_Gate_OperationIdConflict>
+  <RR_Gate_NoNormalWindow>The gate cannot apply a new time cost during its emergency-return window.</RR_Gate_NoNormalWindow>
+  <RR_Gate_OperatorNotStaffing>The assigned operator is not staffing the console.</RR_Gate_OperatorNotStaffing>
+  <RR_Gate_OperatorUnavailable>The assigned operator must be alive, capable, employed, and present on the facility map.</RR_Gate_OperatorUnavailable>
+  <RR_Gate_PowerUnstable>The gate needs stable connected power and a charged return reserve.</RR_Gate_PowerUnstable>
+  <RR_Gate_OpeningPowerUnstable>The connected power network cannot support the gate's configured opening load while retaining its required headroom.</RR_Gate_OpeningPowerUnstable>
+  <RR_Gate_ExpeditionMismatch>The emergency-return request does not match the active expedition.</RR_Gate_ExpeditionMismatch>
+  <RR_Gate_NoEmergencyWindow>The gate has no active emergency-return window.</RR_Gate_NoEmergencyWindow>
+  <RR_Gate_PowerLost>Power lost</RR_Gate_PowerLost>
+  <RR_Gate_OperatorLost>Operator station lost</RR_Gate_OperatorLost>
+  <RR_Gate_WindowExpired>Opening window expired</RR_Gate_WindowExpired>
+  <RR_Gate_WarningTenMinutes>The gate opening has about 10 in-game minutes remaining.</RR_Gate_WarningTenMinutes>
+  <RR_Gate_WarningFiveMinutes>The gate opening has about 5 in-game minutes remaining.</RR_Gate_WarningFiveMinutes>
+  <RR_Gate_WarningTwoMinutes>The gate opening has about 2 in-game minutes remaining.</RR_Gate_WarningTwoMinutes>
+  <!-- The scheduling surface. Off by default, set per gate, and it rides the gate's own window
+       rather than adding a clock of its own - the only clock this mod is allowed, per
+       CAMPAIGN_CHART.md 1.1. A warning needs somebody watching; a standing order does not. -->
+  <RR_Gate_StandingRecallLabel>Standing recall: {0}</RR_Gate_StandingRecallLabel>
+  <RR_Gate_StandingRecallDesc>Order the crew home automatically when this gate's opening has a chosen amount of window left. It only ever tells them to walk back; it never closes the gate and never ends the trip. Off by default.</RR_Gate_StandingRecallDesc>
+  <RR_Gate_StandingRecallOff>no standing recall</RR_Gate_StandingRecallOff>
+  <RR_Gate_StandingRecallAt>with {0} of window left</RR_Gate_StandingRecallAt>
+  <RR_Gate_StandingRecallInspect>Standing recall: the crew is called home with {0} of window left.</RR_Gate_StandingRecallInspect>
+  <RR_Gate_StandingRecallIssued>Standing recall issued. The crew has been told to return through the gate.</RR_Gate_StandingRecallIssued>
+  <RR_Gate_EmergencyWindowExpired>Emergency-return window expired</RR_Gate_EmergencyWindowExpired>
+  <RR_Gate_EmergencyCutoff>Emergency cutoff activated</RR_Gate_EmergencyCutoff>
+  <RR_Gate_NotOpen>The gate has no active expedition to interrupt.</RR_Gate_NotOpen>
+  <!-- Kept as the last resort only. It used to be the answer for all eight of CanCalibrate's
+       conditions, including the one that means the work is already finished, which is how the
+       owner was told "the gate is not ready for calibration" about a calibrated gate. -->
+  <RR_Gate_CalibrationUnavailable>The gate is not ready for calibration.</RR_Gate_CalibrationUnavailable>
+  <RR_Gate_AlreadyCalibrated>This gate is already calibrated. That step is done.</RR_Gate_AlreadyCalibrated>
+  <RR_Gate_OperatorNotEmployed>The assigned operator is not employed staff any more. Assign one who is.</RR_Gate_OperatorNotEmployed>
+  <RR_Gate_MachineUnavailable>The gate is no longer available.</RR_Gate_MachineUnavailable>
+  <RR_Gate_InvalidAssemblyBill>The assembly bill did not target this installation's assigned assembly station.</RR_Gate_InvalidAssemblyBill>
+  <RR_Event_GateAssemblyCompleted>The gate assembly is complete. Assign a qualified operator and calibrate the gate.</RR_Event_GateAssemblyCompleted>
+  <RR_Event_GateCalibrationCompleted>The gate calibration is complete. Staff the console and review the power reserve before dispatch.</RR_Event_GateCalibrationCompleted>
+  <RR_Event_GateOpeningStarted>The gate opening has started. The expedition window is running.</RR_Event_GateOpeningStarted>
+  <RR_Event_GateOpeningClosed>The gate opening is closed. Crew and cargo remain accounted for in the expedition record.</RR_Event_GateOpeningClosed>
+  <RR_Event_GateEmergencyReturnPaid>Emergency return has committed {0} watt-days from the gate's reserve.</RR_Event_GateEmergencyReturnPaid>
+  <RR_Event_GateRecoveryOpeningStarted>The recovery opening has started, spending {0} watt-days from the gate's reserve.</RR_Event_GateRecoveryOpeningStarted>
+  <RR_Gate_TimeCostWindowExhausted>The recorded route distortion consumed the remaining normal opening. Use the emergency return while it remains available.</RR_Gate_TimeCostWindowExhausted>
+  <RR_Gate_WindowSustained>held while powered and staffed</RR_Gate_WindowSustained>
+  <RR_Gate_KillSwitchLabel>Set emergency cutoff</RR_Gate_KillSwitchLabel>
+  <RR_Gate_KillSwitchDesc>Choose a power switch on this gate's own circuit as its emergency cutoff. Throwing that switch ends an opening at once and names itself as the cause. Only a switch that actually carries this gate's power can be chosen. If there is none, wire one into the line that feeds the gate and turn it on.</RR_Gate_KillSwitchDesc>
+  <RR_Gate_KillSwitchNone>Emergency cutoff: none set.</RR_Gate_KillSwitchNone>
+  <RR_Gate_KillSwitchArmed>Emergency cutoff: {0}, closed and carrying power.</RR_Gate_KillSwitchArmed>
+  <RR_Gate_KillSwitchThrown>Emergency cutoff: {0} is OPEN. The gate has no supply.</RR_Gate_KillSwitchThrown>
+  <RR_Gate_NoKillSwitchCandidates>No power switch on this gate's circuit</RR_Gate_NoKillSwitchCandidates>
+  <RR_Gate_ClearKillSwitch>Clear emergency cutoff</RR_Gate_ClearKillSwitch>
+  <RR_NativeGate_GateControlLabel>Set to gate control</RR_NativeGate_GateControlLabel>
+  <RR_NativeGate_GateControlDesc>Hand this installation over to the gate. Its ordinary company functions are withdrawn while it does, and on a machining table every bill except the gate assembly is suspended until it returns to normal operation.</RR_NativeGate_GateControlDesc>
+  <RR_NativeGate_NormalOpLabel>Return to normal operation</RR_NativeGate_NormalOpLabel>
+  <RR_NativeGate_NormalOpDesc>Give this installation back to its ordinary work. The bills gate control suspended are resumed, and the gate will not spin up or be assembled until it is handed over again.</RR_NativeGate_NormalOpDesc>
+  <RR_NativeGate_NotInGateControl>One of the gate's installations is still in normal operation. Set the comms console and the machining table to gate control first.</RR_NativeGate_NotInGateControl>
+  <RR_NativeGate_MakeLabel>Commission this door as the gate</RR_NativeGate_MakeLabel>
+  <RR_NativeGate_MakeDesc>Commission this door as the branch's gate.\n\nThis only decides which door the gate is. The circuit does not have to exist yet.\n\nIf the headquarters already has exactly one comms console, one battery and one machining table, they are bound at the same time. Otherwise the door becomes the gate anyway and you finish the circuit on the Operations gate pane.\n\nThe gate still has to be assembled, calibrated and powered before it will open. It will tell you which of those is missing.</RR_NativeGate_MakeDesc>
+  <RR_NativeGate_NoSingleConsole>No single comms console to commission against. Build one at the headquarters, or choose between them on the Operations gate pane.</RR_NativeGate_NoSingleConsole>
+  <RR_NativeGate_NoSingleBattery>No single battery to hold the gate's reserve. Build one at the headquarters, or choose between them on the Operations gate pane.</RR_NativeGate_NoSingleBattery>
+  <RR_NativeGate_ChooseBench>No single machining table to commission against. Build one at the headquarters, or choose between them on the Operations gate pane.</RR_NativeGate_ChooseBench>
+  <RR_NativeGate_DesignatedNeedsCircuit>This door is the gate now. Its circuit is not finished yet: {0}</RR_NativeGate_DesignatedNeedsCircuit>
+  <RR_NativeGate_IsRunExtension>This door is part of another gate's run, not a gate of its own. Give the run back from the gate it belongs to first.</RR_NativeGate_IsRunExtension>
+  <RR_Event_GateDesignated>This door was commissioned as the branch's gate.</RR_Event_GateDesignated>
+  <RR_NativeGate_KillSwitchThrown>The emergency cutoff was thrown.</RR_NativeGate_KillSwitchThrown>
+  <RR_NativeGate_UnsupportedSwitch>That is not a power switch.</RR_NativeGate_UnsupportedSwitch>
+  <RR_NativeGate_SwitchMustBeOnToBind>The switch must be closed when it is chosen, so its circuit can be checked against the gate's.</RR_NativeGate_SwitchMustBeOnToBind>
+  <RR_NativeGate_SwitchNotOnGateCircuit>That switch does not carry this gate's power. Wire it into the line that feeds the gate.</RR_NativeGate_SwitchNotOnGateCircuit>
+  <RR_NativeGate_SwitchAlreadyBound>Another gate already uses that switch as its cutoff.</RR_NativeGate_SwitchAlreadyBound>
+  <RR_Event_GateKillSwitchBound>An emergency cutoff was set on a gate.</RR_Event_GateKillSwitchBound>
+  <RR_Event_GateKillSwitchCleared>An emergency cutoff was cleared.</RR_Event_GateKillSwitchCleared>
+  <RR_Gate_ServiceFine>Assembly condition: {0} days remaining, wearing at {1}x.</RR_Gate_ServiceFine>
+  <RR_Gate_ServiceWanted>Assembly condition: {0} days remaining, wearing at {1}x. Reconditioning wanted.</RR_Gate_ServiceWanted>
+  <RR_Gate_ServiceLapsed>Assembly condition exhausted. The gate will not open until it is reconditioned.</RR_Gate_ServiceLapsed>
+  <RR_Gate_Reconditioned>Assembly reconditioned.</RR_Gate_Reconditioned>
+  <RR_NativeGate_ServiceLapsed>The gate assembly is out of condition and must be reconditioned before it will open.</RR_NativeGate_ServiceLapsed>
+  <RR_NativeGate_ServiceNotWanted>The gate assembly does not need reconditioning yet.</RR_NativeGate_ServiceNotWanted>
+  <RR_Event_GateReconditioned>A gate assembly was reconditioned.</RR_Event_GateReconditioned>
+
+  <RR_Gate_SpinUpStarted>Bringing up a connection to {0}. The operator must stay on the console until it is open.</RR_Gate_SpinUpStarted>
+  <RR_Gate_SpinUpComplete>Connection open.</RR_Gate_SpinUpComplete>
+  <RR_Gate_SpinUpLapsed>The connection lost its charge before it opened. The address is still remembered and can be dialled again.</RR_Gate_SpinUpLapsed>
+  <RR_Gate_SpinUpAborted>Spin-up stopped. The address is still remembered.</RR_Gate_SpinUpAborted>
+  <RR_Gate_SpinUpWaiting>The connection is fully charged and waiting: {0}</RR_Gate_SpinUpWaiting>
+  <RR_Gate_SpinUpBusy>This gate is already bringing up a different connection.</RR_Gate_SpinUpBusy>
+  <RR_Gate_SpinUpReadout>Spinning up to {0}: {1} / {2} ({3})</RR_Gate_SpinUpReadout>
+  <RR_Gate_SpinUpHeldReadout>Charged and waiting to open to {0}.</RR_Gate_SpinUpHeldReadout>
+  <RR_Gate_SpinUpClimbing>climbing</RR_Gate_SpinUpClimbing>
+  <RR_Gate_SpinUpBleeding>losing charge</RR_Gate_SpinUpBleeding>
+  <RR_Gate_AbortSpinUpLabel>Stop spin-up</RR_Gate_AbortSpinUpLabel>
+  <RR_Gate_AbortSpinUpDesc>Stop bringing up this connection. The work done so far is lost, but the address stays in this gate's history and can be dialled again.</RR_Gate_AbortSpinUpDesc>
+  <RR_Event_GateSpinUpStarted>Gate spin-up started ({0} work required)</RR_Event_GateSpinUpStarted>
+  <RR_Event_GateSpinUpCompleted>Gate spin-up completed</RR_Event_GateSpinUpCompleted>
+  <RR_Event_GateSpinUpLapsed>Gate spin-up lapsed</RR_Event_GateSpinUpLapsed>
+  <RR_Event_GateSpinUpAborted>Gate spin-up stopped</RR_Event_GateSpinUpAborted>
+  <RR_Gate_FootprintReadout>Opening {0} wide, {1} cell(s) of gate ({2}).</RR_Gate_FootprintReadout>
+  <RR_Gate_SupplyTooLow>The circuit cannot deliver enough power to start an opening. A charged battery is not supply: the gate needs generators actually running.</RR_Gate_SupplyTooLow>
+  <RR_Gate_HeadroomTooLow>There is no margin left above what the gate already draws. Add generation, or take something else off this circuit.</RR_Gate_HeadroomTooLow>
+
+  <!-- Row 725: a damaged gate will not hold a connection, and the history records how its
+       openings actually went. -->
+  <RR_Gate_IntegrityTooLow>The gate is too badly damaged to hold a connection. Repair it, then calibrate it again.</RR_Gate_IntegrityTooLow>
+  <RR_Gate_IntegrityLost>The gate came apart under load</RR_Gate_IntegrityLost>
+  <RR_Gate_IntegrityReadout>Condition {0} - below the {1} a connection needs. Repair, then calibrate.</RR_Gate_IntegrityReadout>
+  <RR_Letter_GateIntegrityLabel>Gate out of calibration: damage</RR_Letter_GateIntegrityLabel>
+  <RR_Letter_GateIntegrityText>{0} has taken enough damage to lose its calibration. It is down to {1} condition, and it will not open a connection until it has been repaired and calibrated again.
+
+Repairing it is ordinary construction work. Calibrating it is the assigned operator's job, as it was the first time.</RR_Letter_GateIntegrityText>
+  <RR_NativeGate_TooManyGates>Three gates are already operational. That is the limit: three called addresses plus your colony is four of the five maps the game will hold open at once, and the fifth is the margin for a natural door somebody walks through without planning to.
+
+Stand one of the others down first, or board up a natural door to free a slot.</RR_NativeGate_TooManyGates>
+</LanguageData>

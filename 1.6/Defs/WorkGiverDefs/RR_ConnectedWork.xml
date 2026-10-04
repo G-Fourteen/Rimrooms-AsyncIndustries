@@ -1,0 +1,1124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+  <!-- Each connected family is registered twice, because starting a trip and
+       finishing one need opposite priorities.
+
+       Finishing sits high: a worker standing on the far side holding cargo must not
+       lose to routine local hauling and abandon the delivery. It is placed above
+       Core's HaulCorpses (90) and below Strip (100) and HaulToPortal (105).
+
+       Starting sits just below Core's HaulGeneral (15), so ordinary local hauling is
+       always preferred and a trip through a gate only happens when there is nothing
+       closer to do. Both values are balance decisions and are recorded as such; they
+       are subject to the owner's runtime acceptance. -->
+
+  <!-- Construction supply sits around Core's own delivery givers, which are in the
+       Hauling work type at 10 (frames) and 9 (blueprints). Finishing a delivery already
+       in hand edges above them; starting one sits below, so material already on this side
+       is always delivered first. Balance decisions, recorded as such. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedConstructionContinue</defName>
+    <label>finish delivering material through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedConstructionContinue</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver</verb>
+    <gerund>delivering</gerund>
+    <priorityInType>12</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedConstruction</defName>
+    <label>carry material to a site through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedConstruction</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver</verb>
+    <gerund>delivering</gerund>
+    <priorityInType>8</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Travel-to-work is a different shape from every family above: the worker goes and
+       nothing is carried. The only job either of these ever hands out is a crossing.
+       Once the worker has arrived they hand out nothing at all, and Core's own
+       ConstructFinishFrames (Construction 80) does the building, locally, with its own
+       reservations and its own toils.
+
+       Core's Construction work type runs 120 FixBrokenDownBuilding, 110 Uninstall,
+       100 BuildRoofs, 90 RemoveRoofs, 85 DeconstructForBlueprint, 80 ConstructFinishFrames,
+       70 DeliverResourcesToFrames, 60 DeliverResourcesToBlueprints, 51 FillIn,
+       50 Deconstruct, 40 Repair, 30 RemoveFoundations/RemoveFloors, 20 SmoothFloors,
+       10 SmoothWalls.
+
+       Continuing sits at 82: above frame finishing, so a builder partway to a gate is not
+       turned around by a frame that appeared at home while it walked, but still below
+       clearing a blueprint site (85), roof work, uninstalls and breakdown repair, which
+       are either more urgent or block other work outright.
+
+       Starting sits at 5, below every single one of those. Crossing a gate to build
+       therefore only ever happens when there is nothing constructive left to do on this
+       side at all - not even smoothing a wall. Both values are balance decisions and are
+       recorded as such; they are subject to the owner's runtime acceptance. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedConstructionFinishingContinue</defName>
+    <label>travel on to finish a build through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedConstructionFinishingContinue</giverClass>
+    <workType>Construction</workType>
+    <verb>construct</verb>
+    <gerund>constructing</gerund>
+    <priorityInType>82</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedConstructionFinishing</defName>
+    <label>cross a gate to finish a build</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedConstructionFinishing</giverClass>
+    <workType>Construction</workType>
+    <verb>construct</verb>
+    <gerund>constructing</gerund>
+    <priorityInType>5</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Research is the second travel-to-work provider, and it needed no new record, driver
+       or JobDef - only a different answer to "is there work of my kind over there". On
+       arrival it issues nothing and whatever research giver is active on that map does the
+       work, which is why a profile that changes how research is chosen or presented changes
+       nothing here.
+
+       Core's Research work type runs 130 Hack, 120 CreateXenogerm,
+       110 StudyArchotechStructures, 100 Research, 50 LongRangeScan, 50 GroundPenetratingScan.
+
+       Continuing sits at 102: above ordinary research so a researcher partway to a gate is
+       not turned around by a bench freeing up at home, and below archotech study, xenogerm
+       creation and hacking, which are more urgent or time-limited.
+
+       Starting sits at 40, below every Core research giver including both scans, so crossing
+       a gate to research only happens when there is nothing to research on this side.
+       Balance decisions, recorded as such, and player-tunable while the game runs. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedResearchContinue</defName>
+    <label>travel on to research through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedResearchContinue</giverClass>
+    <workType>Research</workType>
+    <verb>research</verb>
+    <gerund>researching</gerund>
+    <priorityInType>102</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedResearch</defName>
+    <label>cross a gate to research</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedResearch</giverClass>
+    <workType>Research</workType>
+    <verb>research</verb>
+    <gerund>researching</gerund>
+    <priorityInType>40</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Bill ingredients sit just under construction supply in Hauling. A stalled build is
+       more urgent than a stalled bill, so material to a frame is preferred; both stay well
+       below Core's own HaulGeneral (15) so ordinary local hauling always wins. Finishing a
+       delivery already in hand edges above the construction pair for the same reason it does
+       everywhere: cargo in real hands must not be abandoned. Balance decisions, recorded as
+       such, and all eight cross-gate numbers are player settings as of 0.5.6-dev. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillContinue</defName>
+    <label>finish delivering ingredients through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillContinue</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver</verb>
+    <gerund>delivering</gerund>
+    <priorityInType>11</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBill</defName>
+    <label>carry ingredients to a bill through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBill</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver</verb>
+    <gerund>delivering</gerund>
+    <priorityInType>7</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Tending across a gate is two capabilities, and they live in different work types.
+
+       The doctor half is a travel-to-work deployment in Doctor. Core's Doctor type runs
+       110 DoctorTendEmergency, 100 DoctorTendToHumanlikes, 90 DoctorTendToSelf,
+       80 DoctorFeedHumanlikes, 70 DoBillsMedicalHumanOperation, 65 FeedHemogen,
+       60 DoctorRescue, 50 DoctorTendToAnimals, 40 DoctorFeedAnimals,
+       30 DoBillsMedicalAnimalOperation, 20 TakeToBedToOperate, 10 VisitSickPawn.
+
+       Continuing sits at 102: above routine local tending so a doctor partway to a gate is
+       not turned around by an ordinary patient at home, but still below a local EMERGENCY
+       (110), which must always win. Starting sits at 5, below every Core doctor giver
+       including visiting the sick, so a doctor only crosses when there is no doctoring at
+       all on this side.
+
+       The medicine half is a carry, so it is Hauling like the other carries. It outranks
+       construction material and bill ingredients on both halves, because a patient needing
+       medicine is more urgent than a stalled build or a stalled bench: continue 13 above
+       construction's 12 and bills' 11, start 9 above construction's 8 and bills' 7. All stay
+       well below Core's HaulGeneral (15) so ordinary local hauling always wins.
+
+       Balance decisions, recorded as such, and player-tunable while the game runs. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedTendingContinue</defName>
+    <label>travel on to treat a patient through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedTendingContinue</giverClass>
+    <workType>Doctor</workType>
+    <verb>tend</verb>
+    <gerund>tending to</gerund>
+    <priorityInType>102</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedTending</defName>
+    <label>cross a gate to treat a patient</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedTending</giverClass>
+    <workType>Doctor</workType>
+    <verb>tend</verb>
+    <gerund>tending to</gerund>
+    <priorityInType>5</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedMedicineContinue</defName>
+    <label>finish delivering medicine through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedMedicineContinue</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver</verb>
+    <gerund>delivering</gerund>
+    <priorityInType>13</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedMedicine</defName>
+    <label>carry medicine to a patient through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedMedicine</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver</verb>
+    <gerund>delivering</gerund>
+    <priorityInType>9</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Food is the family that keeps anybody alive on the far side of a gate, so it sits
+       above every other carry: continue 14 and start 10, against medicine 13/9,
+       construction 12/8 and bills 11/7. Still under Core's HaulGeneral (15), because food
+       already on this side being put away properly still comes first.
+
+       Patient feeding is a deployment in Doctor, placed against Core's own feeding givers
+       (DoctorFeedHumanlikes 80, DoctorFeedAnimals 40). Continuing sits at 82: above feeding
+       humanlikes, so a feeder partway to a gate is not turned around by a patient who needs
+       a meal at home, and still below tending (100) and emergency tending (110), which must
+       always win over feeding. Starting sits at 4, below every Core doctor giver and below
+       the cross-gate tending start at 5, because a patient who needs treatment is more
+       urgent than one who needs a meal.
+
+       Balance decisions, recorded as such, and player-tunable while the game runs. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedFoodContinue</defName>
+    <label>finish carrying food through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedFoodContinue</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver</verb>
+    <gerund>delivering</gerund>
+    <priorityInType>14</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedFood</defName>
+    <label>carry food through a gate to people with none</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedFood</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver</verb>
+    <gerund>delivering</gerund>
+    <priorityInType>10</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedFeedingContinue</defName>
+    <label>travel on to feed a patient through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedFeedingContinue</giverClass>
+    <workType>Doctor</workType>
+    <verb>feed</verb>
+    <gerund>feeding</gerund>
+    <priorityInType>82</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedFeeding</defName>
+    <label>cross a gate to feed a patient</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedFeeding</giverClass>
+    <workType>Doctor</workType>
+    <verb>feed</verb>
+    <gerund>feeding</gerund>
+    <priorityInType>4</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Rescue in place is the counterpart of the casualty pair below, not a duplicate: that
+       one carries our downed home to a bed, this one crosses to tuck them into a bed on the
+       far side when there is one there. An injured person taken through a gate is one more
+       crossing for somebody who cannot walk.
+
+       Continuing sits at 62, just above Core's DoctorRescue (60), so a rescuer partway to a
+       gate is not turned around by a casualty at home that somebody else can reach - but
+       still below the medical operation at 70 and all tending above it. Starting sits at 3,
+       below every Core doctor giver and below both cross-gate tending (5) and feeding (4),
+       because somebody already lying on the floor across a gate is the least time-critical of
+       the three once the gate itself is open.
+
+       Balance decisions, recorded as such, and player-tunable while the game runs. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedRescueInPlaceContinue</defName>
+    <label>travel on to bed a casualty through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedRescueInPlaceContinue</giverClass>
+    <workType>Doctor</workType>
+    <verb>rescue</verb>
+    <gerund>rescuing</gerund>
+    <priorityInType>62</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedRescueInPlace</defName>
+    <label>cross a gate to bed a casualty where they lie</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedRescueInPlace</giverClass>
+    <workType>Doctor</workType>
+    <verb>rescue</verb>
+    <gerund>rescuing</gerund>
+    <priorityInType>3</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- The three upkeep families share one decisive Core rule: cleaning, repair and
+       firefighting only ever happen inside that map's Home area. Core's own givers check
+       map.areaManager.Home and refuse otherwise, so a generated Backrooms coordinate with no
+       Home area set attracts none of this work - exactly as it attracts none of Core's own.
+       Nobody crosses a gate to sweep an anomalous corridor unless the player called it home.
+
+       Cleaning: Core has CleanFilth at 8 in Cleaning, and ClearSnow above it. Continuing at
+       22 keeps a traveller moving; starting at 2 sits below every local cleaning job.
+
+       Repair: Core's Construction ladder has Repair at 40. Continuing at 42 edges above it so
+       a traveller is not turned around; starting at 3 sits below everything local, just under
+       the cross-gate construction-finishing start at 5, because a wall losing hit points is
+       less urgent than a half-built one.
+
+       Firefighting: Core's Firefighter type has a single giver. Continuing at 82 keeps a
+       traveller going; starting at 2 sits below it, so a fire at home is always fought first.
+       Note the crossing itself uses the pawn's own danger policy and never Deadly, so a
+       burning map on the far side does not override what the player allowed.
+
+       Balance decisions, recorded as such, and player-tunable while the game runs. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedCleaningContinue</defName>
+    <label>travel on to clean through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedCleaningContinue</giverClass>
+    <workType>Cleaning</workType>
+    <verb>clean</verb>
+    <gerund>cleaning</gerund>
+    <priorityInType>22</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedCleaning</defName>
+    <label>cross a gate to clean</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedCleaning</giverClass>
+    <workType>Cleaning</workType>
+    <verb>clean</verb>
+    <gerund>cleaning</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedRepairContinue</defName>
+    <label>travel on to repair through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedRepairContinue</giverClass>
+    <workType>Construction</workType>
+    <verb>repair</verb>
+    <gerund>repairing</gerund>
+    <priorityInType>42</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedRepair</defName>
+    <label>cross a gate to repair</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedRepair</giverClass>
+    <workType>Construction</workType>
+    <verb>repair</verb>
+    <gerund>repairing</gerund>
+    <priorityInType>3</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedFirefightingContinue</defName>
+    <label>travel on to extinguish through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedFirefightingContinue</giverClass>
+    <workType>Firefighter</workType>
+    <verb>extinguish</verb>
+    <gerund>extinguishing</gerund>
+    <priorityInType>82</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedFirefighting</defName>
+    <label>cross a gate to extinguish</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedFirefighting</giverClass>
+    <workType>Firefighter</workType>
+    <verb>extinguish</verb>
+    <gerund>extinguishing</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- The fieldwork families answer their candidate question the same way: the player has
+       already said, on that map, that this work is wanted. Mining, hunting and plant cutting
+       are driven by designations and growing-zone work by a zone, both recorded on the map
+       itself, so nothing is ever inferred. If nothing was designated on a Backrooms
+       coordinate, nobody crosses a gate to mine, hunt or cut anything there.
+
+       Each work type here has a single Core giver at its own priority, so every one of these
+       uses the same pair: continuing at 22 to keep a traveller moving, starting at 2 so any
+       local work of the same kind is always preferred. Uniform on purpose - a per-family
+       number would imply a judgement that has not been made.
+
+       Balance decisions, recorded as such, and player-tunable while the game runs. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedMiningContinue</defName>
+    <label>travel on to mine through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedMiningContinue</giverClass>
+    <workType>Mining</workType>
+    <verb>mine</verb>
+    <gerund>mining</gerund>
+    <priorityInType>22</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedMining</defName>
+    <label>cross a gate to mine</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedMining</giverClass>
+    <workType>Mining</workType>
+    <verb>mine</verb>
+    <gerund>mining</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedHuntingContinue</defName>
+    <label>travel on to hunt through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedHuntingContinue</giverClass>
+    <workType>Hunting</workType>
+    <verb>hunt</verb>
+    <gerund>hunting</gerund>
+    <priorityInType>22</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedHunting</defName>
+    <label>cross a gate to hunt</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedHunting</giverClass>
+    <workType>Hunting</workType>
+    <verb>hunt</verb>
+    <gerund>hunting</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedPlantCuttingContinue</defName>
+    <label>travel on to cut through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedPlantCuttingContinue</giverClass>
+    <workType>PlantCutting</workType>
+    <verb>cut</verb>
+    <gerund>cutting</gerund>
+    <priorityInType>22</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedPlantCutting</defName>
+    <label>cross a gate to cut</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedPlantCutting</giverClass>
+    <workType>PlantCutting</workType>
+    <verb>cut</verb>
+    <gerund>cutting</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedGrowingContinue</defName>
+    <label>travel on to tend through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedGrowingContinue</giverClass>
+    <workType>Growing</workType>
+    <verb>tend</verb>
+    <gerund>tending</gerund>
+    <priorityInType>22</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedGrowing</defName>
+    <label>cross a gate to tend</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedGrowing</giverClass>
+    <workType>Growing</workType>
+    <verb>tend</verb>
+    <gerund>tending</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Refuel and rearm are ONE family, and Core says so: its own RearmTurrets giver is
+       WorkGiver_Refuel_Turret, a refuel giver restricted to turrets, because a turret holds
+       its shells in a CompRefuelable with a shell fuel filter. So one adapter serves a
+       wood-fired generator, a smithy, a mortar and an autocannon, each taking whatever its own
+       fuelFilter accepts.
+
+       Core puts local rearming high, at Hauling 150. Continuing at 16 sits just above
+       HaulGeneral (15) so finishing a fuel delivery already in hand beats routine hauling;
+       starting at 6 sits below food (10), medicine (9), construction material (8) and bill
+       ingredients (7), because something running dry across a gate is usually a planning
+       problem rather than an emergency, and local refuelling at 150 will always beat it
+       anyway.
+
+       Balance decisions, recorded as such, and player-tunable while the game runs. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedFuelContinue</defName>
+    <label>finish carrying fuel through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedFuelContinue</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver</verb>
+    <gerund>delivering</gerund>
+    <priorityInType>16</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedFuel</defName>
+    <label>carry fuel through a gate to something run dry</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedFuel</giverClass>
+    <workType>Hauling</workType>
+    <verb>deliver</verb>
+    <gerund>delivering</gerund>
+    <priorityInType>6</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- The last three families. Each leans on the rule that a provider answers one
+       question rather than one Core giver: Core has fourteen warden givers, six childcare
+       givers and eight handling givers, and asking once whether that kind of work exists over
+       there - then letting Core pick which giver applies on arrival - is both correct and the
+       only sane amount of code.
+
+       Each continue giver sits just above the highest Core giver in its own work type, so a
+       traveller is not turned around: Warden 112 above ExecuteSlave (110), Childcare 202 above
+       BringBabyToSafety (200), Handling 152 above HandlingFeedPatientAnimals (150). Each plan
+       giver sits at 2, below everything local in that type.
+
+       Childcare is Biotech content; without the expansion its work type does not exist, the
+       provider resolves to unavailable through GetNamedSilentFail, and these two defs simply
+       never match anything.
+
+       Balance decisions, recorded as such, and player-tunable while the game runs. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedWardenContinue</defName>
+    <label>travel on to tend to through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedWardenContinue</giverClass>
+    <workType>Warden</workType>
+    <verb>tend to</verb>
+    <gerund>tending to</gerund>
+    <priorityInType>112</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedWarden</defName>
+    <label>cross a gate to tend to</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedWarden</giverClass>
+    <workType>Warden</workType>
+    <verb>tend to</verb>
+    <gerund>tending to</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Childcare is a Biotech WorkTypeDef. Without the gate this <workType> is an
+       unresolved cross-reference on a Core-only install, which is an error at load
+       in a mod that requires nothing but Core. The provider already degraded
+       correctly in C# through GetNamedSilentFail; this is the XML half of that,
+       missing since 0.6.4-dev and added 2026-09-29. -->
+  <WorkGiverDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>RR_ConnectedChildcareContinue</defName>
+    <label>travel on to mind through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedChildcareContinue</giverClass>
+    <workType>Childcare</workType>
+    <verb>mind</verb>
+    <gerund>minding</gerund>
+    <priorityInType>202</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Childcare is a Biotech WorkTypeDef. Without the gate this <workType> is an
+       unresolved cross-reference on a Core-only install, which is an error at load
+       in a mod that requires nothing but Core. The provider already degraded
+       correctly in C# through GetNamedSilentFail; this is the XML half of that,
+       missing since 0.6.4-dev and added 2026-09-29. -->
+  <WorkGiverDef MayRequire="Ludeon.RimWorld.Biotech">
+    <defName>RR_ConnectedChildcare</defName>
+    <label>cross a gate to mind</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedChildcare</giverClass>
+    <workType>Childcare</workType>
+    <verb>mind</verb>
+    <gerund>minding</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedHandlingContinue</defName>
+    <label>travel on to handle through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedHandlingContinue</giverClass>
+    <workType>Handling</workType>
+    <verb>handle</verb>
+    <gerund>handling</gerund>
+    <priorityInType>152</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedHandling</defName>
+    <label>cross a gate to handle</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedHandling</giverClass>
+    <workType>Handling</workType>
+    <verb>handle</verb>
+    <gerund>handling</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <!-- Casualties sit around Core's own DoctorRescue (60): finishing a trip that
+       already has someone in the worker's arms edges above it, starting one sits just
+       below so a casualty on this map is always rescued first. Both stay under the
+       more urgent doctor work above 70. Balance decisions, recorded as such. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedCasualtyContinue</defName>
+    <label>finish carrying a casualty home</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedCasualtyContinue</giverClass>
+    <workType>Doctor</workType>
+    <verb>carry</verb>
+    <gerund>carrying</gerund>
+    <priorityInType>65</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedCasualty</defName>
+    <label>carry casualties home through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedCasualty</giverClass>
+    <workType>Doctor</workType>
+    <verb>rescue</verb>
+    <gerund>rescuing</gerund>
+    <priorityInType>59</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedHaulingContinue</defName>
+    <label>finish hauling through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedHaulingContinue</giverClass>
+    <workType>Hauling</workType>
+    <verb>haul</verb>
+    <gerund>hauling</gerund>
+    <priorityInType>95</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedHauling</defName>
+    <label>haul through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedHauling</giverClass>
+    <workType>Hauling</workType>
+    <verb>haul</verb>
+    <gerund>hauling</gerund>
+    <priorityInType>14</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <!-- Bill work: a crafter crosses a gate to run a bill on the far side. One pair per
+       work type, because Core compares a recipe's requiredGiverWorkType against the
+       giver def's own workType, and a bench belongs to a work type only through
+       fixedBillGiverDefs. Continue sits just above the highest Core giver in its type
+       so a traveller is never turned around; plan sits at 2, below everything local. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillWorkCookingContinue</defName>
+    <label>travel on to cook through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillWorkCookingContinue</giverClass>
+    <workType>Cooking</workType>
+    <verb>cook</verb>
+    <gerund>cooking</gerund>
+    <priorityInType>102</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillWorkCooking</defName>
+    <label>cross a gate to cook</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillWorkCooking</giverClass>
+    <workType>Cooking</workType>
+    <verb>cook</verb>
+    <gerund>cooking</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillWorkCraftingContinue</defName>
+    <label>travel on to craft through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillWorkCraftingContinue</giverClass>
+    <workType>Crafting</workType>
+    <verb>craft</verb>
+    <gerund>crafting</gerund>
+    <priorityInType>102</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillWorkCrafting</defName>
+    <label>cross a gate to craft</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillWorkCrafting</giverClass>
+    <workType>Crafting</workType>
+    <verb>craft</verb>
+    <gerund>crafting</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillWorkSmithingContinue</defName>
+    <label>travel on to smith through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillWorkSmithingContinue</giverClass>
+    <workType>Smithing</workType>
+    <verb>smith</verb>
+    <gerund>smithing</gerund>
+    <priorityInType>222</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillWorkSmithing</defName>
+    <label>cross a gate to smith</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillWorkSmithing</giverClass>
+    <workType>Smithing</workType>
+    <verb>smith</verb>
+    <gerund>smithing</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillWorkTailoringContinue</defName>
+    <label>travel on to tailor through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillWorkTailoringContinue</giverClass>
+    <workType>Tailoring</workType>
+    <verb>tailor</verb>
+    <gerund>tailoring</gerund>
+    <priorityInType>112</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillWorkTailoring</defName>
+    <label>cross a gate to tailor</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillWorkTailoring</giverClass>
+    <workType>Tailoring</workType>
+    <verb>tailor</verb>
+    <gerund>tailoring</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillWorkArtContinue</defName>
+    <label>travel on to sculpt through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillWorkArtContinue</giverClass>
+    <workType>Art</workType>
+    <verb>sculpt</verb>
+    <gerund>sculpting</gerund>
+    <priorityInType>204</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBillWorkArt</defName>
+    <label>cross a gate to sculpt</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBillWorkArt</giverClass>
+    <workType>Art</workType>
+    <verb>sculpt</verb>
+    <gerund>sculpting</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <!-- Dark study: a researcher crosses a gate to study a contained entity. Anomaly content,
+       so both defs are gated; Core's own WorkGiver_DarkStudyInteract.ShouldSkip is likewise
+       just `return !ModsConfig.AnomalyActive`. Continue sits above Core's StudyInteract (110)
+       so a traveller is not turned around; plan sits at 2, below everything local. -->
+
+  <WorkGiverDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>RR_ConnectedDarkStudyContinue</defName>
+    <label>travel on to study through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedDarkStudyContinue</giverClass>
+    <workType>DarkStudy</workType>
+    <verb>study</verb>
+    <gerund>studying</gerund>
+    <priorityInType>112</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef MayRequire="Ludeon.RimWorld.Anomaly">
+    <defName>RR_ConnectedDarkStudy</defName>
+    <label>cross a gate to study</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedDarkStudy</giverClass>
+    <workType>DarkStudy</workType>
+    <verb>study</verb>
+    <gerund>studying</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <!-- Container upkeep across a gate: fermenting barrels, egg boxes, carriers to unload.
+       This family follows the HAULING ladder's own convention rather than the
+       "just above Core's highest giver in the type" rule the other work types use, because
+       that convention is documented and deliberate: CONNECTED_FOOD_IMPLEMENTATION.md
+       calibrates the cross-gate hauling numbers against HaulGeneral (15) and accepts that
+       "Core's local rearming at 150 will always beat it anyway". So continue sits at 131,
+       above every container giver it travels for, including UnloadCarriers (130), and below
+       Refuel (140) and RearmTurrets (150), because a turret out of shells at home beats eggs
+       across a gate. Plan sits at 4, below HaulMerge (5) and below every existing cross-gate
+       hauling plan giver, because this is the least urgent crossing in the mod. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedHaulingUpkeepContinue</defName>
+    <label>travel on to tend containers through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedHaulingUpkeepContinue</giverClass>
+    <workType>Hauling</workType>
+    <verb>tend</verb>
+    <gerund>tending containers</gerund>
+    <priorityInType>131</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedHaulingUpkeep</defName>
+    <label>cross a gate to tend containers</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedHaulingUpkeep</giverClass>
+    <workType>Hauling</workType>
+    <verb>tend</verb>
+    <gerund>tending containers</gerund>
+    <priorityInType>4</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <!-- MachineLoading: the machines the expansions ship, loaded and emptied on the far
+       side. Continue sits at 301, one above TakeEntityToHoldingPlatform (300), which is the
+       highest priority giver in Hauling anywhere in the game. That is higher than any other
+       continue giver in this mod and it is forced rather than chosen: the rule every family
+       follows is that continue must outrank every local giver it travels for, so a worker
+       part way to a gate is not turned around, and this family travels for that one. Plan
+       sits at 3, below HaulingUpkeep (4) and below HaulMerge (5), which is the lowest local
+       giver in the type. Being planned after container upkeep is an accepted cost: both
+       plan only when nothing of their kind is waiting on this side at all, and the map scan
+       rotates, so neither can starve the other. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedMachineLoadingContinue</defName>
+    <label>travel on to load a machine through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedMachineLoadingContinue</giverClass>
+    <workType>Hauling</workType>
+    <verb>load</verb>
+    <gerund>loading a machine</gerund>
+    <priorityInType>301</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedMachineLoading</defName>
+    <label>cross a gate to load a machine</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedMachineLoading</giverClass>
+    <workType>Hauling</workType>
+    <verb>load</verb>
+    <gerund>loading a machine</gerund>
+    <priorityInType>3</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <!-- Painting: apply or strip paint on the far side. Art's second family, and the one
+       BillWorkArt could never reach: a bill lives on a bench, paint lives on a designation.
+       Continue sits at 203, above RemovePaintFloor and RemovePaintBuilding (both 202), which
+       are the highest givers this family travels for, and below BillWorkArtContinue (204) so
+       the two Art families never tie. Plan sits at 1, below DoBillsSculpt (100), which is the
+       lowest local giver in the type, and below BillWorkArt's plan (2) because a sculpture
+       somebody ordered outranks a wall somebody wants a different colour. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedPaintingContinue</defName>
+    <label>travel on to paint through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedPaintingContinue</giverClass>
+    <workType>Art</workType>
+    <verb>paint</verb>
+    <gerund>painting</gerund>
+    <priorityInType>203</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedPainting</defName>
+    <label>cross a gate to paint</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedPainting</giverClass>
+    <workType>Art</workType>
+    <verb>paint</verb>
+    <gerund>painting</gerund>
+    <priorityInType>1</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <!-- RoofWork: put a roof up or take one down on the far side, driven by the player's own
+       BuildRoof and NoRoof areas. Continue sits at 101, one above Core's BuildRoofs (100) and
+       therefore above RemoveRoofs (90) as well, which are the two givers this family travels
+       for. It is NOT hung on the finishing family because that family's continue is 82, below
+       both, and a continue giver below the work it travels for turns a committed worker around.
+       Plan sits at 1, below ConstructSmoothWalls (10) which is the lowest local giver in the
+       type, and below the finishing (5) and repair (3) plans because a frame somebody is waiting
+       on beats a roof area. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedRoofWorkContinue</defName>
+    <label>travel on to work a roof through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedRoofWorkContinue</giverClass>
+    <workType>Construction</workType>
+    <verb>roof</verb>
+    <gerund>working a roof</gerund>
+    <priorityInType>101</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedRoofWork</defName>
+    <label>cross a gate to work a roof</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedRoofWork</giverClass>
+    <workType>Construction</workType>
+    <verb>roof</verb>
+    <gerund>working a roof</gerund>
+    <priorityInType>1</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <!-- BasicWorker: flick a switch, open a container, eject fuel on the far side. Purely
+       designation driven, like the fieldwork families, so nothing is inferred. Continue sits
+       at 502, above Core's Flick (500). Plan sits at 2, below everything local. -->
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBasicWorkerContinue</defName>
+    <label>travel on to operate through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBasicWorkerContinue</giverClass>
+    <workType>BasicWorker</workType>
+    <verb>operate</verb>
+    <gerund>operating</gerund>
+    <priorityInType>502</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef>
+    <defName>RR_ConnectedBasicWorker</defName>
+    <label>cross a gate to operate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedBasicWorker</giverClass>
+    <workType>BasicWorker</workType>
+    <verb>operate</verb>
+    <gerund>operating</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+  <!-- Fishing: Odyssey content, and zone driven, so a coordinate the player never zoned
+       attracts nobody. Continue sits at 52, above Core's Fish (50). Plan sits at 2. -->
+
+  <WorkGiverDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>RR_ConnectedFishingContinue</defName>
+    <label>travel on to fish through a gate</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedFishingContinue</giverClass>
+    <workType>Fishing</workType>
+    <verb>fish</verb>
+    <gerund>fishing</gerund>
+    <priorityInType>52</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+    <prioritizeSustains>true</prioritizeSustains>
+  </WorkGiverDef>
+
+  <WorkGiverDef MayRequire="Ludeon.RimWorld.Odyssey">
+    <defName>RR_ConnectedFishing</defName>
+    <label>cross a gate to fish</label>
+    <giverClass>RimroomsAsyncIndustries.ConnectedWork.WorkGiver_ConnectedFishing</giverClass>
+    <workType>Fishing</workType>
+    <verb>fish</verb>
+    <gerund>fishing</gerund>
+    <priorityInType>2</priorityInType>
+    <requiredCapacities><li>Manipulation</li><li>Moving</li></requiredCapacities>
+    <canBeDoneByMechs>false</canBeDoneByMechs>
+  </WorkGiverDef>
+
+</Defs>

@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+
+  <!-- ==================================================================================== -->
+  <!-- TIER 0 - FACILITY FOUNDATIONS                                                        -->
+  <!--                                                                                      -->
+  <!-- One root per branch. No prerequisites: tier 0 IS the entry band, so each of these is  -->
+  <!-- its own way into the tree and a branch is never locked out by which log it happened   -->
+  <!-- to generate. They cost insight and nothing else, which in practice means "after your  -->
+  <!-- first analysed record", because insight only comes from analysis.                     -->
+  <!--                                                                                      -->
+  <!-- Every one grants a capability that a named source file actually reads. That is        -->
+  <!-- asserted by proof-research-branches.py, because an unlock the card promises and       -->
+  <!-- nothing honours is worse than no unlock at all.                                       -->
+  <!--                                                                                      -->
+  <!-- Transport and orbital support has NO tier 0 project, deliberately. The chart says it  -->
+  <!-- is DLC-optional and never required, and a hollow project granting nothing would be    -->
+  <!-- exactly the lie this file is built to avoid.                                          -->
+  <!-- ==================================================================================== -->
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Facilities_ReserveDiscipline</defName>
+    <label>Reserve Discipline</label>
+    <description>Measure what the gate actually draws rather than what the manual claims, and find out how close to the line a branch can safely run.
+
+The gate needs less spare headroom above its draw before it will open, which on a tight circuit is the difference between opening today and building another generator first.</description>
+    <insightCost>1</insightCost>
+    <workRequired>4000</workRequired>
+    <minimumIntellectual>3</minimumIntellectual>
+    <grantsCapabilities><li>RR_Cap_ReserveDiscipline</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Fieldcraft_ReturnDrill</defName>
+    <label>Return Drill</label>
+    <description>Practise the walk back until nobody has to think about it. Crews that have drilled the route out do it faster and argue about it less.
+
+The emergency return window runs half again as long. It does not make the emergency less likely; it makes it less often fatal.</description>
+    <insightCost>1</insightCost>
+    <workRequired>4500</workRequired>
+    <minimumIntellectual>3</minimumIntellectual>
+    <grantsCapabilities><li>RR_Cap_ReturnDrill</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Measurement_SecondReading</defName>
+    <label>Second Reading</label>
+    <description>Read every record twice, by two people, and compare what they each took from it. Tedious, and it is astonishing what the first reading misses.
+
+Every analysed record yields twice the insight.</description>
+    <insightCost>1</insightCost>
+    <workRequired>5000</workRequired>
+    <minimumIntellectual>5</minimumIntellectual>
+    <grantsCapabilities><li>RR_Cap_SecondReading</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Spatial_CoordinateAtlas</defName>
+    <label>Coordinate Atlas</label>
+    <description>Keep a real atlas rather than a folder of notes. Rooms get numbers, the numbers get used, and the branch stops relying on whoever happened to be there last time.
+
+Returning to a coordinate finds it exactly as you left it more often. The space has not stopped moving things. You have got better at knowing when it did.</description>
+    <insightCost>1</insightCost>
+    <workRequired>5000</workRequired>
+    <minimumIntellectual>4</minimumIntellectual>
+    <grantsCapabilities><li>RR_Cap_CoordinateAtlas</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Entities_EarlyWarning</defName>
+    <label>Early Warning</label>
+    <description>Collate every account of something approaching and work out what the first sign actually is. It is never the sound; it is always something about the room.
+
+A crew that has been trained on it gets twice as long between recognising the thing and the thing reaching them.</description>
+    <insightCost>1</insightCost>
+    <workRequired>6000</workRequired>
+    <minimumIntellectual>5</minimumIntellectual>
+    <grantsCapabilities><li>RR_Cap_EarlyWarning</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Logistics_StandingOrders</defName>
+    <label>Standing Orders</label>
+    <description>Stop placing one order at a time. Agree a standing arrangement with the parent corporation's supply service and let the branch carry more in flight than it can currently receive.
+
+Twice as much undelivered cargo may be on its way at once.</description>
+    <insightCost>1</insightCost>
+    <workRequired>4000</workRequired>
+    <minimumIntellectual>3</minimumIntellectual>
+    <grantsCapabilities><li>RR_Cap_StandingOrders</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Commerce_NegotiatedTerms</defName>
+    <label>Negotiated Terms</label>
+    <description>Find out what the catalogue price is actually made of, then argue about the parts of it that are not cost.
+
+Everything the branch buys through the company catalogue costs a tenth less. The corporation does not mind; it would rather the branch spent the difference on something it can invoice for.</description>
+    <insightCost>1</insightCost>
+    <workRequired>4500</workRequired>
+    <minimumIntellectual>4</minimumIntellectual>
+    <grantsCapabilities><li>RR_Cap_NegotiatedTerms</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+
+  <!-- ==================================================================================== -->
+  <!-- TIER 1 - FIRST ENTRY                                                                 -->
+  <!--                                                                                      -->
+  <!-- Each requires its own tier 0 root and one completed route log: this band is about     -->
+  <!-- having been through once and read what came back, so a branch that has never surveyed -->
+  <!-- has nothing to build on. No distortion or entity log yet — those need something to   -->
+  <!-- have gone wrong, which is tier 2's business.                                          -->
+  <!--                                                                                      -->
+  <!-- Three of these SUPERSEDE their tier 0 capability rather than stacking with it, so     -->
+  <!-- that a deeper study is a bigger number and not a compounding one. The read sites      -->
+  <!-- check the tier 1 capability first and fall through.                                   -->
+  <!-- ==================================================================================== -->
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Facilities_EfficientAperture</defName>
+    <label>Efficient Aperture</label>
+    <description>Work out how much of the draw is the connection and how much is the branch being careless about it.
+
+Holding a connection open costs about a seventh less power. A wider gate saves proportionally more, because the saving applies after the footprint is counted.</description>
+    <insightCost>2</insightCost>
+    <workRequired>7000</workRequired>
+    <minimumIntellectual>5</minimumIntellectual>
+    <requiredRouteLogs>1</requiredRouteLogs>
+    <prerequisiteProjects><li>RR_Facilities_ReserveDiscipline</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_EfficientAperture</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Fieldcraft_RescueTraining</defName>
+    <label>Rescue Training</label>
+    <description>Train for the run that goes wrong rather than the one that goes well. Who carries whom, who goes last, and what gets left behind.
+
+The emergency return window runs twice as long. This replaces the drill rather than adding to it: the branch is not doing both, it is doing the better one.</description>
+    <insightCost>2</insightCost>
+    <workRequired>7500</workRequired>
+    <minimumIntellectual>5</minimumIntellectual>
+    <requiredRouteLogs>1</requiredRouteLogs>
+    <prerequisiteProjects><li>RR_Fieldcraft_ReturnDrill</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_RescueTraining</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Measurement_Corroboration</defName>
+    <label>Corroboration</label>
+    <description>Stop reading every record as though it were the first one. Set each against what the branch already holds and the work halves itself.
+
+Analysing a record takes a quarter less work.</description>
+    <insightCost>2</insightCost>
+    <workRequired>8000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>1</requiredRouteLogs>
+    <prerequisiteProjects><li>RR_Measurement_SecondReading</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_Corroboration</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Spatial_AlternateExits</defName>
+    <label>Alternate Exits</label>
+    <description>Map more than one way through. A branch that depends on a single remembered route is a branch that loses a crew when the route is wrong.
+
+Fewer things are out of place when you return. Not because the space moved fewer of them, but because you were no longer relying on the one path that would have shown it.</description>
+    <insightCost>2</insightCost>
+    <workRequired>8000</workRequired>
+    <minimumIntellectual>5</minimumIntellectual>
+    <requiredRouteLogs>2</requiredRouteLogs>
+    <prerequisiteProjects><li>RR_Spatial_CoordinateAtlas</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_AlternateExits</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Entities_Detection</defName>
+    <label>Detection</label>
+    <description>Turn the collated accounts into something a crew can be drilled on, then drill them on it until noticing is not a decision.
+
+Three times as long between recognising something and it reaching you. This replaces the early-warning training rather than adding to it.</description>
+    <insightCost>2</insightCost>
+    <workRequired>9000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>1</requiredRouteLogs>
+    <prerequisiteProjects><li>RR_Entities_EarlyWarning</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_Detection</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Logistics_Relays</defName>
+    <label>Relays</label>
+    <description>Put the branch's own relays on the route the supply service uses, so a shipment is not waiting on somebody else's schedule to be noticed.
+
+Deliveries arrive about a quarter sooner. A shipment still cannot arrive before it has left.</description>
+    <insightCost>2</insightCost>
+    <workRequired>7000</workRequired>
+    <minimumIntellectual>4</minimumIntellectual>
+    <requiredRouteLogs>1</requiredRouteLogs>
+    <prerequisiteProjects><li>RR_Logistics_StandingOrders</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_Relays</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Commerce_Leases</defName>
+    <label>Leases</label>
+    <description>Stop buying and start leasing where leasing is cheaper, and make the parent corporation carry the depreciation it was going to charge you for anyway.
+
+Everything bought through the catalogue costs a fifth less. This replaces the negotiated terms rather than adding to them.</description>
+    <insightCost>2</insightCost>
+    <workRequired>7500</workRequired>
+    <minimumIntellectual>5</minimumIntellectual>
+    <requiredRouteLogs>1</requiredRouteLogs>
+    <prerequisiteProjects><li>RR_Commerce_NegotiatedTerms</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_Leases</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <!-- ==================================================================================== -->
+  <!-- TIER 2 - REPEATABLE OPERATIONS                                                       -->
+  <!--                                                                                      -->
+  <!-- "Revisit known coordinates; reduce preventable failures." docs/CAMPAIGN_CHART.md 3.1. -->
+  <!--                                                                                      -->
+  <!-- Each requires its own tier 1 sibling AND a completed distortion log. Tier 1 asked     -->
+  <!-- only for route logs because it is about having been through once. This band is about  -->
+  <!-- having been through often enough for something to have gone wrong, so the space has   -->
+  <!-- to have misbehaved while somebody was recording it.                                   -->
+  <!--                                                                                      -->
+  <!-- EVERY ONE OF THESE MOVES A KNOB NO OTHER PROJECT TOUCHES. Tier 1 had three            -->
+  <!-- capabilities that superseded their tier 0 sibling because they shared a number; here  -->
+  <!-- there is nothing to supersede, so a player reading two cards gets two independent     -->
+  <!-- effects and neither card has to explain the other.                                    -->
+  <!--                                                                                      -->
+  <!-- Three knobs named in the previous handoff were dropped after checking their read      -->
+  <!-- sites, and the replacements are below. stablePowerTicksRequired is 60 ticks, one      -->
+  <!-- second. MaximumOpenOrders is a sanity cap of 100 open orders. Catalogue               -->
+  <!-- maxOrderQuantity is already 500 to a million per row. A project moving any of those   -->
+  <!-- would have granted a capability that real code reads, changing a number no player     -->
+  <!-- could ever notice, which proof-research-branches.py cannot catch BECAUSE the read     -->
+  <!-- site is real. A live read site is not the same thing as a live effect.                -->
+  <!-- ==================================================================================== -->
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Facilities_StandbyDiscipline</defName>
+    <label>Standby Discipline</label>
+    <description>Find out which of the standby systems genuinely have to stay warm between connections and which were only ever left running because nobody had asked.
+
+A designated gate costs half as much to keep while it is closed. It changes nothing about what an open connection draws; this is the bill for the days the gate is doing nothing but staying ready.</description>
+    <insightCost>3</insightCost>
+    <workRequired>11000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>2</requiredRouteLogs>
+    <requiredDistortionLogs>1</requiredDistortionLogs>
+    <prerequisiteProjects><li>RR_Facilities_EfficientAperture</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_StandbyDiscipline</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Fieldcraft_ReliefWatch</defName>
+    <label>Relief Watch</label>
+    <description>Drill the handover at the console until an operator being called away is a relief rather than an interruption. Somebody always knows where the dial was left.
+
+An unattended ramp loses a quarter as much progress. It still lapses if nobody comes back, because a ramp nobody is watching is not an operation.</description>
+    <insightCost>3</insightCost>
+    <workRequired>10000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>2</requiredRouteLogs>
+    <requiredDistortionLogs>1</requiredDistortionLogs>
+    <prerequisiteProjects><li>RR_Fieldcraft_RescueTraining</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_ReliefWatch</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Measurement_ReferenceStandards</defName>
+    <label>Reference Standards</label>
+    <description>Keep a set of references the branch trusts, so calibration is a comparison against something known instead of deriving the whole scale again from first principles.
+
+Calibrating a gate assembly takes two fifths less work.</description>
+    <insightCost>3</insightCost>
+    <workRequired>11000</workRequired>
+    <minimumIntellectual>7</minimumIntellectual>
+    <requiredRouteLogs>2</requiredRouteLogs>
+    <requiredDistortionLogs>1</requiredDistortionLogs>
+    <prerequisiteProjects><li>RR_Measurement_Corroboration</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_ReferenceStandards</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Spatial_KnownAddress</defName>
+    <label>Known Address</label>
+    <description>Write down what the dial actually did last time rather than trusting whoever ran the console to remember it, and a route the branch has walked before stops being dialled from scratch.
+
+Every previous connection to an address makes the next one to it markedly faster. A first visit is exactly as slow as it ever was, and a well worn route is still never free.</description>
+    <insightCost>3</insightCost>
+    <workRequired>12000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>3</requiredRouteLogs>
+    <requiredDistortionLogs>1</requiredDistortionLogs>
+    <prerequisiteProjects><li>RR_Spatial_AlternateExits</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_KnownAddress</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Entities_ContainmentProtocol</defName>
+    <label>Containment Protocol</label>
+    <description>Turn what the branch has learned about being followed into written procedure at the threshold, and then hold the crews to it.
+
+Nothing follows a crew out through a connection until the aperture is opened wider than Field Stability allows. The procedure buys back a whole rung of the gate ladder, and a branch that pushes the aperture hard without it has opened the door wider for something that was already interested.</description>
+    <insightCost>3</insightCost>
+    <workRequired>13000</workRequired>
+    <minimumIntellectual>7</minimumIntellectual>
+    <requiredRouteLogs>2</requiredRouteLogs>
+    <requiredDistortionLogs>1</requiredDistortionLogs>
+    <prerequisiteProjects><li>RR_Entities_Detection</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_ContainmentProtocol</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Logistics_ForwardDispatch</defName>
+    <label>Forward Dispatch</label>
+    <description>Stop letting a repeat order queue behind somebody else and their paperwork. The supplier holds the branch's standing arrangements on file and acts on them.
+
+A shipment leaves in half the time. Combined with the branch's own relays this is what finally moves an arrival rather than running into the floor of a shipment that had not left yet.</description>
+    <insightCost>3</insightCost>
+    <workRequired>10000</workRequired>
+    <minimumIntellectual>5</minimumIntellectual>
+    <requiredRouteLogs>2</requiredRouteLogs>
+    <requiredDistortionLogs>1</requiredDistortionLogs>
+    <prerequisiteProjects><li>RR_Logistics_Relays</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_ForwardDispatch</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Commerce_SpecialistRecruitment</defName>
+    <label>Specialist Recruitment</label>
+    <description>Keep a standing brief with the parent corporation's recruiters instead of describing the branch from nothing every time it needs somebody.
+
+The branch may ask for applicants again in half the time. The corporation was never going to refuse; it was going to take a while to get around to it.</description>
+    <insightCost>3</insightCost>
+    <workRequired>10000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>2</requiredRouteLogs>
+    <requiredDistortionLogs>1</requiredDistortionLogs>
+    <prerequisiteProjects><li>RR_Commerce_Leases</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_SpecialistRecruitment</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <!-- The window-tier ladder.
+
+       Until 0.10.9-dev this file held ONE project while `portalIndefiniteTier` was 4, so
+       `PortalWindowTier` could never exceed 1 and a standing connection was unreachable no
+       matter what a branch did. Four rungs declared, one built.
+
+       Each rung costs insight and REQUIRES COMPLETED LOGS. Owner direction: "u need certain
+       logs complete to operate the higher teri techs and shit and gate features and upgrades".
+       Insight is the price; the logs are the qualification. Insight is spent and gone, a
+       completed log stays completed, and a tier already earned is never lost.
+
+       The log requirements rise in the order a branch naturally learns things. Route logs come
+       from surveying at all. Distortion logs need the space to have misbehaved and been
+       recorded. Entity logs need something to have been down there and been seen. -->
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_GateTelemetry</defName>
+    <label>Gate Telemetry</label>
+    <description>Compare recovered record books with the gate's own timing records. Unlocks a persistent route-planning view of surveyed rooms and their known connections before a repeat expedition; unexplored rooms stay unknown.\n\nThe first rung. One completed route log is enough, because one survey is all a branch has when it starts.</description>
+    <insightCost>1</insightCost>
+    <workRequired>6000</workRequired>
+    <minimumIntellectual>4</minimumIntellectual>
+    <requiredRouteLogs>1</requiredRouteLogs>
+    <unlocksSurveyedRoutePlanning>true</unlocksSurveyedRoutePlanning>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_GateFieldStability</defName>
+    <label>Field Stability</label>
+    <description>Read the distortion records against the gate's power trace and find what the connection was doing when the corridors stopped agreeing with the map. Lengthens how long a connection holds.\n\nNeeds the space to have misbehaved while somebody was recording it. A branch that has only ever had quiet runs has nothing to read.</description>
+    <insightCost>2</insightCost>
+    <workRequired>9000</workRequired>
+    <minimumIntellectual>5</minimumIntellectual>
+    <requiredRouteLogs>2</requiredRouteLogs>
+    <requiredDistortionLogs>1</requiredDistortionLogs>
+    <prerequisiteProjects>
+      <li>RR_GateTelemetry</li>
+    </prerequisiteProjects>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_GateSustainedAperture</defName>
+    <label>Sustained Aperture</label>
+    <description>Hold a wider threshold open for longer without the reserve collapsing. Lengthens a connection again, and it is the point at which what lives down there can follow a crew all the way out.\n\nRequires an entity log: the company will not authorise a wider aperture on the word of a crew that has never met anything.</description>
+    <insightCost>3</insightCost>
+    <workRequired>13000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>3</requiredRouteLogs>
+    <requiredDistortionLogs>2</requiredDistortionLogs>
+    <requiredEntityLogs>1</requiredEntityLogs>
+    <prerequisiteProjects>
+      <li>RR_GateFieldStability</li>
+    </prerequisiteProjects>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_GateStandingConnection</defName>
+    <label>Standing Connection</label>
+    <description>A connection that no longer counts down. It holds for as long as the gate is powered, staffed and fed — and it ends the instant any of those stops, exactly as before.\n\nThe top of the ladder, and the most expensive thing a branch can learn. It asks for everything: routes surveyed, the space caught misbehaving more than once, and more than one thing seen and written down.</description>
+    <insightCost>4</insightCost>
+    <workRequired>18000</workRequired>
+    <minimumIntellectual>7</minimumIntellectual>
+    <requiredRouteLogs>4</requiredRouteLogs>
+    <requiredDistortionLogs>3</requiredDistortionLogs>
+    <requiredEntityLogs>2</requiredEntityLogs>
+    <prerequisiteProjects>
+      <li>RR_GateSustainedAperture</li>
+    </prerequisiteProjects>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <!-- =====================================================================================
+       TIER 3 - remote operations: support more than one site; work beyond headquarters.
+
+       This tier was DELETED rather than written at 0.12.5-dev, because a knob sweep found
+       nothing to move for four of the seven branches: the systems an unlock would modify did
+       not exist. Arc 5 wrote them between 0.12.6-dev and 0.12.9-dev, and the sweep now finds a
+       real, observable read site for EVERY branch. Record: BUILD_ORDER_CORRECTION.md.
+
+       Every capability below is read by real code, and proof-research-branches.py asserts
+       exactly that: an unlock a player is told about and that changes nothing is worse than no
+       unlock, because it is a lie on the card.
+
+       Ladder shape matches tiers 0-2: insight 4, three route logs, two distortion logs, and the
+       first tier to require an ENTITY log. You have to have met something.
+       ===================================================================================== -->
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Facilities_SiteNetwork</defName>
+    <label>Site Network</label>
+    <description>Holding places costs the branch attention as much as money, and the limit has never been the money. Standing arrangements, a rota that covers more than one address, and a filing system that does not lose a site.
+
+Twelve places on the books instead of eight. The Sites pane stops refusing, and the bill goes up accordingly.</description>
+    <insightCost>4</insightCost>
+    <workRequired>14000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>3</requiredRouteLogs>
+    <requiredDistortionLogs>2</requiredDistortionLogs>
+    <requiredEntityLogs>1</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Facilities_StandbyDiscipline</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_SiteNetwork</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Commerce_SiteEfficiency</defName>
+    <label>Site Economies</label>
+    <description>Every site was being administered as though it were the first one. Consolidate the paperwork, the communications and the supply arrangements, and the marginal place stops costing what the original did.
+
+Each site adds a sixth of base overhead per day instead of a quarter. Proportionate, so it is worth the same to a shop as to a corporation.</description>
+    <insightCost>4</insightCost>
+    <workRequired>14000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>3</requiredRouteLogs>
+    <requiredDistortionLogs>2</requiredDistortionLogs>
+    <requiredEntityLogs>1</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Commerce_SpecialistRecruitment</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_SiteEfficiency</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Logistics_UnattendedDelivery</defName>
+    <label>Unattended Delivery</label>
+    <description>The supplier has been refusing to unload where nobody is standing to sign for it, which is ordinary practice and has cost this branch a great deal of waiting.
+
+The arrangement is now on file: a registered site is a place a crate may simply be left. A place that is not on the books still refuses, and always will.</description>
+    <insightCost>4</insightCost>
+    <workRequired>14000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>3</requiredRouteLogs>
+    <requiredDistortionLogs>2</requiredDistortionLogs>
+    <requiredEntityLogs>1</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Logistics_ForwardDispatch</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_UnattendedDelivery</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Spatial_CoordinateReading</defName>
+    <label>Coordinate Reading</label>
+    <description>A space gives itself away before it gives anything else away. Which door sits wrong in its frame, which corridor is a foot too long, which junction the carpet was laid through.
+
+Roughly one door in eight leads onward rather than one in twelve. **The limit of two ways onward per coordinate does not move, and will not:** it is what keeps a chain of spaces finite.</description>
+    <insightCost>4</insightCost>
+    <workRequired>14000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>3</requiredRouteLogs>
+    <requiredDistortionLogs>2</requiredDistortionLogs>
+    <requiredEntityLogs>1</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Spatial_KnownAddress</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_CoordinateReading</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Fieldcraft_WayHomeDiscipline</defName>
+    <label>Way Home Discipline</label>
+    <description>Crews have been finding the way deeper more often than the way out, and the company has stopped believing that is chance. Train for the exit first and the exit is what gets found.
+
+A survey turns up a way out into the world on one draw in two instead of one in three. The branch does not go less deep; it comes back out more often.</description>
+    <insightCost>4</insightCost>
+    <workRequired>14000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>3</requiredRouteLogs>
+    <requiredDistortionLogs>2</requiredDistortionLogs>
+    <requiredEntityLogs>1</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Fieldcraft_ReliefWatch</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_WayHomeDiscipline</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Measurement_RapidSurvey</defName>
+    <label>Rapid Survey</label>
+    <description>Most of a survey was establishing what ordinary looks like. With reference standards already in hand, a crew measures the difference instead of the whole.
+
+A survey takes about ten seconds of standing there rather than fourteen. Visible on the progress bar, which is a short time to be standing still in a place like that.</description>
+    <insightCost>4</insightCost>
+    <workRequired>14000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>3</requiredRouteLogs>
+    <requiredDistortionLogs>2</requiredDistortionLogs>
+    <requiredEntityLogs>1</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Measurement_ReferenceStandards</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_RapidSurvey</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Entities_SpaceDiscipline</defName>
+    <label>Space Discipline</label>
+    <description>A built room was already the only thing that slowed the place down. Knowing what is in the space changes how the room is built: sightlines, thresholds, what is left in the open and what is not.
+
+A properly built room holds it back considerably better. **It never stops entirely.** A coordinate is always wearing, and nothing will make it somewhere to live.</description>
+    <insightCost>4</insightCost>
+    <workRequired>14000</workRequired>
+    <minimumIntellectual>6</minimumIntellectual>
+    <requiredRouteLogs>3</requiredRouteLogs>
+    <requiredDistortionLogs>2</requiredDistortionLogs>
+    <requiredEntityLogs>1</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Entities_ContainmentProtocol</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_SpaceDiscipline</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+
+  <!-- ==================================================================================== -->
+  <!-- TIER 4 - THE PRACTISED BRANCH                                                        -->
+  <!--                                                                                      -->
+  <!-- SIX projects, not eight, and the two absences are the important part of this tier.    -->
+  <!--                                                                                      -->
+  <!-- LOGISTICS HAS NO TIER 4. Lead time, dispatch delay, order capacity and unattended     -->
+  <!-- delivery are already taken by tiers 1, 2, 0 and 3. What is left in Procurement is     -->
+  <!-- MaximumOpenOrders at 100, MaximumPhysicalStacksPerOrder at 4096 and                   -->
+  <!-- MaximumStacksDeliveredPerTick at 4 - safety bounds no player will ever reach, not     -->
+  <!-- knobs. A project here would promise something and change nothing, which is exactly    -->
+  <!-- what 0.12.5-dev deleted four projects for.                                            -->
+  <!--                                                                                       -->
+  <!-- THE GATE LINE HAS NO TIER 4 EITHER, and cannot. Its fourth rung is already "a          -->
+  <!-- connection that no longer counts down". There is nothing above indefinite.            -->
+  <!--                                                                                       -->
+  <!-- Every one of the six moves a number a player can name the effect of, and every one of -->
+  <!-- those numbers was unclaimed before this tier. Two restraints from 0.12.18-dev held:   -->
+  <!-- the per-coordinate frontier cap is not a research knob, so Spatial took the            -->
+  <!-- ORDINARY-MAP rarity instead; and shelter never reaches zero, so Entities took the      -->
+  <!-- penalty ceiling rather than the shelter rate a second time. MaximumNaturalDepth stays  -->
+  <!-- at three, because the owner answered "option 1" on exactly that question.              -->
+  <!-- ==================================================================================== -->
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Facilities_PractisedDialling</defName>
+    <label>Practised Dialling</label>
+    <description>Stop treating every opening as a first attempt. Written procedure, a checklist somebody actually follows, and an operator who is not reading the manual while the reserve drains.\n\nBringing any gate up takes a fifth less work, on every route rather than only the familiar ones. The floor still applies, so a well-worn address is quick but never free.</description>
+    <insightCost>5</insightCost>
+    <workRequired>18000</workRequired>
+    <minimumIntellectual>7</minimumIntellectual>
+    <requiredRouteLogs>4</requiredRouteLogs>
+    <requiredDistortionLogs>3</requiredDistortionLogs>
+    <requiredEntityLogs>2</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Facilities_SiteNetwork</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_PractisedDialling</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Fieldcraft_Decompression</defName>
+    <label>Decompression</label>
+    <description>What to do with people in the hours after they come out. Somewhere to sit, somebody to talk to, and a rule that nobody goes straight back down.\n\nA crew shakes the place off twice as fast once they are out of it. It does nothing at all while they are still down there: the coordinate is not less hostile, the rotation is simply better.</description>
+    <insightCost>5</insightCost>
+    <workRequired>18000</workRequired>
+    <minimumIntellectual>7</minimumIntellectual>
+    <requiredRouteLogs>4</requiredRouteLogs>
+    <requiredDistortionLogs>3</requiredDistortionLogs>
+    <requiredEntityLogs>2</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Fieldcraft_WayHomeDiscipline</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_Decompression</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Commerce_OpenMarket</defName>
+    <label>Open Market</label>
+    <description>Find out what ordinary salvage is actually worth before the company quotes you for it. Two more buyers on the list and a clerk who has read the last six settlements.\n\nThe company pays close to market for ordinary goods instead of well under it. The odd premium is untouched - a branch learns to stop being fleeced on scrap, not to make the Backrooms pay better.</description>
+    <insightCost>5</insightCost>
+    <workRequired>18000</workRequired>
+    <minimumIntellectual>7</minimumIntellectual>
+    <requiredRouteLogs>4</requiredRouteLogs>
+    <requiredDistortionLogs>3</requiredDistortionLogs>
+    <requiredEntityLogs>2</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Commerce_SiteEfficiency</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_OpenMarket</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Measurement_StatementDiscipline</defName>
+    <label>Statement Discipline</label>
+    <description>A form, an order to ask the questions in, and the discovery that most of taking a statement is not talent.\n\nMost of the branch can now take a statement the company will file, rather than only its most sociable staff. On a small crew, where the one person good with people is often a witness themselves, this is the difference between settling a disagreement and living with it.</description>
+    <insightCost>5</insightCost>
+    <workRequired>18000</workRequired>
+    <minimumIntellectual>7</minimumIntellectual>
+    <requiredRouteLogs>4</requiredRouteLogs>
+    <requiredDistortionLogs>3</requiredDistortionLogs>
+    <requiredEntityLogs>2</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Measurement_RapidSurvey</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_StatementDiscipline</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Spatial_SurfaceReading</defName>
+    <label>Surface Reading</label>
+    <description>The tells are the same on this side. Doors that open onto the wrong depth of building, corridors nobody remembers commissioning, a room count that does not match the outside.\n\nWays in turn up on your own maps noticeably more often. It changes nothing about how many a single coordinate can hold, or how deep the found chain reaches - only how often a door on the surface turns out to be one.</description>
+    <insightCost>5</insightCost>
+    <workRequired>18000</workRequired>
+    <minimumIntellectual>7</minimumIntellectual>
+    <requiredRouteLogs>4</requiredRouteLogs>
+    <requiredDistortionLogs>3</requiredDistortionLogs>
+    <requiredEntityLogs>2</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Spatial_CoordinateReading</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_SurfaceReading</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+  <RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+    <defName>RR_Entities_SteadyNerve</defName>
+    <label>Steady Nerve</label>
+    <description>Name the thing, write down what it did, and give the next crew the page. Most of what the place does to people is done by not being explicable.\n\nThe worst the Backrooms can weigh on somebody drops from severe to noticeable. It never reaches nothing: a branch can learn to carry the place, and cannot learn to stop feeling it.</description>
+    <insightCost>5</insightCost>
+    <workRequired>18000</workRequired>
+    <minimumIntellectual>7</minimumIntellectual>
+    <requiredRouteLogs>4</requiredRouteLogs>
+    <requiredDistortionLogs>3</requiredDistortionLogs>
+    <requiredEntityLogs>2</requiredEntityLogs>
+    <prerequisiteProjects><li>RR_Entities_SpaceDiscipline</li></prerequisiteProjects>
+    <grantsCapabilities><li>RR_Cap_SteadyNerve</li></grantsCapabilities>
+  </RimroomsAsyncIndustries.Investigation.RimroomsProjectDef>
+
+</Defs>
