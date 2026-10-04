@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Install — Rimrooms — Async Industries</title>
-<meta name="description" content="What you need, what you do not, and how to tell the install worked.">
+<meta name="description" content="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.">
 <link rel="stylesheet" href="assets/css/rimrooms.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
 <h2>Start</h2>
 <ul>
   <li><a href="index.html" title="What this mod is, and the four pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
-  <li><a href="install.html" title="What you need, what you do not, and how to tell the install worked." aria-current="page">Install</a></li>
+  <li><a href="install.html" title="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked." aria-current="page">Install</a></li>
   <li><a href="first-hour.html" title="The gate start-up chain end to end: eleven goals, in the order they unlock.">Your first hour</a></li>
   <li><a href="scenarios.html" title="The three shipped starts and what each one is actually like to play.">The three starts</a></li>
 </ul>
@@ -43,43 +43,44 @@
 </ul>
 <h2>Running it</h2>
 <ul>
-  <li><a href="mods.html" title="Expansions are optional and add content. What the 294-mod profile means for you.">Mods and expansions</a></li>
+  <li><a href="mods.html" title="Nothing is required but RimWorld. What the 294-mod profile actually means for you.">Mods and expansions</a></li>
   <li><a href="multiplayer.html" title="What is known about multiplayer, and what is honestly untested.">Multiplayer</a></li>
   <li><a href="troubleshooting.html" title="Symptoms, what each one usually means, and what to send if it is ours.">Troubleshooting</a></li>
 </ul>
 <h2>About</h2>
 <ul>
   <li><a href="credits.html" title="Who made this, what it is built on, and the licence.">Credits</a></li>
-  <li><a href="links.html" title="Where the source, the ledger and the register live.">Links</a></li>
+  <li><a href="links.html" title="The Workshop mod and collection, and where to report something.">Links</a></li>
 </ul>
   </nav>
 
   <main id="content" class="prose">
-    <p class="summary">What you need, what you do not, and how to tell the install worked.</p>
+    <p class="summary">You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.</p>
 <h1>Install</h1>
 <h2>Requirements</h2>
 <table>
 <tbody>
-<tr><td><strong>RimWorld</strong></td><td>1.6</td></tr>
-<tr><td><strong>Expansions</strong></td><td>Royalty, Ideology, Biotech, Anomaly, Odyssey</td></tr>
-<tr><td><strong>Other mods</strong></td><td>The full collection this build is authored against</td></tr>
-<tr><td><strong>Harmony</strong></td><td>Required by the collection</td></tr>
+<tr><td><strong>RimWorld</strong></td><td>1.6 — the only requirement</td></tr>
+<tr><td><strong>Expansions</strong></td><td>Royalty, Ideology, Biotech, Anomaly, Odyssey — every one <strong>optional</strong></td></tr>
+<tr><td><strong>Other mods</strong></td><td>All optional</td></tr>
+<tr><td><strong>Harmony</strong></td><td>Not used and not needed</td></tr>
 </tbody></table>
-<p>This build <strong>declares every one of its requirements</strong>, so your mod manager will tell you what is missing before the game loads rather than failing later.</p>
+<p><strong>This build declares no dependencies at all.</strong> Your mod manager will not ask you for anything, because nothing is being asked for. Content from an expansion is marked as needing it, so without that expansion it simply is not there.</p>
 <p>Content from another mod is looked up by name. A missing one degrades what depends on it instead of throwing an error.</p>
 <hr>
 <h2>With a mod manager (recommended)</h2>
-<ol><li>Subscribe to the <strong>collection</strong> — see <a href="links.html">Links</a>.</li><li>Open your mod manager and let it import the collection.</li><li><strong>Sort.</strong> Rimrooms declares its load order, so the sorter places it correctly on its own.</li><li>Check for missing requirements. The manager lists any by name with a link.</li><li>Launch.</li></ol>
-<p><strong>Rimrooms must load last</strong>, after every mod it is authored against. A patch cannot see content from a mod that loads after it. The declared load order handles this — you do not need to drag it.</p>
+<ol><li>Subscribe to the mod — see <a href="links.html">Links</a>.</li><li>Open your mod manager and let it import.</li><li><strong>Sort.</strong> Rimrooms publishes its own load order, so the sorter places it correctly on its own.</li><li>Launch.</li></ol>
+<p><strong>Rimrooms must load last.</strong> A patch cannot see content from a mod that loads after it. Its load-order list handles this — you do not need to drag it.</p>
+<p>That list names 294 mods, and it is <strong>advice about order, never a list of things you need</strong>. Own none of them and the mod runs.</p>
 <hr>
 <h2>Manual install</h2>
 <ol><li>Download the release.</li><li>Extract into:</li></ol>
 <pre><code>   RimWorld/Mods/Rimrooms - Async Industries/</code></pre>
 <ol><li>Enable it in the in-game mod list, <strong>below everything else</strong>.</li><li>Restart RimWorld.</li></ol>
-<p>A correct install has <code>About/About.xml</code> directly inside the mod folder — not nested one level deeper.</p>
+<p>A correct install has <code>About/About.xml</code> directly inside the mod folder — not nested one level deeper. The folder's name does not matter; the game identifies a mod by the <code>packageId</code> inside that file.</p>
 <hr>
 <h2>Load order in one line</h2>
-<pre><code>Harmony → frameworks → expansions → everything else → Rimrooms</code></pre>
+<pre><code>frameworks → expansions → everything else → Rimrooms</code></pre>
 <hr>
 <h2>Verifying it loaded</h2>
 <ul><li>A <strong>Rimrooms</strong> background appears on the main menu with the version beside RimWorld's own.</li><li>A new scenario appears in the new-game list — see <a href="scenarios.html">The three starts</a>.</li><li>Once in game, the <strong>Operations</strong> tab sits first on the bottom bar.</li></ul>

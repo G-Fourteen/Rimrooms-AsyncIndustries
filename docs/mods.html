@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mods and expansions — Rimrooms — Async Industries</title>
-<meta name="description" content="Expansions are optional and add content. What the 294-mod profile means for you.">
+<meta name="description" content="Nothing is required but RimWorld. What the 294-mod profile actually means for you.">
 <link rel="stylesheet" href="assets/css/rimrooms.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
 <h2>Start</h2>
 <ul>
   <li><a href="index.html" title="What this mod is, and the four pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
-  <li><a href="install.html" title="What you need, what you do not, and how to tell the install worked.">Install</a></li>
+  <li><a href="install.html" title="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.">Install</a></li>
   <li><a href="first-hour.html" title="The gate start-up chain end to end: eleven goals, in the order they unlock.">Your first hour</a></li>
   <li><a href="scenarios.html" title="The three shipped starts and what each one is actually like to play.">The three starts</a></li>
 </ul>
@@ -43,51 +43,53 @@
 </ul>
 <h2>Running it</h2>
 <ul>
-  <li><a href="mods.html" title="Expansions are optional and add content. What the 294-mod profile means for you." aria-current="page">Mods and expansions</a></li>
+  <li><a href="mods.html" title="Nothing is required but RimWorld. What the 294-mod profile actually means for you." aria-current="page">Mods and expansions</a></li>
   <li><a href="multiplayer.html" title="What is known about multiplayer, and what is honestly untested.">Multiplayer</a></li>
   <li><a href="troubleshooting.html" title="Symptoms, what each one usually means, and what to send if it is ours.">Troubleshooting</a></li>
 </ul>
 <h2>About</h2>
 <ul>
   <li><a href="credits.html" title="Who made this, what it is built on, and the licence.">Credits</a></li>
-  <li><a href="links.html" title="Where the source, the ledger and the register live.">Links</a></li>
+  <li><a href="links.html" title="The Workshop mod and collection, and where to report something.">Links</a></li>
 </ul>
   </nav>
 
   <main id="content" class="prose">
-    <p class="summary">Expansions are optional and add content. What the 294-mod profile means for you.</p>
+    <p class="summary">Nothing is required but RimWorld. What the 294-mod profile actually means for you.</p>
 <h1>Mods and expansions</h1>
 <h2>What is required</h2>
-<p>This build is authored against a <strong>specific collection</strong> and declares every member of it.</p>
+<p><strong>RimWorld 1.6, and nothing else.</strong> No other mod. No expansion.</p>
 <table>
 <tbody>
-<tr><td><strong>RimWorld 1.6</strong></td><td></td></tr>
-<tr><td><strong>All five expansions</strong></td><td>Royalty, Ideology, Biotech, Anomaly, Odyssey</td></tr>
-<tr><td><strong>The collection</strong></td><td>Every mod it is built alongside — see <a href="links.html">Links</a></td></tr>
+<tr><td><strong>RimWorld 1.6</strong></td><td>The only requirement</td></tr>
+<tr><td><strong>The five expansions</strong></td><td>Royalty, Ideology, Biotech, Anomaly, Odyssey — every one <strong>optional</strong></td></tr>
+<tr><td><strong>Other mods</strong></td><td>All optional</td></tr>
 </tbody></table>
-<p>Your mod manager reads those declarations and will <strong>name anything missing, with a link</strong>, before the game loads.</p>
+<p>This build declares <strong>no dependencies at all</strong>. Your mod manager will not ask you for anything, because nothing is being asked for.</p>
 <h2>Load order</h2>
-<p>Rimrooms declares its own ordering as well as its requirements, so a sorting manager puts it in the right place without being told.</p>
 <p><strong>It loads last.</strong> A patch cannot see content from a mod that loads after it.</p>
+<p>It lists 294 mods as load-order advice, which is a different thing from a requirement: a sorting manager reads that list and places this mod correctly on its own. Every mod on it is optional, and the list is advice about <em>order</em>, never about what you need to own.</p>
 <hr>
 <h2>How it treats other mods</h2>
 <table>
 <tbody>
 <tr><td><strong>Nothing is edited</strong></td><td>No other mod's files are changed, read into this one, or copied</td></tr>
 <tr><td><strong>Content is looked up by name</strong></td><td>A missing one degrades what depends on it rather than throwing</td></tr>
-<tr><td><strong>Expansion content is gated</strong></td><td>Anything from an expansion is marked as needing it</td></tr>
+<tr><td><strong>Expansion content is gated</strong></td><td>Anything from an expansion is marked as needing it, so it simply is not there without it</td></tr>
 <tr><td><strong>Nothing leaks inward</strong></td><td>No content from any other mod appears in Backrooms generation</td></tr>
+<tr><td><strong>No Harmony</strong></td><td>Nothing is patched at runtime</td></tr>
 </tbody></table>
 <p>The company panel lists the optional mods this one has a stated position on, whether each is loaded, and in plain words what will and will not happen with it.</p>
 <h2>Doors from other mods</h2>
 <p>Wider doors work as wider gates — that is the one place another mod's content changes what you can do. A 2-cell door passes pack animals; 3 cells or more passes anything.</p>
+<p>Core alone gives you a 1-cell gate from a door or autodoor, and a 2-cell gate from an ornate door, with no other mod installed.</p>
 <h2>What is not claimed</h2>
-<p><strong>No compatibility report exists.</strong> Declaring a requirement is not the same as testing against it, and no conflict testing has been published.</p>
+<p><strong>No compatibility report exists</strong>, and none is implied by the load-order list. Nothing is announced as working with anything until it has been tested, and that testing has not been published.</p>
 <p>If you hit a conflict, it is worth reporting — see <a href="links.html">Links</a>.</p>
 <hr>
 <h2>Running a smaller list</h2>
-<p>The requirements are declared as hard. A manager will warn you if you drop one.</p>
-<p>The mod is written so that <strong>missing content degrades rather than crashes</strong>, but a reduced list is untested and unsupported.</p>
+<p>Run whatever list you like. Nothing is declared as a requirement, so no manager will warn you, and the mod is written so that <strong>missing content degrades rather than crashes</strong>.</p>
+<p>A reduced list is untested rather than unsupported — the same as every other list, including the full one.</p>
   </main>
 
 </div>
