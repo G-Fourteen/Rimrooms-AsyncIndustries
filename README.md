@@ -1,11 +1,11 @@
 # Rimrooms - Async Industries
 
-**0.12.95-dev** for RimWorld 1.6. Needs no other mod and no expansion.
+**0.12.96-dev** for RimWorld 1.6. Needs no other mod and no expansion.
 
 > **Development build.** Gameplay acceptance is pending; this is not a finished campaign
 > release, and nothing here is a balance, performance or compatibility report.
 
-Development build 0.12.95-dev. Gameplay acceptance is pending; this is not a finished campaign release.
+Development build 0.12.96-dev. Gameplay acceptance is pending; this is not a finished campaign release.
 Rimrooms - Async Industries is a company-management campaign about an authorised research branch that investigates, contains and profits from unstable spaces beyond a gate.
 ## The Gate
 A gate is an ordinary door you designate, not a custom machine. Core's own door and autodoor give you a one-cell gate; its ornate door gives you a two-cell one with no other mods at all. With Doors Expanded installed, its double and triple doors and its big blast door work too.
