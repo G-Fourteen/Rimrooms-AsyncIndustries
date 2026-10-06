@@ -73,7 +73,7 @@
 <tr><td>2</td><td>Console, battery and machining table bound to it</td><td>Bind all three on the Machine pane</td></tr>
 <tr><td>3</td><td>The gate commissioned</td><td>A commissioning step on the same pane</td></tr>
 <tr><td>4</td><td><strong>Machining table set to gate control</strong></td><td>A switch on the table itself</td></tr>
-<tr><td>5</td><td>Gate assembled</td><td>The <strong>assemble gate</strong> bill: 100 steel, 8 industrial components</td></tr>
+<tr><td>5</td><td>Gate assembled</td><td>The <strong>assemble gate section</strong> bill, four times: 25 steel and 2 industrial components each</td></tr>
 <tr><td>6</td><td>An operator assigned</td><td>A certified gate operator, on Personnel</td></tr>
 <tr><td>7</td><td>The gate calibrated</td><td>A certified staff member, once assembly is done</td></tr>
 <tr><td>8</td><td><strong>Communications console set to gate control</strong></td><td>A switch on the console itself</td></tr>
@@ -97,9 +97,13 @@
 <tr><td><strong>A battery</strong></td><td>The reserve</td></tr>
 <tr><td><strong>A machining table</strong></td><td>Where it gets assembled</td></tr>
 </tbody></table>
-<p>Then commission it, set the table to gate control, and run the <strong>assemble gate</strong> bill:</p>
-<pre><code>100 steel + 8 industrial components</code></pre>
+<p>Then commission it, set the table to gate control, and run the <strong>assemble gate section</strong> bill four times:</p>
+<pre><code>25 steel + 2 industrial components   per section
+100 steel + 8 industrial components  for all four</code></pre>
 <p>The table keeps all of its normal recipes.</p>
+<h3>Four people can build it at once</h3>
+<p><strong>Link up to three more machining tables to the gate</strong> on the Machine pane, set each to gate control, and queue a section on each. One bench does the same four sections one after another for the same total cost.</p>
+<p><strong>A section is not reserved for a bench.</strong> Lose a bench halfway through and its unfinished sections are still outstanding on the others, including on the designated table alone.</p>
 <h2>3. Train a gate operator</h2>
 <p>The gate needs a certified operator, and you train one. Three <strong>train</strong> bills exist:</p>
 <table>
@@ -115,9 +119,12 @@
 <p>A certified staff member calibrates the gate once the assembly is done. The Machine pane numbers every step and shows which are complete.</p>
 <h2>5. Keep an operator on station</h2>
 <p>Someone stays at the console while a connection is open. This is a job, not a checkbox — walk them away and the connection drops.</p>
+<p><strong>It does not have to be the same someone.</strong> Link up to three more communications consoles to the gate and any qualified staff member at any of the four holds it, so one can leave to eat the moment another sits down. See <a href="gates.html#four-stations-so-a-window-is-not-one-persons-bladder">four stations</a>.</p>
 <h2>6. Pick a crew</h2>
-<p>Up to three field staff. The planner checks skill, health and carried weight, and names anyone who is not ready.</p>
+<p>As many field staff as you want to send. <strong>There is no cap.</strong> The planner checks skill, health and carried weight, and names anyone who is not ready.</p>
 <p>It also shows who has been through before, and who has walked the exact address you are dialling. An operator who knows the route brings the gate up faster.</p>
+<p><strong>Send somebody out with a record book.</strong> Your facility starts with company record books lying in it; a crew without one records nothing, and the dispatch will say so.</p>
+<p>Right-click a book and pick <em>What is this journal for?</em> if you want the four steps in the game. The full account is in <a href="company.html#the-record-book">The company</a>.</p>
 <h2>7. Have somewhere to go</h2>
 <p>A gate needs an address. Take one from a request, or <strong>dial an unknown address</strong> and let the gate pick.</p>
 <h2>8. Open a connection and go</h2>
@@ -131,7 +138,10 @@
 <hr>
 <h2>Then</h2>
 <ol><li>In the field, record a <strong>route</strong>, a <strong>distortion</strong> and an <strong>entity observation</strong>.</li><li>Come home before the window closes.</li><li><strong>Analyse</strong> the recording at a bound laboratory. Analysis is pawn work over time.</li><li>Have a second person <strong>review</strong> the finished report.</li><li>Spend the insight on a company project.</li></ol>
-<p>That loop is the game. <strong>Nothing in it is timed except the connection itself.</strong></p>
+<p><strong>Nothing in it is timed except the connection itself.</strong></p>
+<h2>That is the company's loop, not the game</h2>
+<p>The five steps above are what your employer pays for, and they are the fastest way to learn what a coordinate is. They are <strong>not</strong> the limit of what you can do with one.</p>
+<p>A coordinate is a real map that belongs to you. Build on it, mine it, farm it, store things in it, put a prison in it, hold a room back as somewhere safe. See <a href="backrooms.html#a-coordinate-is-a-map-you-can-use">what a coordinate is for</a>.</p>
   </main>
 
 </div>

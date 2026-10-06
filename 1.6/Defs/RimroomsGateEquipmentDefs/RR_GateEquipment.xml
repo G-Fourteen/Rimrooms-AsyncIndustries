@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
   <!-- Roles a gate's facility can have equipment linked into. Every def name below was read
@@ -104,6 +104,72 @@
     <stockCategoryDefName>Weapons</stockCategoryDefName>
     <stockTarget>2</stockTarget>
     <riskKey>RR_GateLink_RiskArmory</riskKey>
+  </RimroomsAsyncIndustries.Gate.RimroomsGateEquipmentDef>
+
+  <!-- RELIEF STATIONS FOR GATE CONTROL. This is the role that stops a window being hostage to
+       one colonist's bladder.
+
+       Owner direction, 2026-10-06, verbatim: "so that it isnt dependant at one pawn dying at the
+       gate from starvvation trying to keep it open forever he can leave when another pawn hops on
+       the other comms console toggled to gate contrtrols with say upto 4 of them available so
+       pawns can do geate process better and faster".
+
+       FOUR IS THE OWNER'S NUMBER AND maxLinked IS THREE. The gate's own control console is the
+       first of the four and is bound by its own rules; `EquipmentLinkFailureKey` refuses it in
+       any role as `AlreadyAProvider`. So three relief stations plus the one provider is four
+       consoles a qualified pawn may hold the window from.
+
+       IT IS DELIBERATELY NOT `RR_Link_Radio`. That role says of itself that it is "never the
+       gate's own control console" and exists "for listening rather than for running the gate".
+       Reusing it would have cost nothing and meant nothing, and a player reading the radio room's
+       own description would have been told the opposite of what the link now did.
+
+       UNGATED BY RESEARCH, which was asked and answered. Owner: "maybe tech gated", then "but
+       maybe not", then at the fork: "Not gated, it's a defect, fix it free". And the obvious hook
+       was not one - `RR_Cap_ReliefWatch` sounds exactly like this and is already spent cutting
+       spin-up decay in `GateSpinUp`, so a reader who went looking for it would have found a
+       feature that was not there. -->
+  <RimroomsAsyncIndustries.Gate.RimroomsGateEquipmentDef>
+    <defName>RR_Link_GateRelief</defName>
+    <label>relief station</label>
+    <description>A second, third or fourth communications console wired to the same gate, so the window does not depend on one person staying put. Any qualified staff member at any of them holds the connection, and one can stand up to eat the moment another sits down.\n\nThis is never the gate's own control console; that one is already the first station. Build these where people actually are.</description>
+    <thingDefNames>
+      <li>CommsConsole</li>
+    </thingDefNames>
+    <maxLinked>3</maxLinked>
+    <!-- 12, appended rather than inserted. This was 1 and COLLIDED with RR_Link_Analysis,
+         which proof-gate-links has been reporting since this role landed. Renumbering the
+         existing roles to make room would reshuffle a pane the player has learned. -->
+    <displayOrder>12</displayOrder>
+  </RimroomsAsyncIndustries.Gate.RimroomsGateEquipmentDef>
+
+  <!-- THE OTHER HALF OF THE SAME DIRECTION. Owner, 2026-10-06, same message as the relief
+       stations: "and same with the coms and machine benches".
+
+       FOUR IS AGAIN THE OWNER'S NUMBER AND maxLinked IS AGAIN THREE. The gate's designated
+       machining table is the first of the four and is bound by its own exclusive rules;
+       `EquipmentLinkFailureKey` refuses a provider in any role as `AlreadyAProvider`.
+
+       AND A LINK ON ITS OWN WOULD HAVE CHANGED NOTHING, which is why this role arrives with the
+       assembly split rather than before it. A second machining table was already buildable and
+       already linkable; what it could not do was let a second pawn work the gate's assembly,
+       because that was ONE bill on the ONE bound bench and one bill is one pawn. The assembly is
+       four sections now, the count lives on the gate, and any bound bench installs the next one.
+
+       SO A DESTROYED BENCH CANNOT ORPHAN WORK. The fork named that cost before the owner chose
+       the split: sections are never allocated to a bench, so unlinking or losing one leaves its
+       unfinished sections simply outstanding, queueable anywhere, including on the designated
+       bench alone. -->
+  <RimroomsAsyncIndustries.Gate.RimroomsGateEquipmentDef>
+    <defName>RR_Link_GateAssembly</defName>
+    <label>assembly bench</label>
+    <description>A second, third or fourth machining table wired to the same gate, so the gate's four assembly sections can be built at the same time instead of one after another. Set each one to gate control and queue a section on it.\n\nThis is never the gate's own designated table; that one is already the first bench. A section is not reserved for any bench: lose one mid-build and its unfinished sections are still outstanding, on any of the others.</description>
+    <thingDefNames>
+      <li>TableMachining</li>
+    </thingDefNames>
+    <maxLinked>3</maxLinked>
+    <!-- 13. The first draft said 2, which collided with RR_Link_Tooling. -->
+    <displayOrder>13</displayOrder>
   </RimroomsAsyncIndustries.Gate.RimroomsGateEquipmentDef>
 
   <!-- A SECOND comms console, not the gate's own. The gate's control console is bound by its

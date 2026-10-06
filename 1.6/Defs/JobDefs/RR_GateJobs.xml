@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
   <JobDef>
     <defName>RR_CalibrateGate</defName>
@@ -13,6 +13,18 @@
     <defName>RR_OperateGate</defName>
     <driverClass>RimroomsAsyncIndustries.Gate.JobDriver_RROperateGate</driverClass>
     <reportString>staffing the gate console</reportString>
+    <!-- STILL NOT SUSPENDABLE, AND THAT IS NOW A DECISION RATHER THAN THE DEFECT.
+         Owner, 2026-10-06: "current a pawn dies at the comms console". The cause was
+         this flag PLUS a ToilCompleteMode.Never station PLUS a FailOn that tested no
+         need at all — gate, calibration, operator identity, Downed, InMentalState and
+         nothing else. So RimWorld could not pull the pawn off and neither could we.
+
+         Handing the decision back to RimWorld by making this suspendable would give
+         exactly ONE of the three postures the owner asked for — the mild one — and
+         could not express the other two. So the mod keeps the decision and takes the
+         duty with it: GateWatch.MustLeave is an absolute floor, asked BEFORE any
+         posture, in the FailOn and again every tick. No posture can switch it off, and
+         there is deliberately no enum value meaning never leave. -->
     <suspendable>false</suspendable>
     <playerInterruptible>true</playerInterruptible>
     <casualInterruptible>false</casualInterruptible>
@@ -26,5 +38,43 @@
     <playerInterruptible>true</playerInterruptible>
     <casualInterruptible>false</casualInterruptible>
     <checkOverrideOnDamage>Always</checkOverrideOnDamage>
+  </JobDef>
+
+  <!-- Writing one piece of the company's paperwork at a records desk.
+
+       SUSPENDABLE AND CASUALLY INTERRUPTIBLE, which is the opposite of RR_OperateGate above, and
+       the contrast is the decision. A gate window is a scarce thing somebody might reasonably want
+       held through discomfort, which is why that job keeps the decision and takes the duty with it.
+       A report is not scarce and nothing is waiting on it, so RimWorld gets to pull the pawn off
+       for anything it likes.
+
+       The driver still asks GateWatch.MustLeave in its FailOn and again every tick. That is not
+       belt-and-braces: a suspendable job can still be entered by a pawn who is already starving,
+       and the floor exists so a pawn never begins work it should not. -->
+  <JobDef>
+    <defName>RR_WriteUp</defName>
+    <driverClass>RimroomsAsyncIndustries.Company.JobDriver_RRWriteUp</driverClass>
+    <reportString>writing up company paperwork at TargetA.</reportString>
+    <suspendable>true</suspendable>
+    <casualInterruptible>true</casualInterruptible>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
+  </JobDef>
+
+  <!-- Writing one room into the record book while exploring.
+
+       Owner, 2026-10-06: "survey should go hand in hand with the auto explore and person has task to
+       write in journal when exploring each room for like 20 seconds". The driver's RoomSurveyTicks is
+       1200, which is twenty seconds at normal speed.
+
+       Suspendable and casually interruptible, like the records desk and unlike RR_OperateGate: a
+       survey is not a scarce window anybody is holding, and a pawn who needs to eat should eat. The
+       explore toggle stays on, so they resume the room when they come back. -->
+  <JobDef>
+    <defName>RR_ExploreRoom</defName>
+    <driverClass>RimroomsAsyncIndustries.Generation.JobDriver_RRExploreRoom</driverClass>
+    <reportString>writing up this room.</reportString>
+    <suspendable>true</suspendable>
+    <casualInterruptible>true</casualInterruptible>
+    <allowOpportunisticPrefix>false</allowOpportunisticPrefix>
   </JobDef>
 </Defs>

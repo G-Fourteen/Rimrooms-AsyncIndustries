@@ -11,6 +11,11 @@
   <RR_Gate_NoOperator>No operator assigned.</RR_Gate_NoOperator>
   <RR_Gate_OperatorPresent>Operator on station: {0}</RR_Gate_OperatorPresent>
   <RR_Gate_OperatorAway>Assigned operator away from the console: {0}</RR_Gate_OperatorAway>
+  <!-- Said only when relief stations exist, so an ordinary one-console gate's readout is
+       unchanged. A player who built the stations should be able to see the gate counting them. -->
+  <RR_Gate_ReliefStations>({0} stations can hold it)</RR_Gate_ReliefStations>
+  <RR_Gate_AssemblySections>Assembly: {0} of {1} sections installed.</RR_Gate_AssemblySections>
+  <RR_Gate_AssemblyBenches>({0} benches can build one)</RR_Gate_AssemblyBenches>
   <RR_Gate_ReserveReadout>Emergency return reserve: {0} / {1} watt-days</RR_Gate_ReserveReadout>
   <RR_Gate_OpeningReadout>Opening time: {0}\nEmergency return: {1}\nStatus: {2}</RR_Gate_OpeningReadout>
   <RR_Gate_WindowClosed>Closed</RR_Gate_WindowClosed>
@@ -65,6 +70,7 @@
   <RR_Gate_OperatorNotEmployed>The assigned operator is not employed staff any more. Assign one who is.</RR_Gate_OperatorNotEmployed>
   <RR_Gate_MachineUnavailable>The gate is no longer available.</RR_Gate_MachineUnavailable>
   <RR_Gate_InvalidAssemblyBill>The assembly bill did not target this installation's assigned assembly station.</RR_Gate_InvalidAssemblyBill>
+  <RR_Event_GateAssemblySection>A section of the gate assembly was installed.</RR_Event_GateAssemblySection>
   <RR_Event_GateAssemblyCompleted>The gate assembly is complete. Assign a qualified operator and calibrate the gate.</RR_Event_GateAssemblyCompleted>
   <RR_Event_GateCalibrationCompleted>The gate calibration is complete. Staff the console and review the power reserve before dispatch.</RR_Event_GateCalibrationCompleted>
   <RR_Event_GateOpeningStarted>The gate opening has started. The expedition window is running.</RR_Event_GateOpeningStarted>
@@ -140,4 +146,53 @@ Repairing it is ordinary construction work. Calibrating it is the assigned opera
   <RR_NativeGate_TooManyGates>Three gates are already operational. That is the limit: three called addresses plus your colony is four of the five maps the game will hold open at once, and the fifth is the margin for a natural door somebody walks through without planning to.
 
 Stand one of the others down first, or board up a natural door to free a slot.</RR_NativeGate_TooManyGates>
+  <!-- The watch posture. Owner, 2026-10-06: "there needs to be like a driop down sleector thing
+       stay at post strict mild, default> inbetween strict and mild". Every option states what it
+       does, because the difference between the three is the one thing a player cannot guess and
+       getting it wrong once cost a colonist. -->
+  <RR_GateWatch_Label>Watch: {0}</RR_GateWatch_Label>
+  <RR_GateWatch_Desc>How long the operator stays at the console before their own needs take over.
+
+{0}
+
+No setting will let an operator starve, collapse or stand in a fire. That floor is not optional.</RR_GateWatch_Desc>
+  <RR_GateWatch_Mild>relieved early</RR_GateWatch_Mild>
+  <RR_GateWatch_MildDesc>Leaves as soon as they are hungry or tired, like any other work. The gate drops unless somebody else takes the station.</RR_GateWatch_MildDesc>
+  <RR_GateWatch_Balanced>balanced</RR_GateWatch_Balanced>
+  <RR_GateWatch_BalancedDesc>Leaves when urgently hungry or very tired. One step past ordinary work, one step short of harm.</RR_GateWatch_BalancedDesc>
+  <RR_GateWatch_Strict>holds the post</RR_GateWatch_Strict>
+  <RR_GateWatch_StrictDesc>Stays through hunger and tiredness, and leaves only at the point where staying would injure them. Hold a window open with this, then relieve them.</RR_GateWatch_StrictDesc>
+  <RR_GateWatch_LeftFloor>left the console before it hurt them</RR_GateWatch_LeftFloor>
+  <RR_GateWatch_LeftPosture>left the console to see to themselves</RR_GateWatch_LeftPosture>
+
+  <!-- SOMETHING ON YOUR MAP WENT OUT THROUGH THE GATE. Owner, 2026-10-06: "a enemy can break in and
+       cross the gate to get valuables and members", then "hold up now friendlys can too".
+
+       A friendly crossing is lettered as loudly as a hostile one, deliberately: a guest who dies in a
+       coordinate is a death the player caused by leaving a hole open, and a faction penalty arriving
+       with no story the player can connect it to is the one outcome that must not happen.
+
+       {0} is who went, {1} the gate. -->
+  <RR_Egress_HostileLabel>Something went through the gate</RR_Egress_HostileLabel>
+  <RR_Egress_HostileText>{0} reached {1} while it was open and went through it.
+
+They are on the other side now, and they came for what you keep there. Closing the gate does not bring them back, and it does not bring your people back either.</RR_Egress_HostileText>
+  <RR_Egress_FriendlyLabel>Somebody wandered through the gate</RR_Egress_FriendlyLabel>
+  <RR_Egress_FriendlyText>{0} walked through {1} while it was open.
+
+They were not invited and nobody sent them. Whatever happens to them in there happened on your watch.</RR_Egress_FriendlyText>
+  <RR_Egress_NotEligible>That one cannot cross on its own legs.</RR_Egress_NotEligible>
+  <!-- A PRISONER CROSSING IS NOT A BREAK-OUT AND NOT A VISIT. Owner, 2026-10-06: "a prisoner
+       should be able to cross a gate is allowed to ( send the prisonerrs to live and work in there
+       and cross path back if zoned to and door are allowed access". They keep their custody, they
+       arrive with no lord, and they go looking for a prison bed - so the letter reports a thing the
+       player set up rather than a thing that happened to them. -->
+  <RR_Egress_PrisonerLabel>A prisoner went through the gate</RR_Egress_PrisonerLabel>
+  <RR_Egress_PrisonerText>{0} walked through {1} while it was open.
+
+They are still your prisoner and still in your custody; nothing about crossing changed that. They will look for a prison bed on the other side, and a warden can cross to feed them.
+
+If you did not mean to send them, the zoning and the door are what decide it.</RR_Egress_PrisonerText>
+  <RR_Egress_InYourCustody>That one is in your custody. Prisoners, slaves and guests do not walk through a gate; somebody has to carry them.</RR_Egress_InYourCustody>
+  <RR_Egress_NoOpening>The gate is not holding an open connection.</RR_Egress_NoOpening>
 </LanguageData>
