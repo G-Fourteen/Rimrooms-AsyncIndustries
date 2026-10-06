@@ -26,7 +26,7 @@ This mod needs nothing but RimWorld itself. It declares no dependencies: not one
 Load this mod last. It lists 294 mods in loadAfter, which is sorting advice rather than a requirement: a sorting manager will place it correctly on its own, and every one of those mods is optional. Nothing is announced as compatible until it has been tested.
 Nothing here is patched through Harmony. Content from another mod is looked up by name and never assumed, so a missing one degrades what depends on it rather than throwing.
 ## The Wiki
-How to install it, how to set up your mod manager, how to play, what is through the gate, and what to do when something refuses: https://github.com/G-Fourteen/Rimrooms-AsyncIndustries
+How to install it, how to set up RimSort and sort with it, how to play, what is through the gate, and what to do when something refuses: https://github.com/G-Fourteen/Rimrooms-AsyncIndustries
 Original Backrooms menu backgrounds show the mod title and loaded version beside the native version information.
 
 ## Install

@@ -75,15 +75,37 @@
 <p><strong>This build declares no dependencies at all.</strong> Your mod manager will not ask you for anything, because nothing is being asked for. Content from an expansion is marked as needing it, so without that expansion it simply is not there.</p>
 <p>Content from another mod is looked up by name. A missing one degrades what depends on it instead of throwing an error.</p>
 <hr>
-<h2>With a mod manager (recommended)</h2>
-<ol><li>Subscribe to the mod — see <a href="links.html">Links</a>.</li><li>Open your mod manager and let it import.</li><li><strong>Sort.</strong> Rimrooms publishes its own load order, so the sorter places it correctly on its own.</li><li>Launch.</li></ol>
+<h2>With RimSort (recommended)</h2>
+<p><strong><a href="https://github.com/RimSort/RimSort">RimSort</a> is the mod manager this was built and sorted with.</strong> It is free, open source, and runs on Windows, macOS and Linux.</p>
+<table>
+<tbody>
+<tr><td><strong>The project</strong></td><td>&lt;https://github.com/RimSort/RimSort&gt;</td></tr>
+<tr><td><strong>Downloads</strong></td><td>&lt;https://github.com/RimSort/RimSort/releases&gt;</td></tr>
+<tr><td><strong>Its own documentation</strong></td><td>&lt;https://github.com/RimSort/RimSort/wiki&gt;</td></tr>
+</tbody></table>
+<p>Any manager that reads a mod's declared load order will do, and the game's own mod list works too. RimSort is named here because it is the one in use on this side, so it is the one these steps can honestly describe.</p>
+<h3>Setting RimSort up</h3>
+<p>RimSort needs to be told where four things live. It finds most of them by itself; check them once before your first sort.</p>
+<table>
+<thead><tr><th>What it asks for</th><th>What to give it</th></tr></thead>
+<tbody>
+<tr><td><strong>Game install</strong></td><td>The folder holding <code>RimWorldWin64.exe</code> — on a default Steam install, <code>steamapps/common/RimWorld</code></td></tr>
+<tr><td><strong>Config folder</strong></td><td>Where RimWorld keeps <code>ModsConfig.xml</code>. This is the file a sort actually writes</td></tr>
+<tr><td><strong>Steam mods</strong></td><td><code>steamapps/workshop/content/294100</code>, if you use Workshop mods</td></tr>
+<tr><td><strong>Local mods</strong></td><td>The game's own <code>Mods</code> folder, which is where a manually installed copy of Rimrooms goes</td></tr>
+</tbody></table>
+<p>If a sort appears to do nothing, the config folder is almost always the one pointing somewhere else — that is the only one of the four a sort writes to.</p>
+<h3>Then</h3>
+<ol><li>Install Rimrooms — subscribe on the Workshop, or drop the folder into <strong>Local mods</strong>. See <a href="links.html">Links</a>.</li><li><strong>Refresh</strong> so RimSort picks it up.</li><li><strong>Sort.</strong> Rimrooms publishes its own load order, so RimSort places it correctly on its own.</li><li><strong>Save</strong>, then run the game.</li></ol>
 <p><strong>Rimrooms loads last.</strong> A patch cannot see content from a mod that loads after it, and its load-order list handles this — you do not need to drag it.</p>
 <p>That list names other mods, and it is <strong>advice about order, never a list of things you need</strong>. Own none of them and the mod runs.</p>
+<blockquote><p><strong>Sort, then save.</strong> Sorting arranges the list; saving is what writes <code>ModsConfig.xml</code>. Running the game without saving launches the order you had before.</p></blockquote>
 <hr>
 <h2>Manual install</h2>
 <ol><li>Download the release.</li><li>Extract into:</li></ol>
 <pre><code>   RimWorld/Mods/Rimrooms - Async Industries/</code></pre>
 <ol><li>Enable it in the in-game mod list, <strong>below everything else</strong>.</li><li>Restart RimWorld.</li></ol>
+<p>That folder is also RimSort's <strong>Local mods</strong> location, so a manual install is picked up by a refresh and can then be sorted like any other mod.</p>
 <p>A correct install has <code>About/About.xml</code> directly inside the mod folder — not nested one level deeper. The folder's name does not matter; the game identifies a mod by the <code>packageId</code> inside that file.</p>
 <hr>
 <h2>Load order in one line</h2>
