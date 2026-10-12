@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Install — Rimrooms — Async Industries</title>
-<meta name="description" content="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.">
+<meta name="description" content="RimWorld 1.6 is retained; 1.7 unstable is the new target. Installation and what has been verified.">
 <link rel="stylesheet" href="assets/css/rimrooms.css">
 </head>
 <body>
@@ -30,7 +30,7 @@
 <h2>Start</h2>
 <ul>
   <li><a href="index.html" title="What this mod is, and the three pages worth reading before you start a colony.">Rimrooms — Async Industries</a></li>
-  <li><a href="install.html" title="You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked." aria-current="page">Install</a></li>
+  <li><a href="install.html" title="RimWorld 1.6 is retained; 1.7 unstable is the new target. Installation and what has been verified." aria-current="page">Install</a></li>
   <li><a href="first-hour.html" title="The gate start-up chain end to end: eleven goals, in the order they unlock.">Your first hour</a></li>
   <li><a href="scenarios.html" title="The three starts and what each one is actually like to play.">The three starts</a></li>
 </ul>
@@ -55,6 +55,10 @@
   <li><a href="credits.html" title="Who made this, what it is built on, and the licence.">Credits</a></li>
   <li><a href="links.html" title="The Workshop mod and collection, and where to report something.">Links</a></li>
 </ul>
+<h2>More</h2>
+<ul>
+  <li><a href="rimplc.html" title="A separate colony logic mod: live sensors, editable rules and a ladder window.">RimPLC</a></li>
+</ul>
   </nav>
 
   <main id="content" class="prose">
@@ -62,12 +66,13 @@
       <img src="assets/art/RR_Menu_LaboratoryOperations.png" alt="" aria-hidden="true" loading="lazy" decoding="async"
            width="1672" height="941">
     </div>
-    <p class="summary">You need RimWorld 1.6 and nothing else. How to install it and how to tell it worked.</p>
+    <p class="summary">RimWorld 1.6 is retained; 1.7 unstable is the new target. Installation and what has been verified.</p>
 <h1>Install</h1>
 <h2>Requirements</h2>
+<p><strong>1.7 is on RimWorld's unstable branch.</strong> The <a href="https://store.steampowered.com/news/app/294100/view/672882362547178633">official announcement</a> introduces the Waylith engine; the normal stable branch remains 1.6. Rimrooms is being prepared for 1.7 and retains 1.6. No 1.7 gameplay or full-profile compatibility result has been recorded.</p>
 <table>
 <tbody>
-<tr><td><strong>RimWorld</strong></td><td>1.6 — the only requirement</td></tr>
+<tr><td><strong>RimWorld</strong></td><td>1.6 retained; 1.7 unstable / Waylith is the new target</td></tr>
 <tr><td><strong>Expansions</strong></td><td>Royalty, Ideology, Biotech, Anomaly, Odyssey — every one <strong>optional</strong></td></tr>
 <tr><td><strong>Other mods</strong></td><td>All optional</td></tr>
 <tr><td><strong>Harmony</strong></td><td>Not used and not needed</td></tr>
@@ -106,7 +111,7 @@
 <pre><code>   RimWorld/Mods/Rimrooms - Async Industries/</code></pre>
 <ol><li>Enable it in the in-game mod list, <strong>below everything else</strong>.</li><li>Restart RimWorld.</li></ol>
 <p>That folder is also RimSort's <strong>Local mods</strong> location, so a manual install is picked up by a refresh and can then be sorted like any other mod.</p>
-<p>A correct install has <code>About/About.xml</code> directly inside the mod folder — not nested one level deeper. The folder's name does not matter; the game identifies a mod by the <code>packageId</code> inside that file.</p>
+<p>A correct install has <code>About/About.xml</code> directly inside the mod folder — not nested one level deeper. Both game versions load the same <code>1.7/</code> content folder through <code>LoadFolders.xml</code>; leave that folder name unchanged on either version. The outer mod folder's name does not matter; the game identifies a mod by the <code>packageId</code> inside that file.</p>
 <hr>
 <h2>Load order in one line</h2>
 <pre><code>frameworks → expansions → everything else → Rimrooms</code></pre>

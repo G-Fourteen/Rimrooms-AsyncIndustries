@@ -1,9 +1,11 @@
 # Rimrooms - Async Industries
 
-**0.13.0-dev** for RimWorld 1.6. Needs no other mod and no expansion.
+**0.13.0-dev** for RimWorld 1.6, 1.7. Needs no other mod and no expansion.
 
 > **Development build.** Gameplay acceptance is pending; this is not a finished campaign
 > release, and nothing here is a balance, performance or compatibility report.
+> RimWorld 1.7 is an unstable / Waylith target; 1.6 is retained. Earlier source, build and
+> play observations used 1.6. No 1.7 runtime or full-profile acceptance is recorded.
 
 Development build 0.13.0-dev. Gameplay acceptance is pending; this is not a finished campaign release.
 Rimrooms - Async Industries is a company-management campaign about an authorised research branch that investigates, contains and profits from unstable spaces beyond a gate.
@@ -22,6 +24,7 @@ Hire and pay staff, run procurement, keep a facility with the rooms a branch act
 Anything carried out of a coordinate is marked odd and never stacks with the ordinary kind, so a thousand odd cotton is a thing you went and fetched rather than a thing you grew. Buyers turn up wanting goods by origin and paying well over the ordinary rate. Company bonds hold value in denominations from ten up to a quadrillion, a beacon shows what you have, and a corporate trader opens its catalogue as you earn the right to see it.
 Your colonists work across a gate the way they work anywhere: hauling, construction, bills, research, medical, cooking, cleaning, mining, hunting, farming, animals and the rest. Every kind of work in the game is either answered or deliberately left local for a stated reason.
 ## Requirements
+RimWorld 1.6 and 1.7 use the same content in this package. The 1.7 declaration is a development target; Rimrooms has not yet been verified in a running 1.7 session.
 This mod needs nothing but RimWorld itself. It declares no dependencies: not one mod, and not one expansion. Royalty, Ideology, Biotech, Anomaly and Odyssey are each optional, and the parts that use them simply are not there when they are not installed.
 Load this mod last. It lists 294 mods in loadAfter, which is sorting advice rather than a requirement: a sorting manager will place it correctly on its own, and every one of those mods is optional. Nothing is announced as compatible until it has been tested.
 Nothing here is patched through Harmony. Content from another mod is looked up by name and never assumed, so a missing one degrades what depends on it rather than throwing.
@@ -32,7 +35,8 @@ Original Backrooms menu backgrounds show the mod title and loaded version beside
 ## Install
 
 Download or clone this repository into RimWorld's `Mods` folder, so that `About/` and
-`1.6/` sit directly inside it. Enable it in the mod list. The folder's name does not
+`1.7/` sit directly inside it. Both 1.6 and 1.7 load that shared content folder; do not
+rename it to match the game version. Enable it in the mod list. The folder's name does not
 matter: the game identifies a mod by the `packageId` in `About/About.xml`, which is
 `Rimrooms.AsyncIndustries`.
 
