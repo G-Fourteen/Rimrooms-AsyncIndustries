@@ -120,6 +120,16 @@
 </tbody></table>
 <p><strong>A muted or hidden thing is never the only way to know something.</strong> That is the rule the gate's own light is held to: every state it shows already has a message, a pane indicator or both.</p>
 <hr>
+<h2>Automation file (optional)</h2>
+<p>The mod can take orders from a file, for an external assistant that plays alongside you without a mouse on your screen. Nothing uses it unless something writes to it.</p>
+<ul><li>Commands: <code>RimroomsAutomation/inbox.jsonl</code> in RimWorld's configuration folder, one JSON object per line. Results: <code>outbox.jsonl</code> beside it, one line per command, with the command's <code>id</code> echoed back.</li><li>Each command is something that otherwise needs a click: a zone's crop, a bed's owner, a bill, work priorities, an allowed area; and the setup steps of a colony -- rooms, exploring, stockpiles, shelves, stove, butcher table, freezer, crops, hunting; defence (arming, drafting, holding at cover, corner towers); building (walls, halls, roofs, conduit); power (a generator with a battery); research order; prisoners; trading by comms console; guest bed fees. Every reply says what was done or exactly why it was refused.</li><li>It never spawns or destroys anything, never edits a definition, never touches the world map, and refuses a name it cannot find rather than guessing. Anything with a real cost in the game -- a trade, a request to a faction -- still pays that cost, and a colonist still has to walk there.</li></ul>
+<p>Examples, one per line:</p>
+<pre><code>{&quot;cmd&quot;:&quot;add_bill&quot;,&quot;x&quot;:155,&quot;z&quot;:141,&quot;recipe&quot;:&quot;CookMealSimple&quot;,&quot;count&quot;:30}
+{&quot;cmd&quot;:&quot;freezer&quot;}
+{&quot;cmd&quot;:&quot;arm&quot;}
+{&quot;cmd&quot;:&quot;trade&quot;,&quot;with&quot;:&quot;caravan&quot;,&quot;sell&quot;:&quot;Cloth:200&quot;,&quot;buy&quot;:&quot;Steel:300&quot;}</code></pre>
+<p>Delete the file to stop everything queued in it. The game's own controls always win.</p>
+<hr>
 <h2>Two things this deliberately does not do</h2>
 <p><strong>It does not remap RimWorld's menus.</strong> Nothing on the base game's tab bar is replaced, reordered or patched. Remapping the interface would fight every interface mod you have installed, and reachability was the actual requirement — the company tab is first, and everything it names is reachable from inside it.</p>
 <p><strong>It does not promise multiplayer.</strong> See <a href="multiplayer.html">Multiplayer</a>.</p>

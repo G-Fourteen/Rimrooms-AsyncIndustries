@@ -85,6 +85,7 @@
 <h2>Advice and automatic outputs</h2>
 <p><strong>Advice is the default.</strong> A matching rule can tell you what to do next. In the current implementation, automatic outputs are limited to <strong>messages, marks and tags</strong>.</p>
 <p>RimPLC does not currently carry out world-changing actions such as drafting pawns, placing blueprints, building a gate or changing work priorities. A plan describing those actions is not an implemented output. Keep the game's normal controls available.</p>
+<p>Many of the supplied preset's rules name a concrete next step -- arm the colony, put a cooler in the freezer wall, add a meal bill, pick the next research project, ask a faction for a trader. Those steps are written for an external assistant that can act through the Rimrooms mod's <a href="interface.html#automation-file-optional">automation file</a>; without one, read them as advice. The Ladder view shows, for each rule, which steps a present client could carry out and which have no answer in the loaded mods.</p>
 <h2>Presets and saved rules</h2>
 <p>The supplied ladder is a preset. Editing one of its rules creates a player override; reverting returns to the preset. Player rules, switches, marks, tag overrides and instruction memory are stored in the save.</p>
 <p>Export and import use the game's configuration folder under <code>RimPLC/exports/</code>. An import shows its changes before you apply it. Back up a colony before changing its rules or switching game versions; save and load behavior on 1.7 remains unverified.</p>
