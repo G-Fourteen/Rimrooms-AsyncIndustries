@@ -55,10 +55,6 @@
   <li><a href="credits.html" title="Who made this, what it is built on, and the licence.">Credits</a></li>
   <li><a href="links.html" title="The Workshop mod and collection, and where to report something.">Links</a></li>
 </ul>
-<h2>More</h2>
-<ul>
-  <li><a href="rimplc.html" title="A separate colony logic mod: live sensors, editable rules and a ladder window.">RimPLC</a></li>
-</ul>
   </nav>
 
   <main id="content" class="prose">
@@ -122,7 +118,7 @@
 <hr>
 <h2>Automation file (optional)</h2>
 <p>The mod can take orders from a file, for an external assistant that plays alongside you without a mouse on your screen. Nothing uses it unless something writes to it.</p>
-<ul><li>Commands: <code>RimroomsAutomation/inbox.jsonl</code> in RimWorld's configuration folder, one JSON object per line. Results: <code>outbox.jsonl</code> beside it, one line per command, with the command's <code>id</code> echoed back.</li><li>Each command is something that otherwise needs a click: a zone's crop, a bed's owner, a bill, work priorities, an allowed area; and the setup steps of a colony -- rooms, exploring, stockpiles, shelves, stove, butcher table, freezer, crops, hunting; defence (arming, drafting, holding at cover, corner towers); building (walls, halls, roofs, conduit); power (a generator with a battery); research order; prisoners; trading by comms console; guest bed fees. Every reply says what was done or exactly why it was refused.</li><li>It never spawns or destroys anything, never edits a definition, never touches the world map, and refuses a name it cannot find rather than guessing. Anything with a real cost in the game -- a trade, a request to a faction -- still pays that cost, and a colonist still has to walk there.</li></ul>
+<ul><li>Commands: <code>RimroomsAutomation/inbox.jsonl</code> in RimWorld's configuration folder, one JSON object per line. Results: <code>outbox.jsonl</code> beside it, one line per command, with the command's <code>id</code> echoed back.</li><li>Each command is something that otherwise needs a click: a zone's crop, a bed's owner, a bill, work priorities, an allowed area; and the setup steps of a colony -- the camp anchor (where the supplies fell, saved with the map) and a storage room around them, rooms, exploring, mining, stockpiles, shelves, stove, butcher table, freezer, crops, hunting; defence (arming, drafting, holding at cover, corner towers); building (walls, halls, roofs, conduit); power (a generator with a battery); research order; prisoners; trading by comms console; guest bed fees. Every reply says what was done or exactly why it was refused.</li><li>It never spawns or destroys anything, never edits a definition, never touches the world map, and refuses a name it cannot find rather than guessing. Anything with a real cost in the game -- a trade, a request to a faction -- still pays that cost, and a colonist still has to walk there.</li></ul>
 <p>Examples, one per line:</p>
 <pre><code>{&quot;cmd&quot;:&quot;add_bill&quot;,&quot;x&quot;:155,&quot;z&quot;:141,&quot;recipe&quot;:&quot;CookMealSimple&quot;,&quot;count&quot;:30}
 {&quot;cmd&quot;:&quot;freezer&quot;}
